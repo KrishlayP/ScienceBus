@@ -453,7 +453,7 @@
     </div>
 </section>
 
-<section class="relative py-24 bg-gradient-to-b from-blue-50 to-white">
+<section id="impactCard" class="relative py-24 bg-gradient-to-b from-blue-50 to-white">
 
     <div class="max-w-7xl mx-auto px-6">
 
@@ -473,55 +473,85 @@
         <!-- Impact Cards -->
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-20">
 
-            <!-- Card -->
-            <div
-                class="group rounded-3xl p-10 text-center
-                       bg-white
-                       border border-blue-100
-                       shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:bg-blue-50
-                       hover:shadow-xl">
+  <!-- Card -->
+  <div
+    class="stat-card group rounded-3xl p-10 text-center
+           bg-white border border-blue-100 shadow-sm
+           transition-all duration-300
+           hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
 
-                <h3 class="text-5xl font-bold text-blue-700">2001</h3>
-                <p class="mt-3 text-gray-600">Initiated</p>
-            </div>
+    <h3
+      class="counter text-5xl font-bold text-blue-700"
+      data-target="2001"
+      data-suffix="">
+      0
+    </h3>
+    <p class="mt-3 text-gray-600">Initiated</p>
+  </div>
 
-            <div
-                class="group rounded-3xl p-10 text-center
-                       bg-white border border-blue-100 shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:bg-blue-50 hover:shadow-xl">
+  <div class="stat-card group rounded-3xl p-10 text-center bg-white border border-blue-100 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
+    <h3 class="counter text-5xl font-bold text-blue-700" data-target="148" data-suffix="+">0</h3>
+    <p class="mt-3 text-gray-600">School Visits</p>
+  </div>
 
-                <h3 class="text-5xl font-bold text-blue-700">148+</h3>
-                <p class="mt-3 text-gray-600">School Visits</p>
-            </div>
+  <div class="stat-card group rounded-3xl p-10 text-center bg-white border border-blue-100 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
+    <h3 class="counter text-5xl font-bold text-blue-700" data-target="99" data-suffix="+">0</h3>
+    <p class="mt-3 text-gray-600">Experiments</p>
+  </div>
 
-            <div
-                class="group rounded-3xl p-10 text-center
-                       bg-white border border-blue-100 shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:bg-blue-50 hover:shadow-xl">
+  <div class="stat-card group rounded-3xl p-10 text-center bg-white border border-blue-100 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
+    <h3 class="counter text-5xl font-bold text-blue-700" data-target="198" data-suffix="+">0</h3>
+    <p class="mt-3 text-gray-600">Students Daily</p>
+  </div>
 
-                <h3 class="text-5xl font-bold text-blue-700">99+</h3>
-                <p class="mt-3 text-gray-600">Experiments</p>
-            </div>
+</div>
+<script>
+  const section = document.getElementById("impactCard");
+  const counters = section.querySelectorAll(".counter");
 
-            <div
-                class="group rounded-3xl p-10 text-center
-                       bg-white border border-blue-100 shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:bg-blue-50 hover:shadow-xl">
+  let hasAnimated = false;
 
-                <h3 class="text-5xl font-bold text-blue-700">198+</h3>
-                <p class="mt-3 text-gray-600">Students Daily</p>
-            </div>
+  const startCounting = () => {
+    if (hasAnimated) return;
+    hasAnimated = true;
 
-        </div>
+    counters.forEach(counter => {
+      const target = +counter.dataset.target;
+      const suffix = counter.dataset.suffix || "";
+      let count = 0;
+
+      const increment = Math.ceil(target / 90);
+
+      const updateCount = () => {
+        count += increment;
+        if (count >= target) {
+          counter.textContent = target + suffix;
+        } else {
+          counter.textContent = count + suffix;
+          requestAnimationFrame(updateCount);
+        }
+      };
+
+      updateCount();
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startCounting();
+          observer.disconnect(); // run only once
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  observer.observe(section);
+</script>
+
+
 
         <!-- Location Box -->
         <div
@@ -548,6 +578,210 @@
 
     </div>
 </section>
+<section class="py-24 bg-gradient-to-b from-blue-50 to-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- LEFT CONTENT -->
+      <div>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+          Get in Touch
+        </h2>
+
+        <p class="text-gray-600 max-w-md mb-10">
+          Interested in bringing The Science Bus to your school?
+          Have questions about our programs? We'd love to hear from you!
+        </p>
+
+        <!-- Info -->
+        <div class="space-y-6">
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+              📍
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-700">Location</h4>
+              <p class="text-gray-600 text-sm">
+                Indian Institute of Technology Kanpur
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+              ✉️
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-700">Email</h4>
+              <p class="text-blue-600 text-sm">
+                thesciencebus.iitk@gmail.com
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex gap-4 mt-10">
+          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">🐦</a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">📘</a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">📸</a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">▶️</a>
+        </div>
+      </div>
+
+      <!-- RIGHT FORM CARD -->
+      <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10">
+
+        <form class="space-y-6">
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Name
+            </label>
+            <input
+              type="text"
+              placeholder="Your name"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              placeholder="your.email@example.com"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              School Name
+            </label>
+            <input
+              type="text"
+              placeholder="Your school"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Message
+            </label>
+            <textarea
+              rows="4"
+              placeholder="Tell us about your requirements..."
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3 rounded-xl font-medium text-white
+                   bg-gradient-to-r from-cyan-500 to-blue-600
+                   hover:from-cyan-600 hover:to-blue-700
+                   transition">
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+<footer class="bg-gradient-to-b from-[#0b1220] to-[#060b16] text-gray-300 pt-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Top Grid -->
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 pb-14">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xl">
+            🚌
+          </div>
+          <h3 class="text-lg font-semibold text-white">
+            The Science Bus
+          </h3>
+        </div>
+
+        <p class="text-sm text-gray-400 leading-relaxed max-w-xs">
+          A mobile science laboratory bringing hands-on learning to schools
+          across Uttar Pradesh.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-white transition">Home</a></li>
+          <li><a href="#" class="hover:text-white transition">About</a></li>
+          <li><a href="#" class="hover:text-white transition">News</a></li>
+          <li><a href="#" class="hover:text-white transition">Tour Profile</a></li>
+          <li><a href="#" class="hover:text-white transition">Team</a></li>
+          <li><a href="#" class="hover:text-white transition">Impact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Contact Us</h4>
+
+        <div class="space-y-3 text-sm">
+          <div class="flex items-start gap-3">
+            <span class="text-cyan-400">📍</span>
+            <span>Indian Institute of Technology Kanpur</span>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-cyan-400">✉️</span>
+            <span>thesciencebus.iitk@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partners -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Partners</h4>
+
+        <ul class="space-y-2 text-sm mb-6">
+          <li>Indian Institute of Technology Kanpur</li>
+          <li>CSTUP</li>
+          <li>UP Government</li>
+        </ul>
+
+        <!-- Social Icons -->
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">🐦</a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📘</a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📸</a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">▶️</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-white/10"></div>
+
+    <!-- Bottom -->
+    <div class="py-6 text-center text-sm text-gray-400">
+      © 2025 The Science Bus. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+
 
 
 
