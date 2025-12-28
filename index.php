@@ -38,13 +38,16 @@
             <div class="swiper rounded-2xl shadow-xl overflow-hidden">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="assets/image/dzo-PtzS6h6dk2E-unsplash.jpg" class="w-full h-[380px] object-cover">
+                        <img src="assets/image/header/bus2.jpg" class="w-full h-[380px] object-cover">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/image/aleksandr-popov-6zUdG9TbSfY-unsplash.jpg" class="w-full h-[380px] object-cover">
+                        <img src="assets/image/header/quote1.jpeg" class="w-full h-[380px] object-cover">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/image/pascal-debrunner-3BmQiYQCQEw-unsplash.jpg" class="w-full h-[380px] object-cover">
+                        <img src="assets/image/header/quote2.jpeg" class="w-full h-[380px] object-cover">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/image/header/quote3.jpeg" class="w-full h-[380px] object-cover">
                     </div>
                 </div>
 
@@ -58,7 +61,7 @@
     </div>
 </section>
 <!-- About The Science Bus -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white" id="about">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
 
         <!-- Left: Feature Cards -->
