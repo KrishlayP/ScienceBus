@@ -1,16 +1,20 @@
 <?php include 'includes/header.php'; ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-b from-blue-50 to-white py-20">
+<section class="bg-gradient-to-b from-blue-50 to-white py-3">
+    
+    <!-- TOP CENTER BADGE -->
+    <div class="max-w-7xl mx-auto px-6 text-center mb-10">
+        <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm">
+            An IITK, CSTUP & UP Government Initiative
+        </span>
+    </div>
+
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
-        <!-- Left Content -->
-        <div>
-            <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm mb-4">
-                An IITK, CSTUP & UP Government Initiative
-            </span>
-
-            <h2 class="text-4xl md:text-5xl font-bold leading-tight mt-4">
+        <!-- LEFT CONTENT -->
+        <div class="-mt-6">
+            <h2 class="text-4xl md:text-5xl font-bold leading-tight">
                 Bringing Science to <br>
                 <span class="text-blue-600">Every Child’s Doorstep</span>
             </h2>
@@ -33,7 +37,7 @@
             </div>
         </div>
 
-        <!-- Right Slider -->
+        <!-- RIGHT SLIDER -->
         <div class="relative">
             <div class="swiper rounded-2xl shadow-xl overflow-hidden">
                 <div class="swiper-wrapper">
@@ -60,6 +64,7 @@
 
     </div>
 </section>
+
 <!-- About The Science Bus -->
 <section class="py-20 bg-white" id="about">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
@@ -116,12 +121,12 @@
         </div>
 
         <!-- Right: Text Content -->
-        <div>
-            <span class="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-sm font-medium mb-6">
+        <div class="text-center">
+            <div class="inline-block bg-blue-100  text-blue-700 px-5 py-2 rounded-full text-xl font-medium mb-6">
                 About The Science Bus
-            </span>
+            </div>
 
-            <p class="text-gray-700 leading-relaxed mb-6">
+            <p class="text-gray-700 leading-relaxed mb-6 text-justify">
                 The Council of Science & Technology, U.P. (CSTUP) is an autonomous body under
                 the Department of Science & Technology, Government of U.P. The main activities
                 of CSTUP include science popularization, grant-in-aid for research projects,
@@ -129,7 +134,7 @@
                 The Science Bus is one of its flagship initiatives.
             </p>
 
-            <p class="text-gray-700 leading-relaxed mb-6">
+            <p class="text-gray-700 leading-relaxed mb-6 text-justify">
                 The Science Bus is a fully air-conditioned mobile science laboratory equipped
                 with more than 100 experiments covering Physics, Chemistry, and Biology.
                 It includes advanced equipment like a 3D printer, microscope, and telescope.
@@ -137,7 +142,7 @@
                 fumes by converting them into a less harmful mixture of nitrogen and water vapor.
             </p>
 
-            <p class="text-gray-700 leading-relaxed">
+            <p class="text-gray-700 leading-relaxed text-justify">
                 Traveling mainly to remote areas, the bus enables students to perform experiments
                 in batches of 5–20 students, educating more than 200 students each day. The lesson
                 plans are aligned with UP Board and CBSE Board syllabi, featuring easy-to-follow
@@ -149,314 +154,110 @@
 </section>
 
 <!-- Facilities Section -->
-<section class="py-24 bg-gradient-to-b from-white to-blue-50">
-    <div class="max-w-7xl mx-auto px-6 text-center">
+<section class="py-4 bg-gradient-to-b from-white to-blue-50">
+  <div class="max-w-7xl mx-auto px-6 text-center">
 
-        <!-- Section Badge -->
-        <span class="inline-block bg-cyan-100 text-cyan-700 px-6 py-2 rounded-full text-sm font-medium mb-6">
-            Facilities
-        </span>
+    <!-- Section Badge -->
+    <span class="inline-block bg-cyan-100 text-blue-700 px-6 py-2 rounded-full text-xl font-medium mb-6">
+      Facilities
+    </span>
 
-        <!-- Heading -->
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
-            The Science Bus is equipped with state-of-the-art facilities to make learning
-            engaging and effective.
-        </p>
+    <!-- Heading -->
+    <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+      The Science Bus is equipped with state-of-the-art facilities to make learning
+      engaging and effective.
+    </p>
 
-        <!-- Cards -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-    <!-- Card -->
-    <div
-        class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300
-               hover:-translate-y-3 hover:shadow-xl  hover:border
-               border border-transparent hover:border-blue-200">
-
-        <div class="w-14 h-14 flex items-center justify-center
-                    bg-white rounded-xl mb-6 transition group-hover:bg-blue-100">
-            🖨️
-        </div>
-
-        <h4 class="text-lg font-semibold mb-3">3D Printer</h4>
-        <p class="text-gray-600 text-sm leading-relaxed">
-            Advanced 3D printing technology for hands-on learning of modern
-            manufacturing concepts.
-        </p>
-    </div>
-
-    <!-- Card -->
-    <div
-        class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300
-               hover:-translate-y-3 hover:shadow-xl  hover:border
-               border border-transparent hover:border-blue-200">
-
-        <div class="w-14 h-14 flex items-center justify-center
-                    bg-white rounded-xl mb-6 transition group-hover:bg-blue-100">
-            🖥️
-        </div>
-
-        <h4 class="text-lg font-semibold mb-3">75 Inch LCD Display</h4>
-        <p class="text-gray-600 text-sm leading-relaxed">
-            Large high-definition display for engaging video demonstrations
-            and animations.
-        </p>
-    </div>
-
-    <!-- Card -->
-    <div
-        class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300
-               hover:-translate-y-3 hover:shadow-xl  hover:border
-               border border-transparent hover:border-blue-200">
-
-        <div class="w-14 h-14 flex items-center justify-center
-                    bg-white rounded-xl mb-6 transition group-hover:bg-blue-100">
-            🔬
-        </div>
-
-        <h4 class="text-lg font-semibold mb-3">Microscope</h4>
-        <p class="text-gray-600 text-sm leading-relaxed">
-            Professional microscope for exploring the microscopic world in
-            Physics, Chemistry, and Biology.
-        </p>
-    </div>
-
-    <!-- Card -->
-    <div
+      <!-- Card 1 -->
+      <div
         class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300
                hover:-translate-y-3 hover:shadow-xl hover:border
                border border-transparent hover:border-blue-200">
 
-        <div class="w-14 h-14 flex items-center justify-center
-                    bg-white rounded-xl mb-6 transition group-hover:bg-blue-100">
-            🔭
+        <div
+          class="w-16 h-16 mx-auto flex items-center justify-center
+                 bg-white rounded-2xl mb-6 text-4xl transition
+                 group-hover:bg-blue-100 group-hover:scale-110">
+          🖨️
         </div>
 
-        <h4 class="text-lg font-semibold mb-3">Science Experiments</h4>
-        <p class="text-gray-600 text-sm leading-relaxed">
-            100+ experiments for VI–XII standard students covering all
-            major scientific principles.
+        <h4 class="text-lg font-semibold mb-3 text-center">3D Printer</h4>
+        <p class="text-gray-600 text-sm leading-relaxed text-center">
+          Advanced 3D printing technology for hands-on learning of modern
+          manufacturing concepts.
         </p>
-    </div>
+      </div>
 
-</div>
+      <!-- Card 2 -->
+      <div
+        class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300
+               hover:-translate-y-3 hover:shadow-xl hover:border
+               border border-transparent hover:border-blue-200">
 
-    </div>
-</section>
-<!-- Team Section -->
-<section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div
+          class="w-16 h-16 mx-auto flex items-center justify-center
+                 bg-white rounded-2xl mb-6 text-4xl transition
+                 group-hover:bg-blue-100 group-hover:scale-110">
+          🖥️
+        </div>
 
-        <!-- Badge -->
-        <span class="inline-block bg-cyan-100 text-cyan-700 px-6 py-2 rounded-full text-sm font-medium mb-6">
-            Meet Our Team
-        </span>
-
-        <!-- Subtitle -->
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
-            Dedicated professionals committed to making science education accessible to all.
+        <h4 class="text-lg font-semibold mb-3 text-center">75 Inch LCD Display</h4>
+        <p class="text-gray-600 text-sm leading-relaxed text-center">
+          Large high-definition display for engaging video demonstrations
+          and animations.
         </p>
+      </div>
 
-        <!-- Team Cards -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Card 3 -->
+      <div
+        class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300
+               hover:-translate-y-3 hover:shadow-xl hover:border
+               border border-transparent hover:border-blue-200">
 
-            <!-- Card -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:shadow-xl">
-                <div class="flex justify-center mb-6">
-                    <div class="relative">
-                        <img src="assets/images/team1.jpg"
-                             class="w-24 h-24 rounded-full object-cover ring-4 ring-gray-200 transition group-hover:ring-cyan-400">
-                    </div>
-                </div>
-
-                <h4 class="text-lg font-semibold">Dr. Rajesh Kumar</h4>
-                <p class="text-cyan-600 font-medium mt-1">Program Director</p>
-                <p class="text-gray-500 text-sm mt-1">IIT Kanpur</p>
-
-                <div class="flex justify-center mt-4 text-cyan-600 text-sm">
-                    ✉️ rajesh.kumar@iitk.ac.in
-                </div>
-            </div>
-
-            <!-- Card -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:shadow-xl">
-                <div class="flex justify-center mb-6">
-                    <img src="assets/images/team2.jpg"
-                         class="w-24 h-24 rounded-full object-cover ring-4 ring-gray-200 transition group-hover:ring-cyan-400">
-                </div>
-
-                <h4 class="text-lg font-semibold">Prof. Anita Sharma</h4>
-                <p class="text-cyan-600 font-medium mt-1">Science Coordinator</p>
-                <p class="text-gray-500 text-sm mt-1">IIT Kanpur</p>
-
-                <div class="flex justify-center mt-4 text-cyan-600 text-sm">
-                    ✉️ anita.sharma@iitk.ac.in
-                </div>
-            </div>
-
-            <!-- Card -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:shadow-xl">
-                <div class="flex justify-center mb-6">
-                    <img src="assets/images/team3.jpg"
-                         class="w-24 h-24 rounded-full object-cover ring-4 ring-gray-200 transition group-hover:ring-cyan-400">
-                </div>
-
-                <h4 class="text-lg font-semibold">Mr. Vikram Singh</h4>
-                <p class="text-cyan-600 font-medium mt-1">Operations Manager</p>
-                <p class="text-gray-500 text-sm mt-1">University of Lucknow</p>
-
-                <div class="flex justify-center mt-4 text-cyan-600 text-sm">
-                    ✉️ vikram.singh@iitk.ac.in
-                </div>
-            </div>
-
-            <!-- Card -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:shadow-xl">
-                <div class="flex justify-center mb-6">
-                    <img src="assets/images/team4.jpg"
-                         class="w-24 h-24 rounded-full object-cover ring-4 ring-gray-200 transition group-hover:ring-cyan-400">
-                </div>
-
-                <h4 class="text-lg font-semibold">Ms. Priya Patel</h4>
-                <p class="text-cyan-600 font-medium mt-1">Education Specialist</p>
-                <p class="text-gray-500 text-sm mt-1">Banaras Hindu University</p>
-
-                <div class="flex justify-center mt-4 text-cyan-600 text-sm">
-                    ✉️ priya.patel@iitk.ac.in
-                </div>
-            </div>
-
+        <div
+          class="w-16 h-16 mx-auto flex items-center justify-center
+                 bg-white rounded-2xl mb-6 text-4xl transition
+                 group-hover:bg-blue-100 group-hover:scale-110">
+          🔬
         </div>
+
+        <h4 class="text-lg font-semibold mb-3 text-center">Microscope</h4>
+        <p class="text-gray-600 text-sm leading-relaxed text-center">
+          Professional microscope for exploring the microscopic world in
+          Physics, Chemistry, and Biology.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="group bg-white rounded-3xl p-8 shadow-sm transition-all duration-300
+               hover:-translate-y-3 hover:shadow-xl hover:border
+               border border-transparent hover:border-blue-200">
+
+        <div
+          class="w-16 h-16 mx-auto flex items-center justify-center
+                 bg-white rounded-2xl mb-6 text-4xl transition
+                 group-hover:bg-blue-100 group-hover:scale-110">
+          🔭
+        </div>
+
+        <h4 class="text-lg font-semibold mb-3 text-center">Science Experiments</h4>
+        <p class="text-gray-600 text-sm leading-relaxed text-center">
+          100+ experiments for VI–XII standard students covering all
+          major scientific principles.
+        </p>
+      </div>
+
     </div>
+  </div>
 </section>
 
-<!-- Support Team -->
-<section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
 
-        <!-- Heading -->
-        <div class="text-center mb-16">
-            <span
-                class="inline-block bg-blue-100 text-blue-700 px-6 py-2 rounded-full text-sm font-medium mb-4">
-                Support Team
-            </span>
 
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-                The dedicated professionals who keep The Science Bus running smoothly.
-            </p>
-        </div>
-
-        <!-- Cards -->
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-
-            <!-- Card 1 -->
-            <div
-                class="group bg-white rounded-3xl p-10 text-center
-                       border border-transparent
-                       shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:shadow-xl
-                       hover:border-blue-300
-                       ">
-
-                <img src="assets/images/team1.jpg"
-                     class="mx-auto w-24 h-24 rounded-full object-cover
-                            ring-4 ring-gray-200
-                            transition
-                            group-hover:ring-blue-400">
-
-                <h4 class="mt-6 text-lg font-semibold text-gray-800">
-                    Ramesh Yadav
-                </h4>
-
-                <p class="mt-2 text-blue-600 font-medium">
-                    Bus Driver
-                </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-                class="group bg-white rounded-3xl p-10 text-center
-                       border border-transparent
-                       shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:shadow-xl
-                       hover:border-blue-300
-                       ">
-
-                <img src="assets/images/team2.jpg"
-                     class="mx-auto w-24 h-24 rounded-full object-cover
-                            ring-4 ring-gray-200
-                            transition
-                            group-hover:ring-blue-400">
-
-                <h4 class="mt-6 text-lg font-semibold text-gray-800">
-                    Suresh Kumar
-                </h4>
-
-                <p class="mt-2 text-blue-600 font-medium">
-                    Lab Technician
-                </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-                class="group bg-white rounded-3xl p-10 text-center
-                       border border-transparent
-                       shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:shadow-xl
-                       hover:border-blue-300
-                       ">
-
-                <img src="assets/images/team3.jpg"
-                     class="mx-auto w-24 h-24 rounded-full object-cover
-                            ring-4 ring-gray-200
-                            transition
-                            group-hover:ring-blue-400">
-
-                <h4 class="mt-6 text-lg font-semibold text-gray-800">
-                    Amit Sharma
-                </h4>
-
-                <p class="mt-2 text-blue-600 font-medium">
-                    Equipment Specialist
-                </p>
-            </div>
-
-            <!-- Card 4 -->
-            <div
-                class="group bg-white rounded-3xl p-10 text-center
-                       border border-transparent
-                       shadow-sm
-                       transition-all duration-300
-                       hover:-translate-y-3
-                       hover:shadow-xl
-                       hover:border-blue-300
-                       ">
-
-                <img src="assets/images/team4.jpg"
-                     class="mx-auto w-24 h-24 rounded-full object-cover
-                            ring-4 ring-gray-200
-                            transition
-                            group-hover:ring-blue-400">
-
-                <h4 class="mt-6 text-lg font-semibold text-gray-800">
-                    Rajesh Gupta
-                </h4>
-
-                <p class="mt-2 text-blue-600 font-medium">
-                    Lab Assistant
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="impactCard" class="relative py-24 bg-gradient-to-b from-blue-50 to-white">
+<section id="impactCard" class="relative py-6 bg-gradient-to-b from-blue-50 to-white">
 
     <div class="max-w-7xl mx-auto px-6">
 
@@ -464,7 +265,7 @@
         <div class="text-center mb-16">
             <span
                 class="inline-block bg-blue-100 text-blue-700
-                       px-6 py-2 rounded-full text-sm font-medium mb-4">
+                       px-6 py-2 rounded-full text-xl font-medium mb-4">
                 Our Impact
             </span>
 

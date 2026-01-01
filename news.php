@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>The Science Bus – News & Updates</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<?php include 'includes/header.php'; ?>
 
 <body class="bg-slate-50 text-gray-800">
-
-<!-- ================= HEADER ================= -->
-<header class="bg-white border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="#" class="text-blue-600 text-sm font-medium hover:underline">← Back to Home</a>
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white">🚌</div>
-      <div>
-        <h1 class="font-semibold">The Science Bus – News & Updates</h1>
-        <p class="text-sm text-gray-500">Latest stories & school visits</p>
-      </div>
-    </div>
-  </div>
-</header>
 
 <!-- ================= HERO ================= -->
 <section class="bg-white">
