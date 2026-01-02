@@ -33,7 +33,7 @@
 </section>
 
 <!-- ================= TOUR HISTORY ================= -->
-<section class="max-w-7xl mx-auto px-6 py-24">
+<section class="max-w-7xl mx-auto px-6 py-10">
   <div class="bg-white rounded-2xl shadow-lg border overflow-hidden">
 
     <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
@@ -60,7 +60,7 @@
 </section>
 
 <!-- ================= CTA ================= -->
-<section class="py-20 bg-white text-center">
+<section class="py-4 bg-white text-center">
   <h2 class="text-2xl md:text-3xl font-semibold">
     Want The Science Bus at Your School?
   </h2>
@@ -107,9 +107,7 @@
 </div>
 
 <!-- ================= FOOTER ================= -->
-<footer class="bg-slate-900 text-slate-400 text-center py-6 text-sm">
-  © 2025 The Science Bus. All rights reserved.
-</footer>
+<?php include 'includes/footer.php'; ?>
 
 <!-- ================= SCRIPT ================= -->
 <script>

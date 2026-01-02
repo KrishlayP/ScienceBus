@@ -62,7 +62,7 @@
 </section>
 
 <!-- ================= MEDIA ================= -->
-<section class="bg-[#f4fbfd] py-24">
+<section class="bg-[#f4fbfd] py-4">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
       <span class="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-sm font-medium mb-4">
@@ -82,7 +82,7 @@
 </section>
 
 <!-- ================= SOCIAL IMPACT ================= -->
-<section class="bg-white py-24">
+<section class="bg-white py-4">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
       <span class="inline-block bg-purple-100 text-purple-700 px-5 py-2 rounded-full text-sm font-medium mb-4">
@@ -103,7 +103,7 @@
 
 <!-- ================= FOOTER ================= -->
 <!-- ================= CALL TO ACTION ================= -->
-<section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 py-24">
+<section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 py-10">
   <div class="max-w-4xl mx-auto px-6 text-center text-white">
 
     <h2 class="text-3xl md:text-4xl font-semibold">
@@ -117,7 +117,7 @@
 
     <div class="mt-10">
       <a
-        href="/contact"
+        href="contactUs.php"
         class="inline-flex items-center gap-2
                bg-white text-blue-700
                px-8 py-4 rounded-xl
@@ -132,29 +132,7 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer class="bg-slate-900 text-slate-400 py-14">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-
-    <div class="flex items-center justify-center gap-3 mb-4">
-      <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white">
-        🚌
-      </div>
-      <span class="text-lg font-semibold text-white">
-        The Science Bus
-      </span>
-    </div>
-
-    <p class="text-sm max-w-xl mx-auto">
-      A mobile science laboratory bringing hands-on learning to schools across Uttar Pradesh
-    </p>
-
-    <p class="mt-6 text-xs text-slate-500">
-      © 2025 The Science Bus. All rights reserved.
-    </p>
-
-  </div>
-</footer>
+<?php include 'includes/footer.php'; ?>
 
 
 

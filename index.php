@@ -1,4 +1,22 @@
 <?php include 'includes/header.php'; ?>
+<script>
+  const images = [
+    "assets/image/header/bus2.jpg",
+    "assets/image/header/quote1.jpeg",
+    "assets/image/header/quote2.jpeg",
+    "assets/image/header/quote3.jpeg",
+    "assets/image/header/a.jpg",
+    "assets/image/header/b.jpg",
+    "assets/image/header/c.jpg",
+    "assets/image/header/d.jpg",
+    "assets/image/header/e.jpg",
+    "assets/image/header/f.jpg",
+    "assets/image/header/g.jpg",
+    "assets/image/header/h.jpg",
+    "assets/image/header/i.jpg"
+  ];
+</script>
+
 
 <!-- Hero Section -->
 <section class="bg-gradient-to-b from-blue-50 to-white py-3">
@@ -26,11 +44,11 @@
             </p>
 
             <div class="mt-8 flex gap-4">
-                <a href="about.php"
+                <a href="#about"
                    class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
                     Learn More →
                 </a>
-                <a href="contact.php"
+                <a href="contactUs.php"
                    class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
                     Contact Us
                 </a>
@@ -39,44 +57,43 @@
 
         <!-- RIGHT SLIDER -->
         <div class="relative">
-            <div class="swiper rounded-2xl shadow-xl overflow-hidden">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="assets/image/header/bus2.jpg" class="w-full h-[380px] object-cover">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/image/header/quote1.jpeg" class="w-full h-[380px] object-cover">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/image/header/quote2.jpeg" class="w-full h-[380px] object-cover">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/image/header/quote3.jpeg" class="w-full h-[380px] object-cover">
-                    </div>
-                </div>
-
-                <!-- Controls -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+          <div class="swiper rounded-2xl shadow-xl overflow-hidden">
+            <div class="swiper-wrapper" id="heroSlider">
+              <!-- Images will be injected -->
             </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
+
 
     </div>
 </section>
 
 <!-- About The Science Bus -->
-<section class="py-20 bg-white" id="about">
+<section class="py-10 bg-white" id="about">
+
+    <!-- TOP CENTER TITLE -->
+    <div class="max-w-7xl mx-auto px-6 text-center mb-12">
+        <div class="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-xl font-medium">
+            About The Science Bus
+        </div>
+    </div>
+
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
 
-        <!-- Left: Feature Cards -->
+        <!-- LEFT: FEATURE CARDS -->
         <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8">
             <div class="grid sm:grid-cols-2 gap-6">
 
                 <!-- Card 1 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm">
-                    <div class="w-10 h-10 flex items-center justify-center bg-cyan-100 rounded-lg mb-4">
-                        🔬
+                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-14 h-14 flex items-center justify-center bg-cyan-100 rounded-xl text-2xl">
+                            🔬
+                        </div>
                     </div>
                     <h4 class="font-semibold text-lg mb-2">Hands-On Learning</h4>
                     <p class="text-gray-600 text-sm">
@@ -85,9 +102,11 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm">
-                    <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-lg mb-4">
-                        🚌
+                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-xl text-2xl">
+                            🚌
+                        </div>
                     </div>
                     <h4 class="font-semibold text-lg mb-2">Mobile Lab</h4>
                     <p class="text-gray-600 text-sm">
@@ -96,9 +115,11 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm">
-                    <div class="w-10 h-10 flex items-center justify-center bg-purple-100 rounded-lg mb-4">
-                        👩‍🏫
+                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-14 h-14 flex items-center justify-center bg-purple-100 rounded-xl text-2xl">
+                            👩‍🏫
+                        </div>
                     </div>
                     <h4 class="font-semibold text-lg mb-2">Expert Team</h4>
                     <p class="text-gray-600 text-sm">
@@ -107,9 +128,11 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm">
-                    <div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-lg mb-4">
-                        🎓
+                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-14 h-14 flex items-center justify-center bg-green-100 rounded-xl text-2xl">
+                            🎓
+                        </div>
                     </div>
                     <h4 class="font-semibold text-lg mb-2">Quality Education</h4>
                     <p class="text-gray-600 text-sm">
@@ -120,12 +143,8 @@
             </div>
         </div>
 
-        <!-- Right: Text Content -->
-        <div class="text-center">
-            <div class="inline-block bg-blue-100  text-blue-700 px-5 py-2 rounded-full text-xl font-medium mb-6">
-                About The Science Bus
-            </div>
-
+        <!-- RIGHT: TEXT CONTENT -->
+        <div>
             <p class="text-gray-700 leading-relaxed mb-6 text-justify">
                 The Council of Science & Technology, U.P. (CSTUP) is an autonomous body under
                 the Department of Science & Technology, Government of U.P. The main activities
@@ -152,6 +171,8 @@
 
     </div>
 </section>
+
+
 
 <!-- Facilities Section -->
 <section class="py-4 bg-gradient-to-b from-white to-blue-50">
@@ -382,211 +403,37 @@
 
     </div>
 </section>
-<section class="py-24 bg-gradient-to-b from-blue-50 to-white">
-  <div class="max-w-7xl mx-auto px-6">
 
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+<script>
+  const slider = document.getElementById("heroSlider");
 
-      <!-- LEFT CONTENT -->
-      <div>
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">
-          Get in Touch
-        </h2>
-
-        <p class="text-gray-600 max-w-md mb-10">
-          Interested in bringing The Science Bus to your school?
-          Have questions about our programs? We'd love to hear from you!
-        </p>
-
-        <!-- Info -->
-        <div class="space-y-6">
-
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600">
-              📍
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-700">Location</h4>
-              <p class="text-gray-600 text-sm">
-                Indian Institute of Technology Kanpur
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600">
-              ✉️
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-700">Email</h4>
-              <p class="text-blue-600 text-sm">
-                thesciencebus.iitk@gmail.com
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Social Icons -->
-        <div class="flex gap-4 mt-10">
-          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">🐦</a>
-          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">📘</a>
-          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">📸</a>
-          <a href="#" class="w-10 h-10 rounded-lg bg-white shadow flex items-center justify-center hover:bg-blue-100 transition">▶️</a>
-        </div>
+  slider.innerHTML = images
+    .map(
+      (img) => `
+      <div class="swiper-slide">
+        <img src="${img}" class="w-full h-[380px] object-cover" />
       </div>
-
-      <!-- RIGHT FORM CARD -->
-      <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10">
-
-        <form class="space-y-6">
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              placeholder="Your name"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="your.email@example.com"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-              School Name
-            </label>
-            <input
-              type="text"
-              placeholder="Your school"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-              Message
-            </label>
-            <textarea
-              rows="4"
-              placeholder="Tell us about your requirements..."
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="w-full py-3 rounded-xl font-medium text-white
-                   bg-gradient-to-r from-cyan-500 to-blue-600
-                   hover:from-cyan-600 hover:to-blue-700
-                   transition">
-            Send Message
-          </button>
-
-        </form>
-      </div>
-
-    </div>
-  </div>
-</section>
-<footer class="bg-gradient-to-b from-[#0b1220] to-[#060b16] text-gray-300 pt-20">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Top Grid -->
-    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 pb-14">
-
-      <!-- Brand -->
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xl">
-            🚌
-          </div>
-          <h3 class="text-lg font-semibold text-white">
-            The Science Bus
-          </h3>
-        </div>
-
-        <p class="text-sm text-gray-400 leading-relaxed max-w-xs">
-          A mobile science laboratory bringing hands-on learning to schools
-          across Uttar Pradesh.
-        </p>
-      </div>
-
-      <!-- Quick Links -->
-      <div>
-        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-white transition">Home</a></li>
-          <li><a href="#" class="hover:text-white transition">About</a></li>
-          <li><a href="#" class="hover:text-white transition">News</a></li>
-          <li><a href="#" class="hover:text-white transition">Tour Profile</a></li>
-          <li><a href="#" class="hover:text-white transition">Team</a></li>
-          <li><a href="#" class="hover:text-white transition">Impact</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <h4 class="text-white font-semibold mb-4">Contact Us</h4>
-
-        <div class="space-y-3 text-sm">
-          <div class="flex items-start gap-3">
-            <span class="text-cyan-400">📍</span>
-            <span>Indian Institute of Technology Kanpur</span>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <span class="text-cyan-400">✉️</span>
-            <span>thesciencebus.iitk@gmail.com</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Partners -->
-      <div>
-        <h4 class="text-white font-semibold mb-4">Partners</h4>
-
-        <ul class="space-y-2 text-sm mb-6">
-          <li>Indian Institute of Technology Kanpur</li>
-          <li>CSTUP</li>
-          <li>UP Government</li>
-        </ul>
-
-        <!-- Social Icons -->
-        <div class="flex gap-3">
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">🐦</a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📘</a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📸</a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">▶️</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Divider -->
-    <div class="border-t border-white/10"></div>
-
-    <!-- Bottom -->
-    <div class="py-6 text-center text-sm text-gray-400">
-      © 2025 The Science Bus. All rights reserved.
-    </div>
-
-  </div>
-</footer>
-
-
-
+    `
+    )
+    .join("");
+</script>
+<script>
+  new Swiper(".swiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 
 
 
