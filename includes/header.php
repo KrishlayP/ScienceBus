@@ -28,51 +28,51 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <body class="bg-white text-gray-800">
 
 <!-- ===================== TOP HEADER ===================== -->
-<nav class="bg-white border-b">
+<nav class="bg-white border-b sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
 
-    <!-- LEFT LOGO -->
-    <div class="flex justify-start">
-      <img
-        src="assets/image/logo/iit1.jpg"
-        alt="Left Logo"
-        class="h-16 md:h-20 object-contain"
-      />
-    </div>
-
-    <!-- CENTER TITLE -->
-    <div class="flex items-center justify-center gap-3 text-center">
-      <div class="bg-blue-600 p-2 rounded-lg">
+    <div class="flex items-center justify-start gap-3 text-left">
+      <div class="bg-blue-600 p-2 rounded-lg shrink-0 shadow-sm">
         <img
           src="assets/image/logo/logo.png"
           alt="The Science Bus Logo"
           class="w-6 h-6 object-contain"
         />
       </div>
-
+      
       <div class="leading-tight">
-        <h1 class="text-xl md:text-4xl font-semibold text-gray-800">
+        <h1 class="text-lg md:text-2xl font-bold text-gray-800">
           The Science Bus
         </h1>
-        <p class="text-xs md:text-sm text-gray-500">
-          A Mobile Science Lab for School Children
+        <p class="hidden md:block text-xs text-gray-500 font-medium italic">
+          A Mobile Science Lab
         </p>
       </div>
     </div>
 
-    <!-- RIGHT LOGOS -->
-    <div class="flex justify-end gap-4">
-      <img
-        src="assets/image/logo/iit2.jpg"
-        alt="Right Logo 1"
-        class="h-16 md:h-20 object-contain"
-      />
-      <img
-        src="assets/image/logo/iit3.jpg"
-        alt="Right Logo 2"
-        class="h-16 md:h-20 object-contain"
-      />
+    <div class="text-center">
+        <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-[10px] md:text-sm font-semibold border border-blue-200">
+            An IITK, CSTUP & UP Government Initiative
+        </span>
     </div>
+
+    <div class="flex justify-end items-center gap-4 md:gap-6">
+    <img
+      src="assets/image/logo/iit1.jpg"
+      alt="IIT Kanpur Logo"
+      class="h-10 md:h-20 object-contain transition-transform duration-300 hover:scale-105"
+    />
+    <img
+      src="assets/image/logo/iit2.jpg"
+      alt="CSTUP Logo"
+      class="h-10 md:h-20 object-contain transition-transform duration-300 hover:scale-105"
+    />
+    <img
+      src="assets/image/logo/iit3.jpg"
+      alt="UP Govt Logo"
+      class="h-10 md:h-20 object-contain transition-transform duration-300 hover:scale-105"
+    />
+</div>
 
   </div>
 </nav>
@@ -90,7 +90,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         "News" => "news.php",
         "Tour Profile" => "tour-profile.php",
         "Team" => "team.php",
-        "contactUs" => "contactUs.php",
+        "Contact-Us" => "contactUs.php",
       ];
 
       foreach ($menuItems as $label => $link):

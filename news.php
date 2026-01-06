@@ -3,43 +3,54 @@
 <body class="bg-slate-50 text-gray-800">
 
 <!-- ================= HERO ================= -->
-<section class="bg-white">
-  <div class="max-w-7xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold">Latest News & School Visits</h2>
-    <p class="text-gray-600 mt-2 max-w-xl">
+ <section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
+  <div class="max-w-7xl mx-auto px-6 py-20 text-center text-white">
+    
+    <p class="text-sm uppercase tracking-widest text-blue-100 mb-4 font-medium">
+      Updates & Impact
+    </p>
+
+    <h2 class="text-2xl md:text-4xl font-bold max-w-4xl mx-auto leading-tight">
+      Latest News & School Visits
+    </h2>
+    
+    <p class="text-blue-100 mt-4 max-w-xl mx-auto text-center font-medium">
       Bringing hands-on science education to schools across Uttar Pradesh
     </p>
-  </div>
-</section>
 
-<!-- ================= HIGHLIGHTS ================= -->
-<section class="max-w-7xl mx-auto px-6 -mt-6">
-  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
 
-    <div class="max-w-sm bg-white rounded-2xl p-7 flex gap-5 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-      <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center">🏅</div>
-      <div>
-        <p class="font-semibold">Innovation Award 2024</p>
-        <p class="text-sm text-gray-500 mt-1">National Education Ministry</p>
+      <div class="w-full max-w-sm bg-white/10 backdrop-blur-md rounded-2xl p-7 flex items-center gap-5 border border-white/10 transition-all duration-300 hover:-translate-y-2 hover:bg-white/20">
+        <div class="w-14 h-14 shrink-0 rounded-xl bg-white/20 text-white flex items-center justify-center text-2xl">
+          🏅
+        </div>
+        <div class="text-left">
+          <p class="font-bold text-lg">Innovation Award 2024</p>
+          <p class="text-sm text-blue-100 mt-1">National Education Ministry</p>
+        </div>
       </div>
-    </div>
 
-    <div class="max-w-sm bg-white rounded-2xl p-7 flex gap-5 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-      <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">🏫</div>
-      <div>
-        <p class="font-semibold">150+ Schools Visited</p>
-        <p class="text-sm text-gray-500 mt-1">Across Uttar Pradesh</p>
+      <div class="w-full max-w-sm bg-white/10 backdrop-blur-md rounded-2xl p-7 flex items-center gap-5 border border-white/10 transition-all duration-300 hover:-translate-y-2 hover:bg-white/20">
+        <div class="w-14 h-14 shrink-0 rounded-xl bg-white/20 text-white flex items-center justify-center text-2xl">
+          🏫
+        </div>
+        <div class="text-left">
+          <p class="font-bold text-lg">150+ Schools Visited</p>
+          <p class="text-sm text-blue-100 mt-1">Across Uttar Pradesh</p>
+        </div>
       </div>
-    </div>
 
-    <div class="max-w-sm bg-white rounded-2xl p-7 flex gap-5 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-      <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">🚌</div>
-      <div>
-        <p class="font-semibold">Mobile Science Lab</p>
-        <p class="text-sm text-gray-500 mt-1">IIT Kanpur & CSTUP</p>
+      <div class="w-full max-w-sm bg-white/10 backdrop-blur-md rounded-2xl p-7 flex items-center gap-5 border border-white/10 transition-all duration-300 hover:-translate-y-2 hover:bg-white/20">
+        <div class="w-14 h-14 shrink-0 rounded-xl bg-white/20 text-white flex items-center justify-center text-2xl">
+          🚌
+        </div>
+        <div class="text-left">
+          <p class="font-bold text-lg">Mobile Science Lab</p>
+          <p class="text-sm text-blue-100 mt-1">IIT Kanpur & CSTUP</p>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 

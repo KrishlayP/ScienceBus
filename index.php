@@ -1,32 +1,27 @@
 <?php include 'includes/header.php'; ?>
 <script>
   const images = [
-    "assets/image/header/bus2.jpg",
+    // "assets/image/header/bus2.jpg",
     "assets/image/header/quote1.jpeg",
     "assets/image/header/quote2.jpeg",
     "assets/image/header/quote3.jpeg",
     "assets/image/header/a.jpg",
     "assets/image/header/b.jpg",
-    "assets/image/header/c.jpg",
+    "assets/image/header/c.png",
     "assets/image/header/d.jpg",
     "assets/image/header/e.jpg",
     "assets/image/header/f.jpg",
-    "assets/image/header/g.jpg",
-    "assets/image/header/h.jpg",
-    "assets/image/header/i.jpg"
+   
+    "assets/image/header/j.png",
+    "assets/image/header/k.jpeg",
+    // "assets/image/header/i.jpg"
+    // "assets/image/header/i.jpg"
   ];
 </script>
 
 
 <!-- Hero Section -->
 <section class="bg-gradient-to-b from-blue-50 to-white py-3">
-    
-    <!-- TOP CENTER BADGE -->
-    <div class="max-w-7xl mx-auto px-6 text-center mb-10">
-        <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm">
-            An IITK, CSTUP & UP Government Initiative
-        </span>
-    </div>
 
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
@@ -57,16 +52,25 @@
 
         <!-- RIGHT SLIDER -->
         <div class="relative">
-          <div class="swiper rounded-2xl shadow-xl overflow-hidden">
-            <div class="swiper-wrapper" id="heroSlider">
-              <!-- Images will be injected -->
-            </div>
+  <div class="swiper 
+              rounded-2xl 
+              overflow-hidden
+              ring-2 
+              ring-blue-500/60
+              shadow-[0_0_25px_rgba(59,130,246,0.55)]
+              transition-all duration-300">
 
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
+    <div class="swiper-wrapper" id="heroSlider">
+      <!-- Images will be injected -->
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+
 
 
     </div>
