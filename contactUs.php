@@ -42,7 +42,20 @@
       <div class="text-left">
         <h4 class="font-semibold text-gray-700">Email</h4>
         <p class="text-blue-600 text-sm font-medium">
-          thesciencebus.iitk@gmail.com
+          pshubhashish8@gmail.com
+        </p>
+
+      </div>
+    </div>
+    <div class="flex items-center gap-4 w-full max-w-xs md:max-w-sm">
+      <div class="w-12 h-12 shrink-0 flex items-center justify-center 
+                  rounded-xl bg-blue-100 text-blue-600 text-xl">
+        ✉️
+      </div>
+      <div class="text-left">
+        <h4 class="font-semibold text-gray-700">Phone</h4>
+        <p class="text-blue-600 text-sm font-medium">
+          9794370873
         </p>
       </div>
     </div>

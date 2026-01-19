@@ -1,9 +1,10 @@
 
 <?php include 'includes/header.php'; ?>
 <!-- ================= HERO ================= -->
-<section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
-  <div class="max-w-7xl mx-auto px-6 py-20 text-center text-white">
-    <p class="text-sm uppercase text-blue-100 mb-3">
+<!-- <section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600"> -->
+<section class="bg-gradient-to-b from-blue-50 to-white py-3">
+  <div class="max-w-7xl mx-auto px-6 py-20 text-center ">
+<p class="text-sm uppercase tracking-widest text-blue-600 mb-3 font-medium">
       Our Journey Across Uttar Pradesh
     </p>
     <h1 class="text-2xl md:text-3xl font-semibold max-w-3xl mx-auto">
@@ -12,22 +13,37 @@
     </h1>
 
     <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <div class="bg-white/10 rounded-2xl p-6">
-        <p class="text-3xl font-bold">18</p>
-        <p class="text-blue-100">Total Tours</p>
-      </div>
-      <div class="bg-white/10 rounded-2xl p-6">
-        <p class="text-3xl font-bold">87,730</p>
-        <p class="text-blue-100">People Benefitted</p>
-      </div>
-      <div class="bg-white/10 rounded-2xl p-6">
-        <p class="text-3xl font-bold">18</p>
-        <p class="text-blue-100">Districts Covered</p>
-      </div>
-      <div class="bg-white/10 rounded-2xl p-6">
-        <p class="text-3xl font-bold">2018–2020</p>
-        <p class="text-blue-100">Active Period</p>
-      </div>
+
+  <div class="bg-white rounded-2xl p-6
+              border border-blue-400
+              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+    <p class="text-3xl font-bold text-slate-900">18</p>
+    <p class="text-slate-500 mt-1">Total Tours</p>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6
+              border border-blue-400
+              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+    <p class="text-3xl font-bold text-slate-900">87,730</p>
+    <p class="text-slate-500 mt-1">People Benefitted</p>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6
+              border border-blue-400
+              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+    <p class="text-3xl font-bold text-slate-900">18</p>
+    <p class="text-slate-500 mt-1">Districts Covered</p>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6
+              border border-blue-400
+              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+    <p class="text-3xl font-bold text-slate-900">2018–2020</p>
+    <p class="text-slate-500 mt-1">Active Period</p>
+  </div>
+
+</div>
+
     </div>
   </div>
 </section>

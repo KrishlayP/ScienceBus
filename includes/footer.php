@@ -49,12 +49,12 @@
         </ul>
 
         <!-- Social Icons -->
-        <div class="flex gap-3">
+        <!-- <div class="flex gap-3">
           <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">🐦</a>
           <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📘</a>
           <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📸</a>
           <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">▶️</a>
-        </div>
+        </div> -->
       </div>
 
     </div>

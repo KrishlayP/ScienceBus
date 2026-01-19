@@ -47,13 +47,16 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <p class="hidden md:block text-xs text-gray-500 font-medium italic">
           A Mobile Science Lab
         </p>
+        <span class="inline-block  text-blue-700  text-[3px] md:text-sm font-semibold italic">
+            An IITK, CSTUP & UP Government Initiative
+        </span>
       </div>
     </div>
 
     <div class="text-center">
-        <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-[10px] md:text-sm font-semibold border border-blue-200">
+        <!-- <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-[10px] md:text-sm font-semibold border border-blue-200">
             An IITK, CSTUP & UP Government Initiative
-        </span>
+        </span> -->
     </div>
 
     <div class="flex justify-end items-center gap-4 md:gap-6">
@@ -78,11 +81,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 </nav>
 
 <!-- ===================== NAV MENU ===================== -->
-<nav class="bg-white border-b">
+<nav class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
   <div class="max-w-7xl mx-auto px-9 py-4 flex items-center justify-between">
 
     <!-- DESKTOP MENU -->
-    <ul class="hidden md:flex items-center gap-12 font-medium">
+    <ul class="hidden md:flex items-center gap-12 font-medium text-white">
 
       <?php
       $menuItems = [
@@ -95,8 +98,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
       foreach ($menuItems as $label => $link):
         $activeClass = $currentPage === $link
-          ? "text-blue-600 border-b-2 border-blue-600 pb-1"
-          : "hover:text-blue-600";
+          ? "text-grey-600 border-b-2 border-white-600 pb-1"
+          : "hover:text-white-600";
       ?>
         <li>
           <a href="<?= $link ?>" class="<?= $activeClass ?>">
