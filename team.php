@@ -16,7 +16,7 @@ $teamData = [
             "role" => "Scientific Officer",
             "org" => "C.S.T Department, UP",
             "email" => "sumit.astro.physics@gmail.com",
-            "image" => "assets/images/team2.jpg"
+            "image" => "assets/image/Team/sumitkumarsr.jpeg"
         ],
         [
             "name" => "Rachna Agrawal",

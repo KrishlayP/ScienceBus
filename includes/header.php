@@ -29,7 +29,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 <!-- ===================== TOP HEADER ===================== -->
 <nav class="bg-white border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
+  <div class="max-w-7xl mx-auto px-3 py-2 grid grid-cols-2 items-center">
 
     <div class="flex items-center justify-start gap-3 text-left">
       <div class="bg-blue-600 p-2 rounded-lg shrink-0 shadow-sm">
@@ -53,11 +53,6 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       </div>
     </div>
 
-    <div class="text-center">
-        <!-- <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-[10px] md:text-sm font-semibold border border-blue-200">
-            An IITK, CSTUP & UP Government Initiative
-        </span> -->
-    </div>
 
     <div class="flex justify-end items-center gap-4 md:gap-6">
     <img
@@ -81,7 +76,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 </nav>
 
 <!-- ===================== NAV MENU ===================== -->
-<nav class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
+<nav class="sticky top-24 z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
   <div class="max-w-7xl mx-auto px-9 py-4 flex items-center justify-between">
 
     <!-- DESKTOP MENU -->
@@ -93,6 +88,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         "News" => "news.php",
         "Tour Profile" => "tour-profile.php",
         "Team" => "team.php",
+        "Gallery" => "gallery3.php",
         "Contact-Us" => "contactUs.php",
       ];
 
@@ -115,7 +111,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <!-- EMPTY LOGO SPACE (UNCHANGED) -->
     <div class="flex items-center gap-3 shrink-0">
   <a
-    href="login.php"
+    href="#"
     class="inline-flex items-center gap-2 px-5 py-2 rounded-full
            bg-blue-600 text-white text-sm font-medium
            transition-all duration-300
@@ -174,5 +170,3 @@ $currentPage = basename($_SERVER['PHP_SELF']);
   </div>
 </nav>
 
-</body>
-</html>
