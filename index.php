@@ -7,15 +7,8 @@
     "assets/image/header/quote3.jpeg",
     "assets/image/header/a.jpg",
     "assets/image/header/b.jpg",
-    "assets/image/header/c.png",
     "assets/image/header/d.jpg",
     "assets/image/header/e.jpg",
-    "assets/image/header/f.jpg",
-   
-    "assets/image/header/j.png",
-    "assets/image/header/k.jpeg",
-    // "assets/image/header/i.jpg"
-    // "assets/image/header/i.jpg"
   ];
 </script>
 
@@ -150,8 +143,8 @@
         <!-- RIGHT: TEXT CONTENT -->
         <div>
             <p class="text-gray-700 leading-relaxed mb-6 text-justify">
-                The Council of Science & Technology, U.P. (CSTUP) is an autonomous body under
-                the Department of Science & Technology, Government of U.P. The main activities
+                The <b>Council of Science & Technology, U.P. (CSTUP)</b> is an autonomous body under
+                the <b>Department of Science & Technology, Government of U.P.</b> The main activities
                 of CSTUP include science popularization, grant-in-aid for research projects,
                 innovation promotion, IPR, biotechnology development and technology.
                 The Science Bus is one of its flagship initiatives.
@@ -384,10 +377,11 @@
 
         <!-- Location Box -->
         <div
-            class="rounded-3xl p-10 bg-white
+            class=" text-center rounded-3xl p-10 bg-white
                    border border-blue-100 shadow-xl">
 
-            <h3 class="text-center text-xl font-semibold text-blue-700 mb-2">
+            <h3 class=" text-center inline-block bg-blue-100 text-blue-700
+                       px-6 py-2 rounded-full text-xl font-medium mb-4">
                 Our Location
             </h3>
             <p class="text-center text-gray-600 mb-6">

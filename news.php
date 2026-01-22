@@ -1,11 +1,10 @@
 <?php include 'includes/header.php'; ?>
-
 <body class="bg-slate-50 text-gray-800">
 
 <!-- ================= HERO ================= -->
- <section class="bg-gradient-to-b from-blue-50 to-white py-3">
-  <div class="max-w-7xl mx-auto px-6 py-20 text-center ">
-    
+<section class="bg-gradient-to-b from-blue-50 to-white py-3">
+  <div class="max-w-7xl mx-auto px-6 py-5 text-center">
+
     <p class="text-sm uppercase tracking-widest text-blue-600 mb-4 font-medium">
       Updates & Impact
     </p>
@@ -13,21 +12,18 @@
     <h2 class="text-2xl md:text-4xl font-bold max-w-4xl mx-auto leading-tight">
       Latest News & School Visits
     </h2>
-    
-    <p class="text-blue-600 mt-4 max-w-xl mx-auto text-center font-medium">
+
+    <p class="text-blue-600 mt-4 max-w-xl mx-auto font-medium">
       Bringing hands-on science education to schools across Uttar Pradesh
     </p>
 
     <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
 
       <div class="w-full max-w-sm bg-white rounded-2xl p-7 flex items-center gap-5
-            border border-slate-200 shadow-md
-            transition-all duration-300
-            hover:-translate-y-2 hover:shadow-xl">
-
-        <div class="w-14 h-14 shrink-0 rounded-xl bg-white/20 text-white flex items-center justify-center text-2xl">
-          🏅
-        </div>
+                  border border-slate-200 shadow-md
+                  transition-all duration-300
+                  hover:-translate-y-2 hover:shadow-xl">
+        <div class="w-14 h-14 rounded-xl text-2xl flex items-center justify-center">🏅</div>
         <div class="text-left">
           <p class="font-bold text-lg">Innovation Award 2024</p>
           <p class="text-sm text-blue-900 mt-1">National Education Ministry</p>
@@ -35,13 +31,10 @@
       </div>
 
       <div class="w-full max-w-sm bg-white rounded-2xl p-7 flex items-center gap-5
-            border border-slate-200 shadow-md
-            transition-all duration-300
-            hover:-translate-y-2 hover:shadow-xl">
-
-        <div class="w-14 h-14 shrink-0 rounded-xl bg-white/20 text-white flex items-center justify-center text-2xl">
-          🏫
-        </div>
+                  border border-slate-200 shadow-md
+                  transition-all duration-300
+                  hover:-translate-y-2 hover:shadow-xl">
+        <div class="w-14 h-14 rounded-xl text-2xl flex items-center justify-center">🏫</div>
         <div class="text-left">
           <p class="font-bold text-lg">150+ Schools Visited</p>
           <p class="text-sm text-blue-900 mt-1">Across Uttar Pradesh</p>
@@ -49,13 +42,10 @@
       </div>
 
       <div class="w-full max-w-sm bg-white rounded-2xl p-7 flex items-center gap-5
-            border border-slate-200 shadow-md
-            transition-all duration-300
-            hover:-translate-y-2 hover:shadow-xl">
-
-        <div class="w-14 h-14 shrink-0 rounded-xl bg-white/20 text-white flex items-center justify-center text-2xl">
-          🚌
-        </div>
+                  border border-slate-200 shadow-md
+                  transition-all duration-300
+                  hover:-translate-y-2 hover:shadow-xl">
+        <div class="w-14 h-14 rounded-xl text-2xl flex items-center justify-center">🚌</div>
         <div class="text-left">
           <p class="font-bold text-lg">Mobile Science Lab</p>
           <p class="text-sm text-blue-900 mt-1">IIT Kanpur & CSTUP</p>
@@ -67,7 +57,7 @@
 </section>
 
 <!-- ================= NEWS ================= -->
-<section class="max-w-7xl mx-auto px-6 mt-20 pb-24">
+<section class="max-w-7xl mx-auto px-6 mt-18 pb-24">
   <div class="text-center mb-12">
     <span class="inline-block bg-cyan-100 text-cyan-700 px-5 py-2 rounded-full text-sm font-medium mb-3">
       Recent Visits
@@ -78,14 +68,15 @@
   <div id="newsGrid" class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3"></div>
 
   <div id="newsBtnWrap" class="text-center mt-14 hidden">
-    <button id="newsBtn" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition">
+    <button id="newsBtn"
+      class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition">
       View More →
     </button>
   </div>
 </section>
 
 <!-- ================= MEDIA ================= -->
-<section class="bg-[#f4fbfd] py-4">
+<section class="bg-[#f4fbfd] py-2">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
       <span class="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-sm font-medium mb-4">
@@ -97,7 +88,8 @@
     <div id="mediaGrid" class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4"></div>
 
     <div id="mediaBtnWrap" class="text-center mt-16 hidden">
-      <button id="mediaBtn" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition">
+      <button id="mediaBtn"
+        class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition">
         View More →
       </button>
     </div>
@@ -117,49 +109,33 @@
     <div id="impactGrid" class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3"></div>
 
     <div id="impactBtnWrap" class="text-center mt-16 hidden">
-      <button id="impactBtn" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition">
+      <button id="impactBtn"
+        class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition">
         View More →
       </button>
     </div>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<!-- ================= CALL TO ACTION ================= -->
+<!-- ================= CTA ================= -->
 <section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 py-10">
   <div class="max-w-4xl mx-auto px-6 text-center text-white">
-
-    <h2 class="text-3xl md:text-4xl font-semibold">
-      Want The Science Bus at Your School?
-    </h2>
-
-    <p class="mt-6 text-lg text-blue-100 leading-relaxed">
+    <h2 class="text-3xl md:text-4xl font-semibold">Want The Science Bus at Your School?</h2>
+    <p class="mt-6 text-lg text-blue-100">
       We’re always looking to visit more schools and inspire more students.
-      Get in touch with us to schedule a visit!
     </p>
-
     <div class="mt-10">
-      <a
-        href="contactUs.php"
-        class="inline-flex items-center gap-2
-               bg-white text-blue-700
-               px-8 py-4 rounded-xl
-               font-medium
-               shadow-lg
-               hover:scale-105 hover:shadow-xl
-               transition">
+      <a href="contactUs.php"
+        class="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-4 rounded-xl font-medium shadow-lg hover:scale-105 transition">
         Contact Us →
       </a>
     </div>
-
   </div>
 </section>
 
 <?php include 'includes/footer.php'; ?>
 
-
-
-<!-- ================= REUSABLE SCRIPT ================= -->
+<!-- ================= SCRIPT ================= -->
 <script>
   function initViewMore({ data, initial, gridId, btnWrapId, btnId, template }) {
     let visible = initial;
@@ -171,96 +147,89 @@
 
     function render() {
       grid.innerHTML = data.slice(0, visible).map(template).join("");
-      btnWrap.classList.toggle("hidden", expanded);
+      const showBtn = data.length > initial && !expanded;
+      btnWrap.classList.toggle("hidden", !showBtn);
     }
 
-    // View More click → OPEN
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation(); // very important
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
       expanded = true;
       visible = data.length;
       render();
     });
 
-    // Click anywhere outside → CLOSE
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", e => {
       if (!expanded) return;
+      if (grid.contains(e.target) || btn.contains(e.target)) return;
 
-      const clickedInside =
-        grid.contains(e.target) || btn.contains(e.target);
-
-      if (!clickedInside) {
-        expanded = false;
-        visible = initial;
-        render();
-      }
+      expanded = false;
+      visible = initial;
+      render();
     });
 
     render();
   }
 
-  /* NEWS */
-  initViewMore({
-    data: Array.from({ length: 7 }, (_, i) => ({
-      title: `School Visit ${i + 1}`,
-      location: "Uttar Pradesh",
-      month: "2024",
-      image: "https://picsum.photos/600/400?" + i
-    })),
-    initial: 6,
-    gridId: "newsGrid",
-    btnWrapId: "newsBtnWrap",
-    btnId: "newsBtn",
-    template: n => `
-      <article class="bg-white rounded-2xl overflow-hidden border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-        <img src="${n.image}" class="w-full h-48 object-cover border-b">
-        <div class="p-6">
-          <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">${n.month}</span>
-          <h4 class="font-semibold text-lg mt-3">${n.title}</h4>
-          <p class="text-sm text-blue-600 mt-1">📍 ${n.location}</p>
-        </div>
-      </article>`
-  });
+  const sections = [
+    {
+      initial: 6,
+      gridId: "newsGrid",
+      btnWrapId: "newsBtnWrap",
+      btnId: "newsBtn",
+      data: Array.from({ length: 7 }, (_, i) => ({
+        title: `School Visit ${i + 1}`,
+        location: "Uttar Pradesh",
+        month: "2024",
+        image: "https://picsum.photos/600/400?" + i
+      })),
+      template: n => `
+        <article class="bg-white rounded-2xl overflow-hidden border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
+          <img src="${n.image}" class="w-full h-48 object-cover border-b">
+          <div class="p-6">
+            <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">${n.month}</span>
+            <h4 class="font-semibold text-lg mt-3">${n.title}</h4>
+            <p class="text-sm text-blue-600 mt-1">📍 ${n.location}</p>
+          </div>
+        </article>`
+    },
+    {
+      initial: 4,
+      gridId: "mediaGrid",
+      btnWrapId: "mediaBtnWrap",
+      btnId: "mediaBtn",
+      data: Array.from({ length: 6 }, (_, i) => ({
+        source: "National Media",
+        title: `Media Coverage ${i + 1}`,
+        image: "https://picsum.photos/500/300?" + i
+      })),
+      template: m => `
+        <article class="bg-white rounded-2xl overflow-hidden border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
+          <img src="${m.image}" class="w-full h-40 object-cover">
+          <div class="p-6">
+            <p class="text-sm text-blue-600 font-medium mb-2">📰 ${m.source}</p>
+            <h3 class="font-semibold text-lg">${m.title}</h3>
+          </div>
+        </article>`
+    },
+    {
+      initial: 3,
+      gridId: "impactGrid",
+      btnWrapId: "impactBtnWrap",
+      btnId: "impactBtn",
+      data: Array.from({ length: 5 }, () => ({
+        text: "The Science Bus visit was a life-changing experience for students.",
+        author: "Educator, UP"
+      })),
+      template: t => `
+        <div class="bg-white rounded-2xl p-8 border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
+          <p class="italic text-gray-700">“${t.text}”</p>
+          <p class="mt-6 font-semibold text-gray-900">— ${t.author}</p>
+        </div>`
+    }
+  ];
 
-  /* MEDIA */
-  initViewMore({
-    data: Array.from({ length: 6 }, (_, i) => ({
-      source: "National Media",
-      title: `Media Coverage ${i + 1}`,
-      image: "https://picsum.photos/500/300?" + i
-    })),
-    initial: 4,
-    gridId: "mediaGrid",
-    btnWrapId: "mediaBtnWrap",
-    btnId: "mediaBtn",
-    template: m => `
-      <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-        <img src="${m.image}" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <p class="text-sm text-blue-600 font-medium mb-2">📰 ${m.source}</p>
-          <h3 class="font-semibold text-lg">${m.title}</h3>
-        </div>
-      </article>`
-  });
-
-  /* SOCIAL IMPACT */
-  initViewMore({
-    data: Array.from({ length: 5 }, () => ({
-      text: "The Science Bus visit was a life-changing experience for students.",
-      author: "Educator, UP"
-    })),
-    initial: 3,
-    gridId: "impactGrid",
-    btnWrapId: "impactBtnWrap",
-    btnId: "impactBtn",
-    template: t => `
-      <div class="relative rounded-2xl p-8 border border-slate-200 shadow-md hover:-translate-y-2 hover:shadow-xl transition bg-white">
-        <p class="text-gray-700 italic">“${t.text}”</p>
-        <p class="mt-6 font-semibold text-gray-900">— ${t.author}</p>
-      </div>`
-  });
+  sections.forEach(initViewMore);
 </script>
-
 
 </body>
 </html>

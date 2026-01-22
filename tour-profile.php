@@ -3,7 +3,7 @@
 <!-- ================= HERO ================= -->
 <!-- <section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600"> -->
 <section class="bg-gradient-to-b from-blue-50 to-white py-3">
-  <div class="max-w-7xl mx-auto px-6 py-20 text-center ">
+  <div class="max-w-7xl mx-auto px-6 py-5 text-center ">
 <p class="text-sm uppercase tracking-widest text-blue-600 mb-3 font-medium">
       Our Journey Across Uttar Pradesh
     </p>

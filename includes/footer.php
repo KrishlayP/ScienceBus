@@ -44,8 +44,8 @@
 
         <ul class="space-y-1 text-sm mb-4">
           <li>Indian Institute of Technology Kanpur</li>
-          <li>CSTUP</li>
-          <li>UP Government</li>
+          <li>CSTUP , UP Government</li>
+
         </ul>
 
         <!-- Social Icons -->

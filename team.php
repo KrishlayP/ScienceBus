@@ -9,7 +9,7 @@ $teamData = [
             "role" => "Professor, DOMS Department",
             "org" => "IIT Kanpur",
             "email" => "dphilip@iitk.ac.in",
-            "image" => "assets/image/Team/dphilip.jpg"
+            "image" => "assets/image/Team/ProfDeepuPhilip.png"
         ],
         [
             "name" => "Dr. Sumit Kumar Srivastava",
@@ -23,7 +23,7 @@ $teamData = [
             "role" => "Project Executive Officer",
             "org" => "IIT Kanpur",
             "email" => "rachna@iitk.ac.in",
-            "image" => "assets/image/Team/rachna.jpg"
+            "image" => "assets/image/Team/rachna.jpeg"
         ]
     ],
     "support_team" => [
@@ -33,7 +33,7 @@ $teamData = [
             "org" => "IIT Kanpur",
             "email" => "ashishkt@iitk.ac.in",
             "contact" => "",
-            "image" => "assets/images/support1.jpg"
+            "image" => "assets/image/Team/ashish.jpeg"
         ],
         [
             "name" => "Mr. Subhashish Panday",
@@ -89,14 +89,14 @@ $teamData = [
             <h4 class="text-xl font-bold mt-8 text-gray-800"><?= $member['name'] ?></h4>
             <p class="text-blue-600 font-semibold mt-1"><?= $member['role'] ?></p>
             <p class="text-gray-500 text-sm mt-1"><?= $member['org'] ?></p>
-            <p class="mt-6 text-sm text-blue-600 font-medium">✉️ <?= $member['email'] ?></p>
+            <p class="mt-6 text-sm text-blue-600 font-medium flex item-center gap-2 justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/></svg><?= $member['email'] ?></p>
         </div>
     <?php endforeach; ?>
 </div>
     </div>
 </section>
 
-<section class="bg-gradient-to-b from-white to-blue-50 py-12">
+<section class="bg-gradient-to-b from-white to-blue-50 py-4">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <span class="inline-block bg-blue-100 text-blue-700 px-6 py-2 rounded-full text-sm font-medium mb-4">

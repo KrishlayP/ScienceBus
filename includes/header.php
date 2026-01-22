@@ -77,7 +77,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 <!-- ===================== NAV MENU ===================== -->
 <nav class="sticky top-24 z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
-  <div class="max-w-7xl mx-auto px-9 py-4 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-9 py-2 flex items-center justify-between">
 
     <!-- DESKTOP MENU -->
     <ul class="hidden md:flex items-center gap-12 font-medium text-white">
@@ -89,7 +89,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         "Tour Profile" => "tour-profile.php",
         "Team" => "team.php",
         "Gallery" => "gallery3.php",
-        "Contact-Us" => "contactUs.php",
+        "ContactUs" => "contactUs.php",
       ];
 
       foreach ($menuItems as $label => $link):
