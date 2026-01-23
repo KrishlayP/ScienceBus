@@ -1,7 +1,6 @@
 <?php
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,159 +8,109 @@ $currentPage = basename($_SERVER['PHP_SELF']);
   <title>The Science Bus</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Flowbite -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
 
   <!-- Swiper -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body class="bg-white text-gray-800">
 
-<!-- ===================== TOP HEADER ===================== -->
+<!-- ================= TOP HEADER ================= -->
 <nav class="bg-white border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-3 py-2 grid grid-cols-2 items-center">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-3">
 
-    <div class="flex items-center justify-start gap-3 text-left">
-      <div class="bg-blue-600 p-2 rounded-lg shrink-0 shadow-sm">
-        <img
-          src="assets/image/logo/logo.png"
-          alt="The Science Bus Logo"
-          class="w-6 h-6 object-contain"
-        />
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <div class="bg-blue-600 p-2 rounded-lg shadow-sm">
+        <img src="assets/image/logo/logo.png" class="w-6 h-6 md:w-8 md:h-8 object-contain" />
       </div>
-      
       <div class="leading-tight">
-        <h1 class="text-lg md:text-2xl font-bold text-gray-800">
-          The Science Bus
-        </h1>
-        <p class="hidden md:block text-xs text-gray-500 font-medium italic">
-          A Mobile Science Lab
-        </p>
-        <span class="inline-block  text-blue-700  text-[3px] md:text-sm font-semibold italic">
-            An IITK, CSTUP & UP Government Initiative
+        <h1 class="text-base md:text-2xl font-bold">The Science Bus</h1>
+        <p class="hidden lg:block text-xs text-gray-500 italic">A Mobile Science Lab</p>
+        <span class="text-[10px] md:text-xs text-blue-700 font-semibold italic">
+          An IITK, CSTUP & UP Govt Initiative
         </span>
       </div>
     </div>
 
-
-    <div class="flex justify-end items-center gap-4 md:gap-6">
-    <img
-      src="assets/image/logo/iit1.jpg"
-      alt="IIT Kanpur Logo"
-      class="h-10 md:h-20 object-contain transition-transform duration-300 hover:scale-105"
-    />
-    <img
-      src="assets/image/logo/iit2.jpg"
-      alt="CSTUP Logo"
-      class="h-10 md:h-20 object-contain transition-transform duration-300 hover:scale-105"
-    />
-    <img
-      src="assets/image/logo/iit3.jpg"
-      alt="UP Govt Logo"
-      class="h-10 md:h-20 object-contain transition-transform duration-300 hover:scale-105"
-    />
-</div>
+    <!-- Logos -->
+    <div class="flex gap-2 md:gap-4">
+      <img src="assets/image/logo/iit1.jpg" class="h-8 md:h-14 object-contain" />
+      <img src="assets/image/logo/iit2.jpg" class="h-8 md:h-14 object-contain" />
+      <img src="assets/image/logo/iit3.jpg" class="h-8 md:h-14 object-contain" />
+    </div>
 
   </div>
 </nav>
 
-<!-- ===================== NAV MENU ===================== -->
-<nav class="sticky top-24 z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
-  <div class="max-w-7xl mx-auto px-9 py-2 flex items-center justify-between">
+<!-- ================= MAIN NAV ================= -->
+<nav class="sticky top-[64px] md:top-[96px] z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
-    <!-- DESKTOP MENU -->
-    <ul class="hidden md:flex items-center gap-12 font-medium text-white">
+    <!-- LEFT: Hamburger (mobile) + Menu (desktop) -->
+    <div class="flex items-center gap-4">
 
-      <?php
-      $menuItems = [
-        "Home" => "index.php",
-        "News" => "news.php",
-        "Tour Profile" => "tour-profile.php",
-        "Team" => "team.php",
-        "Gallery" => "gallery3.php",
-        "ContactUs" => "contactUs.php",
-      ];
-
-      foreach ($menuItems as $label => $link):
-        $activeClass = $currentPage === $link
-          ? "text-grey-600 border-b-2 border-white-600 pb-1"
-          : "hover:text-white-600";
-      ?>
-        <li>
-          <a href="<?= $link ?>" class="<?= $activeClass ?>">
-            <?= $label ?>
-          </a>
-        </li>
-        
-
-      <?php endforeach; ?>
-
-    </ul>
-
-    <!-- EMPTY LOGO SPACE (UNCHANGED) -->
-    <div class="flex items-center gap-3 shrink-0">
-  <a
-    href="#"
-    class="inline-flex items-center gap-2 px-5 py-2 rounded-full
-           bg-blue-600 text-white text-sm font-medium
-           transition-all duration-300
-           hover:bg-blue-700 hover:shadow-lg
-           focus:outline-none focus:ring-2 focus:ring-blue-400"
-  >
-    <!-- Icon -->
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      stroke-width="2"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5m0 0l-5-5m5 5H3" />
-    </svg>
-
-    Login
-  </a>
-</div>
-
-
-    <!-- MOBILE TOGGLE -->
-    <button
-      data-collapse-toggle="mobile-menu"
-      type="button"
-      class="md:hidden inline-flex items-center p-2 text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none"
-    >
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
+      <!-- Hamburger (MOBILE ONLY – LEFT) -->
+      <button
+        data-collapse-toggle="mobile-menu"
+        type="button"
+        class="md:hidden text-white"
       >
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-8 text-white font-medium">
+        <?php
+        $menuItems = [
+          "Home" => "index.php",
+          "News" => "news.php",
+          "Tour Profile" => "tour-profile.php",
+          "Team" => "team.php",
+          "Gallery" => "gallery3.php",
+          "Contact Us" => "contactUs.php",
+        ];
+        foreach ($menuItems as $label => $link):
+          $active = ($currentPage === $link)
+            ? "border-b-2 border-white pb-1"
+            : "hover:opacity-80";
+        ?>
+          <li>
+            <a href="<?= $link ?>" class="<?= $active ?> transition">
+              <?= $label ?>
+            </a>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+
+    </div>
+
+    <!-- RIGHT: Login (ALWAYS RIGHT) -->
+    <div>
+      <a
+        href="#"
+        class="bg-white text-blue-600 px-4 py-1.5 rounded-full text-sm font-bold hover:bg-gray-100 transition"
+      >
+        Login
+      </a>
+    </div>
 
   </div>
 
-  <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="hidden md:hidden border-t">
-    <ul class="flex flex-col gap-4 p-4 font-medium">
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-indigo-700">
+    <ul class="flex flex-col text-white divide-y divide-indigo-500 p-4">
       <?php foreach ($menuItems as $label => $link): ?>
         <li>
-          <a href="<?= $link ?>" class="hover:text-blue-600">
+          <a href="<?= $link ?>" class="block py-3">
             <?= $label ?>
           </a>
         </li>
@@ -169,4 +118,3 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     </ul>
   </div>
 </nav>
-

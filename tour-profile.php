@@ -1,70 +1,69 @@
-
 <?php include 'includes/header.php'; ?>
+
 <!-- ================= HERO ================= -->
-<!-- <section class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600"> -->
 <section class="bg-gradient-to-b from-blue-50 to-white py-3">
-  <div class="max-w-7xl mx-auto px-6 py-5 text-center ">
-<p class="text-sm uppercase tracking-widest text-blue-600 mb-3 font-medium">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 text-center">
+
+    <p class="text-sm uppercase tracking-widest text-blue-600 mb-3 font-medium">
       Our Journey Across Uttar Pradesh
     </p>
-    <h1 class="text-2xl md:text-3xl font-semibold max-w-3xl mx-auto">
+
+    <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold max-w-3xl mx-auto">
       From December 2018 to March 2020, The Science Bus traveled across Uttar Pradesh,
       bringing science education to thousands.
     </h1>
 
-    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-10 sm:mt-16 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
 
-  <div class="bg-white rounded-2xl p-6
-              border border-blue-400
-              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-    <p class="text-3xl font-bold text-slate-900">18</p>
-    <p class="text-slate-500 mt-1">Total Tours</p>
-  </div>
+      <div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <p class="text-3xl font-bold text-slate-900">18</p>
+        <p class="text-slate-500 mt-1">Total Tours</p>
+      </div>
 
-  <div class="bg-white rounded-2xl p-6
-              border border-blue-400
-              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-    <p class="text-3xl font-bold text-slate-900">87,730</p>
-    <p class="text-slate-500 mt-1">People Benefitted</p>
-  </div>
+      <div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <p class="text-3xl font-bold text-slate-900">87,730</p>
+        <p class="text-slate-500 mt-1">People Benefitted</p>
+      </div>
 
-  <div class="bg-white rounded-2xl p-6
-              border border-blue-400
-              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-    <p class="text-3xl font-bold text-slate-900">18</p>
-    <p class="text-slate-500 mt-1">Districts Covered</p>
-  </div>
+      <div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <p class="text-3xl font-bold text-slate-900">18</p>
+        <p class="text-slate-500 mt-1">Districts Covered</p>
+      </div>
 
-  <div class="bg-white rounded-2xl p-6
-              border border-blue-400
-              shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-    <p class="text-3xl font-bold text-slate-900">2018–2020</p>
-    <p class="text-slate-500 mt-1">Active Period</p>
-  </div>
-
-</div>
+      <div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <p class="text-3xl font-bold text-slate-900">2018–2020</p>
+        <p class="text-slate-500 mt-1">Active Period</p>
+      </div>
 
     </div>
   </div>
 </section>
 
 <!-- ================= TOUR HISTORY ================= -->
-<section class="max-w-7xl mx-auto px-6 py-10">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
   <div class="bg-white rounded-2xl shadow-lg border overflow-hidden">
 
     <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
       <h2 class="text-white font-semibold text-lg">Complete Tour History</h2>
     </div>
 
-    <div class="grid grid-cols-12 gap-4 px-6 py-3 text-sm font-medium bg-slate-100">
-      <div class="col-span-1">S.No</div>
-      <div class="col-span-2">Tour Start</div>
-      <div class="col-span-2">Tour End</div>
-      <div class="col-span-3">District</div>
-      <div class="col-span-4">Description</div>
-    </div>
+    <!-- MOBILE SCROLL WRAPPER -->
+    <div class="overflow-x-auto">
 
-    <div id="tourRows" class="divide-y"></div>
+      <div class="min-w-[720px]">
+
+        <div class="grid grid-cols-12 gap-4 px-6 py-3 text-sm font-medium bg-slate-100">
+          <div class="col-span-1">S.No</div>
+          <div class="col-span-2">Tour Start</div>
+          <div class="col-span-2">Tour End</div>
+          <div class="col-span-3">District</div>
+          <div class="col-span-4">Description</div>
+        </div>
+
+        <div id="tourRows" class="divide-y"></div>
+
+      </div>
+    </div>
 
     <div class="text-center py-6">
       <button id="tourBtn"
@@ -76,14 +75,14 @@
 </section>
 
 <!-- ================= CTA ================= -->
-<section class="py-4 bg-white text-center">
-  <h2 class="text-2xl md:text-3xl font-semibold">
+<section class="py-6 bg-white text-center px-4">
+  <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold">
     Want The Science Bus at Your School?
   </h2>
-  <p class="mt-4 text-gray-600">
+  <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
     Contact us today to schedule a visit and bring hands-on science education.
   </p>
-  <div class="mt-8">
+  <div class="mt-6 sm:mt-8">
     <button type="button"
       onclick="openVisitModal()"
       class="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition">
@@ -94,9 +93,9 @@
 
 <!-- ================= MODAL ================= -->
 <div id="visitModal"
-     class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50">
+     class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50 px-4">
 
-  <div class="bg-white max-w-2xl w-full p-8 rounded-2xl relative">
+  <div class="bg-white max-w-2xl w-full p-6 sm:p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto">
     <button onclick="closeVisitModal()"
       class="absolute top-4 right-4 text-2xl text-gray-400">&times;</button>
 
@@ -122,10 +121,9 @@
   </div>
 </div>
 
-<!-- ================= FOOTER ================= -->
 <?php include 'includes/footer.php'; ?>
 
-<!-- ================= SCRIPT ================= -->
+<!-- ================= SCRIPT (UNCHANGED LOGIC) ================= -->
 <script>
 const tours = [
  {no:1,start:"16/12/2018",end:"31/12/2018",district:"Chitrakoot",desc:"4500 students benefitted"},
@@ -144,7 +142,7 @@ const btn = document.getElementById("tourBtn");
 
 function render() {
  rows.innerHTML = tours.slice(0,visible).map(t=>`
-  <div class="grid grid-cols-12 gap-4 px-6 py-4">
+  <div class="grid grid-cols-12 gap-4 px-6 py-4 text-sm">
     <div class="col-span-1">${t.no}</div>
     <div class="col-span-2">${t.start}</div>
     <div class="col-span-2">${t.end}</div>
@@ -169,6 +167,3 @@ document.getElementById("visitModal").onclick=e=>{
  if(e.target.id==="visitModal") closeVisitModal();
 };
 </script>
-
-</body>
-

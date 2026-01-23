@@ -1,13 +1,13 @@
-<footer class="bg-gradient-to-b from-[#0b1220] to-[#060b16] text-gray-300 pt-12">
-  <div class="max-w-7xl mx-auto px-6">
+<footer class="bg-gradient-to-b from-[#0b1220] to-[#060b16] text-gray-300 pt-10 sm:pt-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
     <!-- Top Grid -->
-    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 pb-10">
+    <div class="grid gap-8 sm:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-8 sm:pb-10">
 
       <!-- Brand -->
-      <div>
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white text-lg">
+      <div class="text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+          <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white text-lg shrink-0">
             🚌
           </div>
           <h3 class="text-base font-semibold text-white">
@@ -15,46 +15,41 @@
           </h3>
         </div>
 
-        <p class="text-sm text-gray-400 leading-relaxed max-w-xs">
+        <p class="text-sm text-gray-400 leading-relaxed max-w-xs mx-auto md:mx-0">
           A mobile science laboratory bringing hands-on learning to schools
           across Uttar Pradesh.
         </p>
       </div>
 
       <!-- Contact -->
-      <div>
+      <div class="text-center md:text-left">
         <h4 class="text-white font-semibold mb-3">Contact Us</h4>
 
         <div class="space-y-2 text-sm">
-          <div class="flex items-start gap-3">
-            <span class="text-cyan-400">📍</span>
-            <span>Indian Institute of Technology Kanpur</span>
+          <div class="flex items-start justify-center md:justify-start gap-3">
+            <span class="text-cyan-400 shrink-0">📍</span>
+            <span class="break-words">
+              Indian Institute of Technology Kanpur
+            </span>
           </div>
 
-          <div class="flex items-start gap-3">
-            <span class="text-cyan-400">✉️</span>
-            <span>thesciencebus.iitk@gmail.com</span>
+          <div class="flex items-start justify-center md:justify-start gap-3">
+            <span class="text-cyan-400 shrink-0">✉️</span>
+            <span class="break-all">
+              thesciencebus.iitk@gmail.com
+            </span>
           </div>
         </div>
       </div>
 
       <!-- Partners -->
-      <div>
+      <div class="text-center md:text-left">
         <h4 class="text-white font-semibold mb-3">Partners</h4>
 
         <ul class="space-y-1 text-sm mb-4">
           <li>Indian Institute of Technology Kanpur</li>
           <li>CSTUP , UP Government</li>
-
         </ul>
-
-        <!-- Social Icons -->
-        <!-- <div class="flex gap-3">
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">🐦</a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📘</a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">📸</a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-blue-500 transition">▶️</a>
-        </div> -->
       </div>
 
     </div>
@@ -63,7 +58,7 @@
     <div class="border-t border-white/10"></div>
 
     <!-- Bottom -->
-    <div class="py-4 text-center text-xs text-gray-400">
+    <div class="py-4 text-center text-xs text-gray-400 leading-relaxed">
       © 2025 The Science Bus. All rights reserved.
     </div>
 
@@ -78,15 +73,15 @@
 
 <script>
 const swiper = new Swiper('.swiper', {
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
 </script>
 

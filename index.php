@@ -1,148 +1,102 @@
 <?php include 'includes/header.php'; ?>
+
+<!-- ================= HERO SLIDER IMAGES ================= -->
 <script>
-  const images = [
-    // "assets/image/header/bus2.jpg",
-    "assets/image/header/quote1.jpeg",
-    "assets/image/header/quote2.jpeg",
-    "assets/image/header/quote3.jpeg",
-    "assets/image/header/a.jpg",
-    "assets/image/header/b.jpg",
-    "assets/image/header/d.jpg",
-    "assets/image/header/e.jpg",
-  ];
+const images = [
+  "assets/image/header/quote1.jpeg",
+  "assets/image/header/quote2.jpeg",
+  "assets/image/header/quote3.jpeg",
+  "assets/image/header/a.jpg",
+  "assets/image/header/b.jpg",
+  "assets/image/header/c.png",
+  "assets/image/header/d.jpg",
+  "assets/image/header/e.jpg",
+  "assets/image/header/f.jpg",
+  "assets/image/header/j.png",
+  "assets/image/header/k.jpeg",
+];
 </script>
 
+<!-- ================= HERO SECTION ================= -->
+<section class="bg-gradient-to-b from-blue-50 to-white py-6">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-<!-- Hero Section -->
-<section class="bg-gradient-to-b from-blue-50 to-white py-3">
+    <!-- LEFT CONTENT -->
+    <div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+        Bringing Science to <br>
+        <span class="text-blue-600">Every Child’s Doorstep</span>
+      </h2>
 
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+      <p class="text-gray-600 mt-6 max-w-xl">
+        The Science Bus is a mobile science laboratory that travels to schools
+        across Uttar Pradesh, making hands-on science education accessible
+        to students everywhere.
+      </p>
 
-        <!-- LEFT CONTENT -->
-        <div class="-mt-6">
-            <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-                Bringing Science to <br>
-                <span class="text-blue-600">Every Child’s Doorstep</span>
-            </h2>
-
-            <p class="text-gray-600 mt-6 max-w-xl">
-                The Science Bus is a mobile science laboratory that travels to schools across
-                Uttar Pradesh, making hands-on science education accessible to students who
-                might not have access to well-equipped laboratories.
-            </p>
-
-            <div class="mt-8 flex gap-4">
-                <a href="#about"
-                   class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
-                    Learn More →
-                </a>
-                <a href="contactUs.php"
-                   class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
-                    Contact Us
-                </a>
-            </div>
-        </div>
-
-        <!-- RIGHT SLIDER -->
-        <div class="relative">
-  <div class="swiper 
-              rounded-2xl 
-              overflow-hidden
-              ring-2 
-              ring-blue-500/60
-              shadow-[0_0_25px_rgba(59,130,246,0.55)]
-              transition-all duration-300">
-
-    <div class="swiper-wrapper" id="heroSlider">
-      <!-- Images will be injected -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <a href="#about"
+           class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+          Learn More →
+        </a>
+        <a href="contactUs.php"
+           class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
+          Contact Us
+        </a>
+      </div>
     </div>
 
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
+    <!-- RIGHT SLIDER -->
+    <div class="relative">
+      <div class="swiper rounded-2xl overflow-hidden ring-2 ring-blue-500/60 shadow-lg">
+        <div class="swiper-wrapper" id="heroSlider"></div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
   </div>
-</div>
-
-
-
-
-    </div>
 </section>
 
-<!-- About The Science Bus -->
-<section class="py-10 bg-white" id="about">
+<!-- ================= ABOUT SECTION ================= -->
+<section id="about" class="py-10 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 text-center mb-12">
+    <span class="inline-block bg-blue-100 text-blue-700 px-6 py-2 rounded-full text-xl font-medium">
+      About The Science Bus
+    </span>
+  </div>
 
-    <!-- TOP CENTER TITLE -->
-    <div class="max-w-7xl mx-auto px-6 text-center mb-12">
-        <div class="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-xl font-medium">
-            About The Science Bus
+  <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+    <!-- FEATURES -->
+    <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 md:p-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <?php
+        $features = [
+          ["🔬","Hands-On Learning","Students engage with real experiments"],
+          ["🚌","Mobile Lab","Science delivered directly to schools"],
+          ["👩‍🏫","Expert Team","Guided by experienced educators"],
+          ["🎓","Quality Education","Curriculum-aligned programs"],
+        ];
+        foreach ($features as $f):
+        ?>
+        <div class="bg-white rounded-2xl p-6 text-center shadow-sm">
+          <div class="w-14 h-14 mx-auto flex items-center justify-center bg-blue-100 rounded-xl text-2xl mb-4">
+            <?= $f[0] ?>
+          </div>
+          <h4 class="font-semibold text-lg mb-2"><?= $f[1] ?></h4>
+          <p class="text-gray-600 text-sm"><?= $f[2] ?></p>
         </div>
+        <?php endforeach; ?>
+
+      </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
-
-        <!-- LEFT: FEATURE CARDS -->
-        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8">
-            <div class="grid sm:grid-cols-2 gap-6">
-
-                <!-- Card 1 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
-                    <div class="flex justify-center mb-4">
-                        <div class="w-14 h-14 flex items-center justify-center bg-cyan-100 rounded-xl text-2xl">
-                            🔬
-                        </div>
-                    </div>
-                    <h4 class="font-semibold text-lg mb-2">Hands-On Learning</h4>
-                    <p class="text-gray-600 text-sm">
-                        Students engage with real experiments
-                    </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
-                    <div class="flex justify-center mb-4">
-                        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-xl text-2xl">
-                            🚌
-                        </div>
-                    </div>
-                    <h4 class="font-semibold text-lg mb-2">Mobile Lab</h4>
-                    <p class="text-gray-600 text-sm">
-                        We bring science directly to schools
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
-                    <div class="flex justify-center mb-4">
-                        <div class="w-14 h-14 flex items-center justify-center bg-purple-100 rounded-xl text-2xl">
-                            👩‍🏫
-                        </div>
-                    </div>
-                    <h4 class="font-semibold text-lg mb-2">Expert Team</h4>
-                    <p class="text-gray-600 text-sm">
-                        Guided by experienced educators
-                    </p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
-                    <div class="flex justify-center mb-4">
-                        <div class="w-14 h-14 flex items-center justify-center bg-green-100 rounded-xl text-2xl">
-                            🎓
-                        </div>
-                    </div>
-                    <h4 class="font-semibold text-lg mb-2">Quality Education</h4>
-                    <p class="text-gray-600 text-sm">
-                        Curriculum-aligned programs
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- RIGHT: TEXT CONTENT -->
-        <div>
-            <p class="text-gray-700 leading-relaxed mb-6 text-justify">
+    <!-- TEXT -->
+    <div class="space-y-6 text-gray-700 text-justify">
                 The <b>Council of Science & Technology, U.P. (CSTUP)</b> is an autonomous body under
                 the <b>Department of Science & Technology, Government of U.P.</b> The main activities
                 of CSTUP include science popularization, grant-in-aid for research projects,
@@ -164,14 +118,11 @@
                 plans are aligned with UP Board and CBSE Board syllabi, featuring easy-to-follow
                 animations and demonstration videos for better understanding.
             </p>
-        </div>
 
-    </div>
+  </div>
 </section>
 
-
-
-<!-- Facilities Section -->
+<!-- ================= FACILITIES ================= -->
 <section class="py-4 bg-gradient-to-b from-white to-blue-50">
   <div class="max-w-7xl mx-auto px-6 text-center">
 
@@ -273,166 +224,114 @@
   </div>
 </section>
 
+<!-- ================= IMPACT ================= -->
+<section id="impactCard" class="py-8 bg-gradient-to-b from-blue-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
 
+    <div class="text-center mb-12">
+      <span class="inline-block bg-blue-100 text-blue-700 px-6 py-2 rounded-full text-xl font-medium mb-4">
+        Our Impact
+      </span>
+      <p class="text-gray-600">Transforming science education across Uttar Pradesh.</p>
+    </div>
 
-<section id="impactCard" class="relative py-6 bg-gradient-to-b from-blue-50 to-white">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
 
-    <div class="max-w-7xl mx-auto px-6">
-
-        <!-- Heading -->
-        <div class="text-center mb-16">
-            <span
-                class="inline-block bg-blue-100 text-blue-700
-                       px-6 py-2 rounded-full text-xl font-medium mb-4">
-                Our Impact
-            </span>
-
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Transforming science education across Uttar Pradesh, one school at a time.
-            </p>
-        </div>
-
-        <!-- Impact Cards -->
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-20">
-
-  <!-- Card -->
-  <div
-    class="stat-card group rounded-3xl p-10 text-center
-           bg-white border border-blue-100 shadow-sm
-           transition-all duration-300
-           hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
-
-    <h3
-      class="counter text-5xl font-bold text-blue-700"
-      data-target="2001"
-      data-suffix="">
-      0
-    </h3>
-    <p class="mt-3 text-gray-600">Initiated</p>
+  <div class="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition">
+    <h3 class="counter text-5xl font-bold text-blue-700"
+        data-target="2001">0</h3>
+    <p class="text-gray-600 mt-2">Initiated</p>
   </div>
 
-  <div class="stat-card group rounded-3xl p-10 text-center bg-white border border-blue-100 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
-    <h3 class="counter text-5xl font-bold text-blue-700" data-target="148" data-suffix="+">0</h3>
-    <p class="mt-3 text-gray-600">School Visits</p>
+  <div class="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition">
+    <h3 class="counter text-5xl font-bold text-blue-700"
+        data-target="148" data-suffix="+">0</h3>
+    <p class="text-gray-600 mt-2">School Visits</p>
   </div>
 
-  <div class="stat-card group rounded-3xl p-10 text-center bg-white border border-blue-100 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
-    <h3 class="counter text-5xl font-bold text-blue-700" data-target="99" data-suffix="+">0</h3>
-    <p class="mt-3 text-gray-600">Experiments</p>
+  <div class="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition">
+    <h3 class="counter text-5xl font-bold text-blue-700"
+        data-target="99" data-suffix="+">0</h3>
+    <p class="text-gray-600 mt-2">Experiments</p>
   </div>
 
-  <div class="stat-card group rounded-3xl p-10 text-center bg-white border border-blue-100 shadow-sm transition-all duration-300 hover:-translate-y-3 hover:bg-blue-50 hover:shadow-xl">
-    <h3 class="counter text-5xl font-bold text-blue-700" data-target="198" data-suffix="+">0</h3>
-    <p class="mt-3 text-gray-600">Students Daily</p>
+  <div class="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition">
+    <h3 class="counter text-5xl font-bold text-blue-700"
+        data-target="198" data-suffix="+">0</h3>
+    <p class="text-gray-600 mt-2">Students Daily</p>
   </div>
 
 </div>
-<script>
-  const section = document.getElementById("impactCard");
-  const counters = section.querySelectorAll(".counter");
-
-  let hasAnimated = false;
-
-  const startCounting = () => {
-    if (hasAnimated) return;
-    hasAnimated = true;
-
-    counters.forEach(counter => {
-      const target = +counter.dataset.target;
-      const suffix = counter.dataset.suffix || "";
-      let count = 0;
-
-      const increment = Math.ceil(target / 90);
-
-      const updateCount = () => {
-        count += increment;
-        if (count >= target) {
-          counter.textContent = target + suffix;
-        } else {
-          counter.textContent = count + suffix;
-          requestAnimationFrame(updateCount);
-        }
-      };
-
-      updateCount();
-    });
-  };
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          startCounting();
-          observer.disconnect(); // run only once
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
-
-  observer.observe(section);
-</script>
 
 
-
-        <!-- Location Box -->
-        <div
-            class=" text-center rounded-3xl p-10 bg-white
-                   border border-blue-100 shadow-xl">
-
-            <h3 class=" text-center inline-block bg-blue-100 text-blue-700
-                       px-6 py-2 rounded-full text-xl font-medium mb-4">
-                Our Location
-            </h3>
-            <p class="text-center text-gray-600 mb-6">
-                Uttar Pradesh, India
-            </p>
-
-            <!-- Map -->
-            <div class="overflow-hidden rounded-2xl border border-blue-100">
-                <iframe
-                    src="https://www.google.com/maps?q=IIT%20Kanpur&output=embed"
-                    class="w-full h-[380px]"
-                    loading="lazy">
-                </iframe>
-            </div>
-
-        </div>
-
+    <!-- MAP -->
+    <div class="bg-white rounded-3xl p-6 shadow-xl">
+      <h3 class="text-center text-xl font-semibold text-blue-700 mb-2">Our Location</h3>
+      <p class="text-center text-gray-600 mb-4">Uttar Pradesh, India</p>
+      <iframe
+        src="https://www.google.com/maps?q=IIT%20Kanpur&output=embed"
+        class="w-full h-[240px] sm:h-[320px] md:h-[380px] rounded-2xl border"
+        loading="lazy"></iframe>
     </div>
+
+  </div>
 </section>
 
+<!-- ================= SCRIPTS ================= -->
 <script>
-  const slider = document.getElementById("heroSlider");
+document.getElementById("heroSlider").innerHTML = images.map(img => `
+  <div class="swiper-slide">
+    <img src="${img}" class="w-full h-[220px] sm:h-[300px] md:h-[380px] object-cover">
+  </div>
+`).join("");
 
-  slider.innerHTML = images
-    .map(
-      (img) => `
-      <div class="swiper-slide">
-        <img src="${img}" class="w-full h-[380px] object-cover" />
-      </div>
-    `
-    )
-    .join("");
+new Swiper(".swiper", {
+  loop: true,
+  autoplay: { delay: 3000, disableOnInteraction: false },
+  pagination: { el: ".swiper-pagination", clickable: true },
+  navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+});
 </script>
 <script>
-  new Swiper(".swiper", {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
+
+function startCounters() {
+  if (counterStarted) return;
+  counterStarted = true;
+
+  counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    const suffix = counter.dataset.suffix || "";
+    let count = 0;
+
+    const increment = Math.ceil(target / 90);
+
+    const updateCounter = () => {
+      count += increment;
+      if (count >= target) {
+        counter.textContent = target + suffix;
+      } else {
+        counter.textContent = count + suffix;
+        requestAnimationFrame(updateCounter);
+      }
+    };
+
+    updateCounter();
   });
-</script>
+}
 
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      startCounters();
+      observer.disconnect(); // run once
+    }
+  });
+}, { threshold: 0.35 });
+
+observer.observe(document.getElementById("impactCard"));
+</script>
 
 
 <?php include 'includes/footer.php'; ?>
