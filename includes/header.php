@@ -21,8 +21,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <body class="bg-white text-gray-800">
 
 <!-- ================= TOP HEADER ================= -->
-<nav class="bg-white border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-3">
+<nav class="bg-white border-b sticky top-0 z-50 h-[72px] md:h-[88px]">
+  <div class="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
 
     <!-- Logo -->
     <div class="flex items-center gap-3">
@@ -49,13 +49,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 </nav>
 
 <!-- ================= MAIN NAV ================= -->
-<nav class="sticky top-[64px] md:top-[96px] z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 shadow-md">
+<nav class="sticky top-[72px] md:top-[88px] z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 shadow-md">
   <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
-    <!-- LEFT: Hamburger (mobile) + Menu (desktop) -->
+    <!-- LEFT: Hamburger + Menu -->
     <div class="flex items-center gap-4">
 
-      <!-- Hamburger (MOBILE ONLY – LEFT) -->
+      <!-- Hamburger (Mobile) -->
       <button
         data-collapse-toggle="mobile-menu"
         type="button"
@@ -93,15 +93,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
     </div>
 
-    <!-- RIGHT: Login (ALWAYS RIGHT) -->
-    <div>
-      <a
-        href="#"
-        class="bg-white text-blue-600 px-4 py-1.5 rounded-full text-sm font-bold hover:bg-gray-100 transition"
-      >
-        Login
-      </a>
-    </div>
+    <!-- RIGHT: Login -->
+    <a
+      href="#"
+      class="bg-white text-blue-600 px-4 py-1.5 rounded-full text-sm font-bold hover:bg-gray-100 transition"
+    >
+      Login
+    </a>
 
   </div>
 
