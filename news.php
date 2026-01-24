@@ -1,5 +1,32 @@
 <?php include 'includes/header.php'; ?>
+
+<!-- NEWS IMAGE POPUP -->
+<div id="newsPopup" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+  
+  <!-- Close Button -->
+  <button 
+    id="closeNewsPopup"
+    class="absolute top-6 right-6 text-white text-4xl font-bold hover:scale-110 transition"
+    aria-label="Close"
+  >
+    &times;
+  </button>
+
+  <!-- Image -->
+  <img 
+    id="newsPopupImg"
+    src=""
+    class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
+  >
+</div>
+
 <body class="bg-slate-50 text-gray-800">
+<!-- ===== NEWS IMAGE POPUP ===== -->
+<div id="newsPopup"
+     class="fixed inset-0 bg-black/80 hidden z-[9999] items-center justify-center">
+  <img id="newsPopupImg"
+       class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl">
+</div>
 
 <!-- ================= HERO ================= -->
 <section class="bg-gradient-to-b from-blue-50 to-white py-3">
@@ -99,6 +126,7 @@
   </div>
 </section>
 
+
 <!-- ================= SOCIAL IMPACT ================= -->
 <section class="bg-white py-4 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
@@ -184,7 +212,7 @@
 
   const sections = [
     {
-      initial: 6,
+      initial: 3,
       gridId: "newsGrid",
       btnWrapId: "newsBtnWrap",
       btnId: "newsBtn",
@@ -195,14 +223,17 @@
         image: "https://picsum.photos/600/400?" + i
       })),
       template: n => `
-        <article class="bg-white rounded-2xl overflow-hidden border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-          <img src="${n.image}" class="w-full h-48 object-cover border-b">
-          <div class="p-6">
-            <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">${n.month}</span>
-            <h4 class="font-semibold text-lg mt-3">${n.title}</h4>
-            <p class="text-sm text-blue-600 mt-1">📍 ${n.location}</p>
-          </div>
-        </article>`
+  <article 
+    class="news-card bg-white rounded-2xl overflow-hidden border shadow-md hover:-translate-y-2 hover:shadow-xl transition cursor-pointer"
+    data-image="${n.image}">
+    <img src="${n.image}" class="w-full h-48 object-cover border-b">
+    <div class="p-6">
+      <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">${n.month}</span>
+      <h4 class="font-semibold text-lg mt-3">${n.title}</h4>
+      <p class="text-sm text-blue-600 mt-1">📍 ${n.location}</p>
+    </div>
+  </article>`
+
     },
     
   ];
@@ -347,23 +378,62 @@ fetch('assets/data/news.json')
       btnWrapId: "mediaBtnWrap",
       btnId: "mediaBtn",
       data: mediaData,
-      template: m => `
-        <article class="bg-white rounded-2xl overflow-hidden border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-          <img src="${m.image}"
-               class="w-full h-44 object-fit"
-               onerror="this.style.display='none'">
-          <div class="p-6">
-            <p class="text-sm text-blue-600 font-medium mb-2">📰 ${m.source}</p>
-            <h3 class="font-semibold text-lg">${m.title}</h3>
-          </div>
-        </article>
-      `
+      template: n => `
+<article 
+  class="news-card bg-white rounded-2xl overflow-hidden border shadow-md hover:-translate-y-2 hover:shadow-xl transition cursor-pointer"
+  onclick="openNewsPopup('${n.image.replace(/'/g, "\\'")}')"
+>
+  <img src="${n.image}" class="w-full h-48 object-cover border-b">
+  <div class="p-6">
+    <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">${n.month}</span>
+    <h4 class="font-semibold text-lg mt-3">${n.title}</h4>
+    <p class="text-sm text-blue-600 mt-1">📍 ${n.location}</p>
+  </div>
+</article>`
+
     });
   })
   .catch(err => {
     console.error("❌ Media load failed:", err);
   });
 </script>
+<script>
+function openNewsPopup(image) {
+  const popup = document.getElementById("newsPopup");
+  const img = document.getElementById("newsPopupImg");
+
+  img.src = image;
+  popup.classList.remove("hidden");
+  popup.classList.add("flex");
+
+  document.body.style.overflow = "hidden";
+}
+
+function closeNewsPopup() {
+  const popup = document.getElementById("newsPopup");
+  const img = document.getElementById("newsPopupImg");
+
+  popup.classList.add("hidden");
+  popup.classList.remove("flex");
+  img.src = "";
+
+  document.body.style.overflow = "";
+}
+
+// Close on ❌ button
+document.getElementById("closeNewsPopup").addEventListener("click", closeNewsPopup);
+
+// Close on background click
+document.getElementById("newsPopup").addEventListener("click", closeNewsPopup);
+
+// Prevent closing when clicking image
+document.getElementById("newsPopupImg").addEventListener("click", e => {
+  e.stopPropagation();
+});
+</script>
+
+
+
 
 
 

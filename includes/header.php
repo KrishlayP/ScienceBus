@@ -16,6 +16,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
   <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+
 </head>
 
 <body class="bg-white text-gray-800">
@@ -95,7 +97,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
     <!-- RIGHT: Login -->
     <a
-      href="#"
+      href="underconstruction.php"
       class="bg-white text-blue-600 px-4 py-1.5 rounded-full text-sm font-bold hover:bg-gray-100 transition"
     >
       Login
