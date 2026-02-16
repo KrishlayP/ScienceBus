@@ -47,9 +47,36 @@
       <h2 class="text-white font-semibold text-lg">Complete Tour History</h2>
     </div>
 
+    <!-- FILTERS -->
+    <div class="flex flex-wrap gap-4 px-6 py-4 bg-slate-50 items-end">
+
+      <div>
+        <label class="text-sm text-gray-600">From Date</label>
+        <input type="date" id="fromDate" class="border p-2 rounded-lg block">
+      </div>
+
+      <div>
+        <label class="text-sm text-gray-600">To Date</label>
+        <input type="date" id="toDate" class="border p-2 rounded-lg block">
+      </div>
+
+      <div>
+        <label class="text-sm text-gray-600">Sort by Start Date</label>
+        <select id="sortOrder" class="border p-2 rounded-lg block">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+
+      <button onclick="applyFilters()"
+        class="bg-blue-600 text-white px-6 py-2 rounded-lg">
+        Apply
+      </button>
+
+    </div>
+
     <!-- MOBILE SCROLL WRAPPER -->
     <div class="overflow-x-auto">
-
       <div class="min-w-[720px]">
 
         <div class="grid grid-cols-12 gap-4 px-6 py-3 text-sm font-medium bg-slate-100">
@@ -71,6 +98,7 @@
         Show More ↓
       </button>
     </div>
+
   </div>
 </section>
 
@@ -123,7 +151,7 @@
 
 <?php include 'includes/footer.php'; ?>
 
-<!-- ================= SCRIPT (UNCHANGED LOGIC) ================= -->
+<!-- ================= SCRIPT ================= -->
 <script>
 const tours = [
  {no:1,start:"16/12/2018",end:"31/12/2018",district:"Chitrakoot",desc:"4500 students benefitted"},
@@ -137,11 +165,18 @@ const tours = [
 ];
 
 let visible = 5;
+let filteredTours = [...tours];
+
 const rows = document.getElementById("tourRows");
 const btn = document.getElementById("tourBtn");
 
-function render() {
- rows.innerHTML = tours.slice(0,visible).map(t=>`
+function parseDate(d){
+  const [dd,mm,yy] = d.split("/");
+  return new Date(`${yy}-${mm}-${dd}`);
+}
+
+function render(){
+ rows.innerHTML = filteredTours.slice(0,visible).map(t=>`
   <div class="grid grid-cols-12 gap-4 px-6 py-4 text-sm">
     <div class="col-span-1">${t.no}</div>
     <div class="col-span-2">${t.start}</div>
@@ -150,11 +185,40 @@ function render() {
     <div class="col-span-4">${t.desc}</div>
   </div>
  `).join("");
- btn.textContent = visible < tours.length ? "Show More ↓" : "Show Less ↑";
+
+ btn.textContent = visible < filteredTours.length ? "Show More ↓" : "Show Less ↑";
 }
-btn.onclick=()=>{visible=visible<tours.length?tours.length:5;render();}
+
+btn.onclick = () => {
+ visible = visible < filteredTours.length ? filteredTours.length : 5;
+ render();
+};
+
+function applyFilters(){
+ const from = document.getElementById("fromDate").value;
+ const to = document.getElementById("toDate").value;
+ const sort = document.getElementById("sortOrder").value;
+
+ filteredTours = tours.filter(t => {
+   const d = parseDate(t.start);
+   if(from && d < new Date(from)) return false;
+   if(to && d > new Date(to)) return false;
+   return true;
+ });
+
+ filteredTours.sort((a,b)=>{
+   return sort === "asc"
+     ? parseDate(a.start) - parseDate(b.start)
+     : parseDate(b.start) - parseDate(a.start);
+ });
+
+ visible = 5;
+ render();
+}
+
 render();
 
+/* MODAL */
 function openVisitModal(){
  const m=document.getElementById("visitModal");
  m.classList.remove("hidden"); m.classList.add("flex");

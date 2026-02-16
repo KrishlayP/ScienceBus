@@ -34,9 +34,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       <div class="leading-tight">
         <h1 class="text-base md:text-2xl font-bold">The Science Bus</h1>
         <p class="hidden lg:block text-xs text-gray-500 italic">A Mobile Science Lab</p>
-        <span class="text-[10px] md:text-xs text-blue-700 font-semibold italic">
+        <!-- <span class="text-[10px] md:text-xs text-blue-700 font-semibold italic">
           An IITK, CSTUP & UP Govt Initiative
-        </span>
+        </span> -->
       </div>
     </div>
 

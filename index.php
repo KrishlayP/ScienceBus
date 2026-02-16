@@ -27,23 +27,16 @@ const images = [
         Bringing Science to <br>
         <span class="text-blue-600">Every Child’s Doorstep</span>
       </h2>
-
+      <div class="mt-1">
+        <span class="text-[10px] md:text-xs text-blue-700 font-semibold italic">
+          An IITK, CSTUP & UP Govt Initiative
+        </span>
+      </div>
       <p class="text-gray-600 mt-6 max-w-xl">
-        The Science Bus is a mobile science laboratory that travels to schools
-        across Uttar Pradesh, making hands-on science education accessible
-        to students everywhere.
+        The Science Bus was a first-of-its-kind initiative at the time of its conception. It is developed on a mobile bus platform and serves as a mobile laboratory. The bus is well equipped with a wide range of laboratory accessories, such as telescopes, microscopes, and a 3D printer, to provide schoolchildren with hands-on experience in science experiments across multiple disciplines. It is also equipped with a large display screen for demonstrating experimental videos. The Science Bus has proven to be extremely effective in creating scientific awareness, strengthening practical understanding among children, and inspiring young minds across the region
       </p>
 
-      <div class="mt-8 flex flex-col sm:flex-row gap-4">
-        <a href="#about"
-           class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
-          Learn More →
-        </a>
-        <a href="contactUs.php"
-           class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
-          Contact Us
-        </a>
-      </div>
+      
     </div>
 
     <!-- RIGHT SLIDER -->
@@ -97,26 +90,16 @@ const images = [
 
     <!-- TEXT -->
     <div class="space-y-6 text-gray-700 text-justify">
-                The <b>Council of Science & Technology, U.P. (CSTUP)</b> is an autonomous body under
-                the <b>Department of Science & Technology, Government of U.P.</b> The main activities
-                of CSTUP include science popularization, grant-in-aid for research projects,
-                innovation promotion, IPR, biotechnology development and technology.
-                The Science Bus is one of its flagship initiatives.
+                With the objective of popularizing science among schoolchildren in remote areas, IIT Kanpur initiated the Science Bus Project in collaboration with the <b> Council of Science & Technology, Uttar Pradesh (CST-UP)</b>. Through this initiative, a large number of students, including girls, are provided with the opportunity to gain a deeper understanding of the experimental and practical aspects of science. Students actively participate in conducting experiments and display a high level of curiosity and enthusiasm during the sessions.
             </p>
 
             <p class="text-gray-700 leading-relaxed mb-6 text-justify">
-                The Science Bus is a fully air-conditioned mobile science laboratory equipped
-                with more than 100 experiments covering Physics, Chemistry, and Biology.
-                It includes advanced equipment like a 3D printer, microscope, and telescope.
-                The bus uses AdBlue technology, which reduces nitrogen oxide levels in exhaust
-                fumes by converting them into a less harmful mixture of nitrogen and water vapor.
+                Experiments in Physics, Chemistry, Biology, and Design are demonstrated and conducted by the students themselves, thereby enriching the regular science curriculum followed in schools across Uttar Pradesh. The initiative extends science beyond textbooks through hands-on experiments.
             </p>
 
             <p class="text-gray-700 leading-relaxed text-justify">
-                Traveling mainly to remote areas, the bus enables students to perform experiments
-                in batches of 5–20 students, educating more than 200 students each day. The lesson
-                plans are aligned with UP Board and CBSE Board syllabi, featuring easy-to-follow
-                animations and demonstration videos for better understanding.
+                connecting scientific concepts with students’ everyday lives.
+                eriments and modern equipment in a highly engaging and accessible manner.
             </p>
 
   </div>

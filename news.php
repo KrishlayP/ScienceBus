@@ -44,7 +44,7 @@
       Bringing hands-on science education to schools across Uttar Pradesh
     </p>
 
-    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+    <!-- <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
 
       <div class="w-full max-w-sm bg-white rounded-2xl p-7 flex items-center gap-5
                   border border-slate-200 shadow-md
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -212,7 +212,7 @@
 
   const sections = [
     {
-      initial: 3,
+      initial: 6,
       gridId: "newsGrid",
       btnWrapId: "newsBtnWrap",
       btnId: "newsBtn",
@@ -373,7 +373,7 @@ fetch('assets/data/news.json')
     }));
 
     initMediaGrid({
-      initial: 3,
+      initial: 6,
       gridId: "mediaGrid",
       btnWrapId: "mediaBtnWrap",
       btnId: "mediaBtn",
