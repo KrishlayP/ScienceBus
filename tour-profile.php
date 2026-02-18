@@ -9,7 +9,7 @@
     </p>
 
     <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold max-w-3xl mx-auto">
-      From December 2018 to March 2020, The Science Bus traveled across Uttar Pradesh,
+      From December 2018 to Till now, The Science Bus traveled across Uttar Pradesh,
       bringing science education to thousands.
     </h1>
 
@@ -21,17 +21,17 @@
       </div>
 
       <div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <p class="text-3xl font-bold text-slate-900">87,730</p>
+        <p class="text-3xl font-bold text-slate-900">60,000 +</p>
         <p class="text-slate-500 mt-1">People Benefitted</p>
       </div>
 
       <div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <p class="text-3xl font-bold text-slate-900">18</p>
+        <p class="text-3xl font-bold text-slate-900">8</p>
         <p class="text-slate-500 mt-1">Districts Covered</p>
       </div>
 
       <div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <p class="text-3xl font-bold text-slate-900">2018–2020</p>
+        <p class="text-3xl font-bold text-slate-900">2018–Till Date</p>
         <p class="text-slate-500 mt-1">Active Period</p>
       </div>
 
@@ -48,7 +48,7 @@
     </div>
 
     <!-- FILTERS -->
-    <div class="flex flex-wrap gap-4 px-6 py-4 bg-slate-50 items-end">
+    <!-- <div class="flex flex-wrap gap-4 px-6 py-4 bg-slate-50 items-end">
 
       <div>
         <label class="text-sm text-gray-600">From Date</label>
@@ -73,7 +73,7 @@
         Apply
       </button>
 
-    </div>
+    </div> -->
 
     <!-- MOBILE SCROLL WRAPPER -->
     <div class="overflow-x-auto">
@@ -81,8 +81,8 @@
 
         <div class="grid grid-cols-12 gap-4 px-6 py-3 text-sm font-medium bg-slate-100">
           <div class="col-span-1">S.No</div>
-          <div class="col-span-2">Tour Start</div>
-          <div class="col-span-2">Tour End</div>
+          <!-- <div class="col-span-2">Tour Start</div>
+          <div class="col-span-2">Tour End</div> -->
           <div class="col-span-3">District</div>
           <div class="col-span-4">Description</div>
         </div>
@@ -154,14 +154,14 @@
 <!-- ================= SCRIPT ================= -->
 <script>
 const tours = [
- {no:1,start:"16/12/2018",end:"31/12/2018",district:"Chitrakoot",desc:"4500 students benefitted"},
- {no:2,start:"20/01/2019",end:"04/03/2019",district:"Kumbh Mela, Prayagraj",desc:"30000 population benefitted"},
- {no:3,start:"31/03/2019",end:"20/04/2019",district:"Ballia",desc:"2000 students benefitted"},
- {no:4,start:"27/04/2019",end:"27/05/2019",district:"Meerut",desc:"15000 students benefitted"},
- {no:5,start:"16/07/2019",end:"31/07/2019",district:"Chandauli",desc:"1800 students benefitted"},
- {no:6,start:"10/08/2019",end:"10/08/2019",district:"Kanpur",desc:"250 students benefitted"},
- {no:7,start:"19/08/2019",end:"03/09/2019",district:"Etawah",desc:"1500 students benefitted"},
- {no:8,start:"06/09/2019",end:"11/09/2019",district:"Jaunpur Mela",desc:"4000 population benefitted"},
+ {no:1,start:"16/12/2018",end:"31/12/2018",district:"Chitrakoot",desc:"This initiative has reached around 4,500 students in Chitrakoot, fostering curiosity and hands-on learning in science and technology."},
+ {no:2,start:"20/01/2019",end:"04/03/2019",district:"Kumbh Mela, Prayagraj",desc:"This event at the world-famous Kumbh Mela in Prayagraj has benefited around 30,000 people, offering spiritual, social, and economic opportunities to visitors and local communities."},
+ {no:3,start:"31/03/2019",end:"20/04/2019",district:"Ballia",desc:"In Ballia, the initiative benefited around 2,000 students, promoting practical learning and scientific awareness." },
+ {no:4,start:"27/04/2019",end:"27/05/2019",district:"Meerut",desc:"In Meerut, the initiative benefited around 15,000 students, encouraging hands-on learning and scientific curiosity."},
+ {no:5,start:"16/07/2019",end:"31/07/2019",district:"Chandauli",desc:"In Chandauli, the initiative benefited around 1,800 students, fostering interest in science through interactive and practical learning experiences"},
+ {no:6,start:"10/08/2019",end:"10/08/2019",district:"Kanpur",desc:"In Kanpur, the initiative benefited around 250 students, promoting hands-on science learning and practical exposure."},
+ {no:7,start:"19/08/2019",end:"03/09/2019",district:"Etawah",desc:"In Etawah, the initiative benefited around 1,500 students, enhancing scientific understanding through practical and interactive sessions."},
+ {no:8,start:"06/09/2019",end:"11/09/2019",district:"Jaunpur Mela",desc:"At the Jaunpur Mela, the initiative benefited around 4,000 people, spreading awareness and community engagement through interactive outreach activities."},
 ];
 
 let visible = 5;
@@ -179,8 +179,6 @@ function render(){
  rows.innerHTML = filteredTours.slice(0,visible).map(t=>`
   <div class="grid grid-cols-12 gap-4 px-6 py-4 text-sm">
     <div class="col-span-1">${t.no}</div>
-    <div class="col-span-2">${t.start}</div>
-    <div class="col-span-2">${t.end}</div>
     <div class="col-span-3">${t.district}</div>
     <div class="col-span-4">${t.desc}</div>
   </div>

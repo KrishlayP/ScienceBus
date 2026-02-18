@@ -44,42 +44,7 @@
       Bringing hands-on science education to schools across Uttar Pradesh
     </p>
 
-    <!-- <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
-
-      <div class="w-full max-w-sm bg-white rounded-2xl p-7 flex items-center gap-5
-                  border border-slate-200 shadow-md
-                  transition-all duration-300
-                  hover:-translate-y-2 hover:shadow-xl">
-        <div class="w-14 h-14 rounded-xl text-2xl flex items-center justify-center">🏅</div>
-        <div class="text-left">
-          <p class="font-bold text-lg">Innovation Award 2024</p>
-          <p class="text-sm text-blue-900 mt-1">National Education Ministry</p>
-        </div>
-      </div>
-
-      <div class="w-full max-w-sm bg-white rounded-2xl p-7 flex items-center gap-5
-                  border border-slate-200 shadow-md
-                  transition-all duration-300
-                  hover:-translate-y-2 hover:shadow-xl">
-        <div class="w-14 h-14 rounded-xl text-2xl flex items-center justify-center">🏫</div>
-        <div class="text-left">
-          <p class="font-bold text-lg">150+ Schools Visited</p>
-          <p class="text-sm text-blue-900 mt-1">Across Uttar Pradesh</p>
-        </div>
-      </div>
-
-      <div class="w-full max-w-sm bg-white rounded-2xl p-7 flex items-center gap-5
-                  border border-slate-200 shadow-md
-                  transition-all duration-300
-                  hover:-translate-y-2 hover:shadow-xl">
-        <div class="w-14 h-14 rounded-xl text-2xl flex items-center justify-center">🚌</div>
-        <div class="text-left">
-          <p class="font-bold text-lg">Mobile Science Lab</p>
-          <p class="text-sm text-blue-900 mt-1">IIT Kanpur & CSTUP</p>
-        </div>
-      </div>
-
-    </div> -->
+    
   </div>
 </section>
 
@@ -212,7 +177,7 @@
 
   const sections = [
     {
-      initial: 6,
+      initial: 3,
       gridId: "newsGrid",
       btnWrapId: "newsBtnWrap",
       btnId: "newsBtn",
@@ -246,16 +211,35 @@ const impactConfig = {
   gridId: "impactGrid",
   btnWrapId: "impactBtnWrap",
   btnId: "impactBtn",
-  data: Array.from({ length: 5 }, () => ({
-    text: "The Science Bus visit was a life-changing experience for students.",
-    author: "Educator, UP"
-  })),
+  data: [
+    {
+      text: "The Science Bus visit was a truly inspiring and life-changing experience for our students, sparking curiosity and making science come alive beyond the classroom.",
+      author: "User1"
+    },
+    {
+      text: "For many of our students, this was their first real exposure to practical experiments, and it has ignited a new passion for learning.",
+      author: "User2"
+    },
+    {
+      text: "The interactive sessions made science fun, relatable, and unforgettable for our children.",
+      author: "User3"
+    },
+    {
+      text: "The Science Bus visit opened young minds to innovation and possibilities they had never imagined before.",
+      author: "User4"
+    },
+    {
+      text: "The Science Bus brought science out of textbooks and into reality, leaving our students motivated, confident, and eager to explore more.",
+      author: "User5"
+    }
+  ],
   template: t => `
     <div class="min-w-[360px] bg-white rounded-2xl p-8 border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
       <p class="italic text-gray-700">“${t.text}”</p>
       <p class="mt-6 font-semibold text-gray-900">— ${t.author}</p>
     </div>`
 };
+
 
 const grid = document.getElementById(impactConfig.gridId);
 const btnWrap = document.getElementById(impactConfig.btnWrapId);

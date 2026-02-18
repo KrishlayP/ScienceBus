@@ -32,8 +32,8 @@ const images = [
           An IITK, CSTUP & UP Govt Initiative
         </span>
       </div>
-      <p class="text-gray-600 mt-6 max-w-xl">
-        The Science Bus was a first-of-its-kind initiative at the time of its conception. It is developed on a mobile bus platform and serves as a mobile laboratory. The bus is well equipped with a wide range of laboratory accessories, such as telescopes, microscopes, and a 3D printer, to provide schoolchildren with hands-on experience in science experiments across multiple disciplines. It is also equipped with a large display screen for demonstrating experimental videos. The Science Bus has proven to be extremely effective in creating scientific awareness, strengthening practical understanding among children, and inspiring young minds across the region
+      <p class="text-gray-600 mt-6 max-w-xl text-justify">
+        <b>The Science Bus</b> was a first-of-its-kind initiative at the time of its conception. It is developed on a mobile bus platform and serves as a mobile laboratory. The bus is well equipped with a wide range of laboratory accessories, such as <b>telescopes, microscopes</b>, and a <b>3D printer</b>, to provide schoolchildren with hands-on experience in science experiments across multiple disciplines. It is also equipped with a large display screen for demonstrating experimental videos. <b>The Science Bus</b> has proven to be extremely effective in creating scientific awareness, strengthening practical understanding among children, and inspiring young minds across the region
       </p>
 
       
@@ -98,8 +98,8 @@ const images = [
             </p>
 
             <p class="text-gray-700 leading-relaxed text-justify">
-                connecting scientific concepts with students’ everyday lives.
-                eriments and modern equipment in a highly engaging and accessible manner.
+                Connecting scientific concepts with students’ everyday lives.
+                Eriments and modern equipment in a highly engaging and accessible manner.
             </p>
 
   </div>
@@ -222,7 +222,7 @@ const images = [
 
   <div class="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition">
     <h3 class="counter text-5xl font-bold text-blue-700"
-        data-target="2001">0</h3>
+        data-target="2018">0</h3>
     <p class="text-gray-600 mt-2">Initiated</p>
   </div>
 
