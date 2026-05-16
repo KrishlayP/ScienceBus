@@ -97,7 +97,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
     <!-- RIGHT: Login -->
     <a
-      href="underconstruction.php"
+      href="admin/login.php"
       class="bg-white text-blue-600 px-4 py-1.5 rounded-full text-sm font-bold hover:bg-gray-100 transition"
     >
       Login

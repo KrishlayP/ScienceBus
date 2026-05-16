@@ -66,13 +66,14 @@
 
       <!-- RIGHT FORM CARD -->
       <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10">
-        <form class="space-y-6">
+        <form id="contactForm" class="space-y-6">
+          <div id="contactMessage" class="hidden rounded-lg border px-4 py-3 text-sm"></div>
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">
               Name
             </label>
-            <input type="text" placeholder="Your name"
+            <input name="name" type="text" required placeholder="Your name"
               class="w-full rounded-lg border border-gray-300 px-4 py-3
                      focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
@@ -81,7 +82,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
-            <input type="email" placeholder="your.email@example.com"
+            <input name="email" type="email" required placeholder="your.email@example.com"
               class="w-full rounded-lg border border-gray-300 px-4 py-3
                      focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
@@ -90,7 +91,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-1">
               School Name
             </label>
-            <input type="text" placeholder="Your school"
+            <input name="school" type="text" placeholder="Your school"
               class="w-full rounded-lg border border-gray-300 px-4 py-3
                      focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
@@ -99,7 +100,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-1">
               Message
             </label>
-            <textarea rows="4" placeholder="Tell us about your requirements..."
+            <textarea name="message" rows="4" required placeholder="Tell us about your requirements..."
               class="w-full rounded-lg border border-gray-300 px-4 py-3
                      focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
           </div>
@@ -117,4 +118,21 @@
     </div>
   </div>
 </section>
-<?php include 'includes/footer.php'; ?>`
+<?php include 'includes/footer.php'; ?>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const box = document.getElementById('contactMessage');
+  try {
+    const response = await fetch('contact_ajax.php', { method: 'POST', body: new FormData(this) });
+    const json = await response.json();
+    if (!json.ok) throw new Error(json.message || 'Message failed');
+    box.className = 'rounded-lg border px-4 py-3 text-sm bg-emerald-50 border-emerald-200 text-emerald-800';
+    box.textContent = json.message;
+    this.reset();
+  } catch (error) {
+    box.className = 'rounded-lg border px-4 py-3 text-sm bg-red-50 border-red-200 text-red-700';
+    box.textContent = error.message;
+  }
+});
+</script>

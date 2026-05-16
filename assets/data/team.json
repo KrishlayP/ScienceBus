@@ -1,0 +1,80 @@
+{
+    "main_team": [
+        {
+            "id": "58a9fbdd616825c6",
+            "name": "Prof. Deepu Philip",
+            "role": "Professor, DOMS Department",
+            "org": "IIT Kanpur",
+            "email": "dphilip@iitk.ac.in",
+            "contact": "",
+            "image": "assets/image/Team/ProfDeepuPhilip.png"
+        },
+        {
+            "id": "e125ae233b6d8fdf",
+            "name": "Dr. Sumit Kumar Srivastava",
+            "role": "Scientific Officer",
+            "org": "C.S.T Department, UP",
+            "email": "sumit.astro.physics@gmail.com",
+            "contact": "",
+            "image": "assets/image/Team/sumitkumarsr.jpeg"
+        },
+        {
+            "id": "6bb29e87012473ba",
+            "name": "Rachna Agrawal",
+            "role": "Project Executive Officer",
+            "org": "IIT Kanpur",
+            "email": "rachna@iitk.ac.in",
+            "contact": "",
+            "image": "assets/image/Team/rachna.jpeg"
+        }
+    ],
+    "educator_team": [
+        {
+            "id": "1f88cdc6a893347f",
+            "name": "Mr. Rinku",
+            "role": "Educator",
+            "org": "",
+            "email": "rinkugangwar9991@gmail.com",
+            "contact": "9451237404",
+            "image": "assets/image/Team/rinku.jpeg"
+        },
+        {
+            "id": "6de7d9fd5629aac8",
+            "name": "Mr. Brikesh Kumar",
+            "role": "Educator",
+            "org": "",
+            "email": "brikesh.kumar.0108@gmail.com",
+            "contact": "7860134226",
+            "image": "assets/image/Team/brikesh.jpeg"
+        }
+    ],
+    "operational_team": [
+        {
+            "id": "213c01a325fe93d6",
+            "name": "Mr. Ashish Tripathi",
+            "role": "Operational Manager",
+            "org": "IIT Kanpur",
+            "email": "ashishkt@iitk.ac.in",
+            "contact": "",
+            "image": "assets/image/Team/ashish.jpeg"
+        },
+        {
+            "id": "895010cfd84b549a",
+            "name": "Mr. Subhashish Panday",
+            "role": "Lab Technician",
+            "org": "",
+            "email": "pshubhashish8@gmail.com",
+            "contact": "9794370873",
+            "image": "assets/image/Team/Shubhashish.jpeg"
+        },
+        {
+            "id": "b2c2f7153757c969",
+            "name": "Mr. Devendra Mishra",
+            "role": "Bus Driver",
+            "org": "",
+            "email": "devendramishra225@gmail.com",
+            "contact": "9838577697",
+            "image": "assets/image/Team/devendra.jpeg"
+        }
+    ]
+}

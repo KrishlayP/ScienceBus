@@ -1,82 +1,7 @@
 <?php 
 include 'includes/header.php'; 
-
-// 1. Define the Team Data
-$teamData = [
-    "main_team" => [
-        [
-            "name" => "Prof. Deepu Philip",
-            "role" => "Professor, DOMS Department",
-            "org" => "IIT Kanpur",
-            "email" => "dphilip@iitk.ac.in",
-            "image" => "assets/image/Team/ProfDeepuPhilip.png"
-        ],
-        [
-            "name" => "Dr. Sumit Kumar Srivastava",
-            "role" => "Scientific Officer",
-            "org" => "C.S.T Department, UP",
-            "email" => "sumit.astro.physics@gmail.com",
-            "image" => "assets/image/Team/sumitkumarsr.jpeg"
-        ],
-        [
-            "name" => "Rachna Agrawal",
-            "role" => "Project Executive Officer",
-            "org" => "IIT Kanpur",
-            "email" => "rachna@iitk.ac.in",
-            "image" => "assets/image/Team/rachna.jpeg"
-        ]
-    ],
-    "support_team" => [
-
-        "educator_team" => [
-            [
-                "name" => "Mr. Rinku",
-                "role" => "Educator",
-                "org" => "",
-                "email" => "rinkugangwar9991@gmail.com",
-                "contact" => "9451237404",
-                "image" => "assets/image/Team/rinku.jpeg"
-            ],
-            [
-                "name" => "Mr. Brikesh Kumar",
-                "role" => "Educator",
-                "org" => "",
-                "email" => "brikesh.kumar.0108@gmail.com",
-                "contact" => "7860134226",
-                "image" => "assets/image/Team/brikesh.jpeg"
-            ]
-        ],
-
-        "operational_team" => [
-            [
-                "name" => "Mr. Ashish Tripathi",
-                "role" => "Operational Manager",
-                "org" => "IIT Kanpur",
-                "email" => "ashishkt@iitk.ac.in",
-                "contact" => "",
-                "image" => "assets/image/Team/ashish.jpeg"
-            ],
-            [
-                "name" => "Mr. Subhashish Panday",
-                "role" => "Lab Technician",
-                "org" => "",
-                "email" => "pshubhashish8@gmail.com",
-                "contact" => "9794370873",
-                "image" => "assets/image/Team/Shubhashish.jpeg"
-            ],
-            [
-                "name" => "Mr. Devendra Mishra",
-                "role" => "Bus Driver",
-                "org" => "",
-                "email" => "devendramishra225@gmail.com",
-                "contact" => "9838577697",
-                "image" => "assets/image/Team/devendra.jpeg"
-            ]
-        ]
-
-    ]
-
-];
+require_once 'includes/data.php';
+$teamData = load_team_data();
 ?>
 
 <section class="bg-gradient-to-b from-blue-50 to-white py-12" id="team">
@@ -117,7 +42,7 @@ $teamData = [
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <?php foreach ($teamData['support_team']['educator_team'] as $member): ?>
+            <?php foreach ($teamData['educator_team'] as $member): ?>
                 <div class="group bg-white rounded-3xl p-8 border-2 border-blue-100 text-center shadow-sm transition-all duration-300 hover:-translate-y-3 hover:shadow-xl hover:border-blue-400">
                     
                     <img src="<?= $member['image'] ?>" 
@@ -155,7 +80,7 @@ $teamData = [
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <?php foreach ($teamData['support_team']['operational_team'] as $member): ?>
+            <?php foreach ($teamData['operational_team'] as $member): ?>
                 <div class="group bg-white rounded-3xl p-8 border-2 border-blue-100 text-center shadow-sm transition-all duration-300 hover:-translate-y-3 hover:shadow-xl hover:border-blue-400">
                     
                     <img src="<?= $member['image'] ?>" 

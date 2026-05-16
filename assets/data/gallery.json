@@ -1,67 +1,78 @@
 {
-  "categories": [
-    {
-      "name": "Travel 1",
-      "packages": [
+    "categories": [
         {
-          "name": "College 1",
-          "images": [
-            "assets/image/gallery/3.jpeg",
-            "assets/image/gallery/4.jpeg",
-            "assets/image/gallery/5.jpeg"
-          ]
+            "name": "Travel 1",
+            "packages": [
+                {
+                    "name": "College 1",
+                    "images": [
+                        "assets/image/gallery/3.jpeg",
+                        "assets/image/gallery/4.jpeg",
+                        "assets/image/gallery/5.jpeg"
+                    ]
+                },
+                {
+                    "name": "College 2",
+                    "images": [
+                        "assets/image/gallery/6.jpeg",
+                        "assets/image/gallery/10.jpeg",
+                        "assets/image/gallery/12.jpeg"
+                    ]
+                }
+            ]
         },
         {
-          "name": "College 2",
-          "images": [
-            "assets/image/gallery/6.jpeg",
-            "assets/image/gallery/10.jpeg",
-            "assets/image/gallery/12.jpeg"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Travel 2",
-      "packages": [
-        {
-          "name": "College 1",
-          "images": [
-            "assets/image/gallery/3.jpeg",
-            "assets/image/gallery/4.jpeg",
-            "assets/image/gallery/5.jpeg"
-          ]
+            "name": "Travel 2",
+            "packages": [
+                {
+                    "name": "College 1",
+                    "images": [
+                        "assets/image/gallery/3.jpeg",
+                        "assets/image/gallery/4.jpeg",
+                        "assets/image/gallery/5.jpeg"
+                    ]
+                },
+                {
+                    "name": "College 2",
+                    "images": [
+                        "assets/image/gallery/6.jpeg",
+                        "assets/image/gallery/10.jpeg",
+                        "assets/image/gallery/12.jpeg"
+                    ]
+                }
+            ]
         },
         {
-          "name": "College 2",
-          "images": [
-            "assets/image/gallery/6.jpeg",
-            "assets/image/gallery/10.jpeg",
-            "assets/image/gallery/12.jpeg"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Travel 3",
-      "packages": [
-        {
-          "name": "College 1",
-          "images": [
-            "assets/image/gallery/3.jpeg",
-            "assets/image/gallery/4.jpeg",
-            "assets/image/gallery/5.jpeg"
-          ]
+            "name": "Travel 3",
+            "packages": [
+                {
+                    "name": "College 1",
+                    "images": [
+                        "assets/image/gallery/3.jpeg",
+                        "assets/image/gallery/4.jpeg",
+                        "assets/image/gallery/5.jpeg"
+                    ]
+                },
+                {
+                    "name": "College 2",
+                    "images": [
+                        "assets/image/gallery/6.jpeg",
+                        "assets/image/gallery/10.jpeg",
+                        "assets/image/gallery/12.jpeg"
+                    ]
+                }
+            ]
         },
         {
-          "name": "College 2",
-          "images": [
-            "assets/image/gallery/6.jpeg",
-            "assets/image/gallery/10.jpeg",
-            "assets/image/gallery/12.jpeg"
-          ]
+            "name": "travel3",
+            "packages": [
+                {
+                    "name": "heheh",
+                    "images": [
+                        "assets/uploads/20260516065532-fa2815f55dc0c6bd.png"
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
