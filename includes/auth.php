@@ -5,14 +5,14 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-function default_admin_users(): array
+function default_admin_users()
 {
     return [
         'users' => [
             [
                 'id' => make_id(),
                 'name' => 'Super Admin',
-                'email' => 'superadmin@sciencebus.com',
+                'email' => 'superadmin@sciencebus.local',
                 'password' => password_hash('Admin@123', PASSWORD_DEFAULT),
                 'role' => 'super_admin',
                 'created_at' => date('c'),
@@ -20,7 +20,7 @@ function default_admin_users(): array
             [
                 'id' => make_id(),
                 'name' => 'Admin',
-                'email' => 'admin@sciencebus.com',
+                'email' => 'admin@sciencebus.local',
                 'password' => password_hash('Admin@123', PASSWORD_DEFAULT),
                 'role' => 'admin',
                 'created_at' => date('c'),
@@ -29,14 +29,14 @@ function default_admin_users(): array
     ];
 }
 
-function admin_users(): array
+function admin_users()
 {
     return load_admin_users_data();
 }
 
-function save_admin_users(array $data): void
+function save_admin_users($data)
 {
-    foreach ($data['users'] ?? [] as $user) {
+    foreach (isset($data['users']) ? $data['users'] : [] as $user) {
         db_exec(
             'INSERT INTO admin_users (id, name, email, password, role, created_at)
              VALUES (?, ?, ?, ?, ?, ?)
@@ -45,36 +45,36 @@ function save_admin_users(array $data): void
                 password = VALUES(password),
                 role = VALUES(role)',
             [
-                $user['id'] ?? make_id(),
-                $user['name'] ?? '',
-                $user['email'] ?? '',
-                $user['password'] ?? '',
-                ($user['role'] ?? '') === 'super_admin' ? 'super_admin' : 'admin',
-                date('Y-m-d H:i:s', strtotime($user['created_at'] ?? 'now')),
+                isset($user['id']) ? $user['id'] : make_id(),
+                isset($user['name']) ? $user['name'] : '',
+                isset($user['email']) ? $user['email'] : '',
+                isset($user['password']) ? $user['password'] : '',
+                (isset($user['role']) ? $user['role'] : '') === 'super_admin' ? 'super_admin' : 'admin',
+                date('Y-m-d H:i:s', strtotime(isset($user['created_at']) ? $user['created_at'] : 'now')),
             ]
         );
     }
 }
 
-function current_admin(): ?array
+function current_admin()
 {
-    return $_SESSION['admin_user'] ?? null;
+    return isset($_SESSION['admin_user']) ? $_SESSION['admin_user'] : null;
 }
 
-function is_super_admin(): bool
+function is_super_admin()
 {
     $user = current_admin();
     return $user && ($user['role'] ?? '') === 'super_admin';
 }
 
-function require_admin(): void
+function require_admin()
 {
     if (!current_admin()) {
         redirect_to('login.php');
     }
 }
 
-function require_super_admin(): void
+function require_super_admin()
 {
     require_admin();
     if (!is_super_admin()) {
@@ -83,7 +83,7 @@ function require_super_admin(): void
     }
 }
 
-function login_admin(string $email, string $password): bool
+function login_admin($email, $password)
 {
     $email = strtolower(trim($email));
     $password = trim($password);
@@ -93,7 +93,7 @@ function login_admin(string $email, string $password): bool
         [$email]
     );
 
-    if ($user && password_verify($password, trim($user['password'] ?? ''))) {
+    if ($user && password_verify($password, trim(isset($user['password']) ? $user['password'] : ''))) {
         $_SESSION['admin_user'] = [
             'id' => $user['id'],
             'name' => $user['name'],

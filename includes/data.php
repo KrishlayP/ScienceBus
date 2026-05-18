@@ -5,12 +5,12 @@ const DATA_DIR = __DIR__ . '/../assets/data';
 const UPLOAD_DIR = __DIR__ . '/../assets/uploads';
 const UPLOAD_WEB_PATH = 'assets/uploads/';
 
-function data_path(string $name): string
+function data_path($name)
 {
     return DATA_DIR . '/' . $name . '.json';
 }
 
-function read_json_data(string $name, array $fallback = []): array
+function read_json_data($name, $fallback = [])
 {
     if ($name === 'news') {
         return load_news_data();
@@ -31,7 +31,7 @@ function read_json_data(string $name, array $fallback = []): array
     return $fallback;
 }
 
-function read_legacy_json_data(string $name, array $fallback = []): array
+function read_legacy_json_data($name, $fallback = [])
 {
     $path = data_path($name);
     if (!is_file($path)) {
@@ -43,7 +43,7 @@ function read_legacy_json_data(string $name, array $fallback = []): array
     return is_array($data) ? $data : $fallback;
 }
 
-function write_json_data(string $name, array $data): bool
+function write_json_data($name, $data)
 {
     if (!is_dir(DATA_DIR)) {
         mkdir(DATA_DIR, 0775, true);
@@ -56,13 +56,13 @@ function write_json_data(string $name, array $data): bool
     ) !== false;
 }
 
-function load_news_data(): array
+function load_news_data()
 {
     $rows = db_fetch_all('SELECT image FROM news_items ORDER BY sort_order ASC, created_at DESC, id DESC');
     return ['news' => array_column($rows, 'image')];
 }
 
-function load_gallery_data(): array
+function load_gallery_data()
 {
     $categories = db_fetch_all('SELECT id, name FROM gallery_categories ORDER BY sort_order ASC, id ASC');
     $data = ['categories' => []];
@@ -92,7 +92,7 @@ function load_gallery_data(): array
     return $data;
 }
 
-function load_messages_data(): array
+function load_messages_data()
 {
     return [
         'messages' => db_fetch_all(
@@ -103,7 +103,7 @@ function load_messages_data(): array
     ];
 }
 
-function load_admin_users_data(): array
+function load_admin_users_data()
 {
     return [
         'users' => db_fetch_all(
@@ -114,23 +114,23 @@ function load_admin_users_data(): array
     ];
 }
 
-function e(?string $value): string
+function e($value)
 {
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 }
 
-function redirect_to(string $path): void
+function redirect_to($path)
 {
     header('Location: ' . $path);
     exit;
 }
 
-function make_id(): string
+function make_id()
 {
     return bin2hex(random_bytes(8));
 }
 
-function save_uploaded_image(string $field): ?string
+function save_uploaded_image($field)
 {
     if (empty($_FILES[$field]['name']) || $_FILES[$field]['error'] === UPLOAD_ERR_NO_FILE) {
         return null;
@@ -167,7 +167,7 @@ function save_uploaded_image(string $field): ?string
     return UPLOAD_WEB_PATH . $fileName;
 }
 
-function default_team_data(): array
+function default_team_data()
 {
     return [
         'main_team' => [
@@ -251,7 +251,7 @@ function default_team_data(): array
     ];
 }
 
-function load_team_data(): array
+function load_team_data()
 {
     $rows = db_fetch_all(
         'SELECT id, section, name, role, org, email, contact, image

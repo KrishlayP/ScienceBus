@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 $module = $_GET['module'] ?? '';
 
-function api_fallback_data(string $module): ?array
+function api_fallback_data($module)
 {
     if ($module === 'news') {
         return read_legacy_json_data('news', ['news' => []]);

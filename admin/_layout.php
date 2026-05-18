@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__ . '/../includes/auth.php';
 
-function admin_header(string $title): void
+function admin_header($title)
 {
     require_admin();
     $user = current_admin();
     $currentPage = basename($_SERVER['PHP_SELF']);
-    $action = $GLOBALS['adminAction'] ?? null;
+    $action = isset($GLOBALS['adminAction']) ? $GLOBALS['adminAction'] : null;
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -94,8 +94,10 @@ function admin_header(string $title): void
                 if (is_super_admin()) {
                     $links[] = ['Members', 'members.php', 'A'];
                 }
-                foreach ($links as [$label, $href, $icon]):
-                    $active = $currentPage === $href || str_starts_with($currentPage, str_replace('.php', '-', $href));
+                foreach ($links as $link):
+                    list($label, $href, $icon) = $link;
+                    $prefix = str_replace('.php', '-', $href);
+                    $active = $currentPage === $href || strpos($currentPage, $prefix) === 0;
                     $classes = $active
                         ? 'bg-emerald-100/80 text-emerald-900 shadow-sm'
                         : 'text-slate-500 hover:bg-emerald-50 hover:text-emerald-800';
@@ -143,7 +145,7 @@ function admin_header(string $title): void
     <?php
 }
 
-function admin_footer(): void
+function admin_footer()
 {
     ?>
             </div>
@@ -179,7 +181,7 @@ function admin_footer(): void
     <?php
 }
 
-function flash_message(): ?string
+function flash_message()
 {
     if (empty($_SESSION['flash'])) {
         return null;
@@ -189,12 +191,12 @@ function flash_message(): ?string
     return $message;
 }
 
-function set_flash(string $message): void
+function set_flash($message)
 {
     $_SESSION['flash'] = $message;
 }
 
-function flash_block(): void
+function flash_block()
 {
     $message = flash_message();
     if ($message) {

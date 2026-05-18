@@ -1,11 +1,11 @@
 <?php
 require_once __DIR__ . '/config.php';
 
-function db(?string $database = DB_NAME): PDO
+function db($database = DB_NAME)
 {
     static $connections = [];
 
-    $key = $database ?? '__server__';
+    $key = $database === null ? '__server__' : $database;
     if (isset($connections[$key])) {
         return $connections[$key];
     }
@@ -22,25 +22,25 @@ function db(?string $database = DB_NAME): PDO
     ]);
 }
 
-function db_exec(string $sql, array $params = []): PDOStatement
+function db_exec($sql, $params = [])
 {
     $stmt = db()->prepare($sql);
     $stmt->execute($params);
     return $stmt;
 }
 
-function db_fetch_all(string $sql, array $params = []): array
+function db_fetch_all($sql, $params = [])
 {
     return db_exec($sql, $params)->fetchAll();
 }
 
-function db_fetch_one(string $sql, array $params = []): ?array
+function db_fetch_one($sql, $params = [])
 {
     $row = db_exec($sql, $params)->fetch();
     return $row === false ? null : $row;
 }
 
-function db_column(string $sql, array $params = []): mixed
+function db_column($sql, $params = [])
 {
     $value = db_exec($sql, $params)->fetchColumn();
     return $value === false ? null : $value;

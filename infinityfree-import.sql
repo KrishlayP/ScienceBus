@@ -83,8 +83,8 @@ CREATE TABLE IF NOT EXISTS `contact_messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `admin_users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-('dda692418f704e04', 'Super Admin', 'superadmin@sciencebus.com', '$2y$10$DN0VIhGVVzjUDXJgR5HnbuDaWBdsr3Xyd5EVGp8GiGz0QEW9QU4S2', 'super_admin', '2026-05-16 06:54:49'),
-('c827040ffb12e20d', 'Admin', 'admin@sciencebus.com', '$2y$10$wLgidnICXdN7L8Et/5XTLOay.3V6HgrIJlNFkFPDLTOHWy/3tCU4W', 'admin', '2026-05-16 06:54:50')
+('dda692418f704e04', 'Super Admin', 'superadmin@sciencebus.local', '$2y$10$DN0VIhGVVzjUDXJgR5HnbuDaWBdsr3Xyd5EVGp8GiGz0QEW9QU4S2', 'super_admin', '2026-05-16 06:54:49'),
+('c827040ffb12e20d', 'Admin', 'admin@sciencebus.local', '$2y$10$wLgidnICXdN7L8Et/5XTLOay.3V6HgrIJlNFkFPDLTOHWy/3tCU4W', 'admin', '2026-05-16 06:54:50')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `password` = VALUES(`password`), `role` = VALUES(`role`);
 
 INSERT INTO `team_members` (`id`, `section`, `name`, `role`, `org`, `email`, `contact`, `image`, `sort_order`) VALUES

@@ -1,11 +1,13 @@
 <?php
 require_once __DIR__ . '/auth.php';
 
-function get_collection(string $module): array
+function get_collection($module)
 {
     if ($module === 'news') {
         $data = read_json_data('news', ['news' => []]);
-        return array_map(fn($image) => ['id' => md5($image), 'title' => basename($image), 'image' => $image], $data['news'] ?? []);
+        return array_map(function ($image) {
+            return ['id' => md5($image), 'title' => basename($image), 'image' => $image];
+        }, isset($data['news']) ? $data['news'] : []);
     }
 
     if ($module === 'team') {
@@ -31,7 +33,7 @@ function get_collection(string $module): array
     return [];
 }
 
-function save_news_item(): void
+function save_news_item()
 {
     $image = save_uploaded_image('image') ?: trim($_POST['image_path'] ?? '');
 
@@ -48,12 +50,12 @@ function save_news_item(): void
     }
 }
 
-function delete_news_item(string $id): void
+function delete_news_item($id)
 {
     db_exec('DELETE FROM news_items WHERE MD5(image) = ? OR id = ?', [$id, $id]);
 }
 
-function save_team_item(): void
+function save_team_item()
 {
     $section = $_POST['section'] ?? 'main_team';
     $allowed = ['main_team', 'educator_team', 'operational_team'];
@@ -91,12 +93,12 @@ function save_team_item(): void
     );
 }
 
-function delete_team_item(string $section, string $id): void
+function delete_team_item($section, $id)
 {
     db_exec('DELETE FROM team_members WHERE section = ? AND id = ?', [$section, $id]);
 }
 
-function save_gallery_item(): void
+function save_gallery_item()
 {
     $categoryIndex = (int) ($_POST['category_index'] ?? -1);
     $packageIndex = (int) ($_POST['package_index'] ?? -1);
@@ -133,7 +135,7 @@ function save_gallery_item(): void
     db()->commit();
 }
 
-function delete_gallery_package(int $categoryIndex, int $packageIndex): void
+function delete_gallery_package($categoryIndex, $packageIndex)
 {
     $category = gallery_category_by_index($categoryIndex);
     if (!$category) {
@@ -146,12 +148,12 @@ function delete_gallery_package(int $categoryIndex, int $packageIndex): void
     }
 }
 
-function delete_message_item(string $id): void
+function delete_message_item($id)
 {
     db_exec('DELETE FROM contact_messages WHERE id = ?', [$id]);
 }
 
-function save_admin_member(): void
+function save_admin_member()
 {
     require_super_admin();
     db_exec(
@@ -167,7 +169,7 @@ function save_admin_member(): void
     );
 }
 
-function gallery_category_by_index(int $index): ?array
+function gallery_category_by_index($index)
 {
     if ($index < 0) {
         return null;
@@ -178,7 +180,7 @@ function gallery_category_by_index(int $index): ?array
     );
 }
 
-function gallery_package_by_index(int $categoryId, int $index): ?array
+function gallery_package_by_index($categoryId, $index)
 {
     if ($index < 0) {
         return null;

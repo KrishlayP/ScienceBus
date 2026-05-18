@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <label class="block mt-6 text-sm font-medium">Email</label>
-        <input name="email" type="text" inputmode="email" required class="mt-1 w-full rounded-lg border px-4 py-3" placeholder="superadmin@sciencebus.com">
+        <input name="email" type="text" inputmode="email" required class="mt-1 w-full rounded-lg border px-4 py-3" placeholder="superadmin@sciencebus.local">
 
         <label class="block mt-4 text-sm font-medium">Password</label>
         <input name="password" type="password" required class="mt-1 w-full rounded-lg border px-4 py-3" placeholder="Admin@123">
@@ -42,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button class="mt-6 w-full rounded-lg bg-blue-600 text-white font-semibold py-3 hover:bg-blue-700">Login</button>
 
         <div class="mt-5 text-xs text-slate-500 leading-5">
-            Default super admin: superadmin@sciencebus.com / Admin@123<br>
-            Default admin: admin@sciencebus.com / Admin@123
+            Default super admin: superadmin@sciencebus.local / Admin@123<br>
+            Default admin: admin@sciencebus.local / Admin@123
         </div>
     </form>
 </body>

@@ -1,6 +1,6 @@
 <?php
-$hostName = $_SERVER['HTTP_HOST'] ?? '';
-$isLocal = $hostName === '' || str_contains($hostName, 'localhost') || str_contains($hostName, '127.0.0.1');
+$hostName = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+$isLocal = $hostName === '' || strpos($hostName, 'localhost') !== false || strpos($hostName, '127.0.0.1') !== false;
 
 define('DB_HOST', $isLocal ? '127.0.0.1' : 'sql108.infinityfree.com');
 define('DB_PORT', $isLocal ? 3307 : 3306);
