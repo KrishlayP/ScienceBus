@@ -4,7 +4,7 @@ require_once __DIR__ . '/auth.php';
 function get_collection($module)
 {
     if ($module === 'news') {
-        $data = read_json_data('news', ['news' => []]);
+        $data = load_news_data();
         return array_map(function ($image) {
             return ['id' => md5($image), 'title' => basename($image), 'image' => $image];
         }, isset($data['news']) ? $data['news'] : []);
@@ -15,11 +15,11 @@ function get_collection($module)
     }
 
     if ($module === 'gallery') {
-        return read_json_data('gallery', ['categories' => []]);
+        return load_gallery_data();
     }
 
     if ($module === 'messages') {
-        return read_json_data('messages', ['messages' => []]);
+        return load_messages_data();
     }
 
     if ($module === 'members') {
@@ -27,7 +27,7 @@ function get_collection($module)
         return ['users' => array_map(function ($user) {
             unset($user['password']);
             return $user;
-        }, $data['users'] ?? [])];
+        }, isset($data['users']) ? $data['users'] : [])];
     }
 
     return [];
@@ -35,7 +35,7 @@ function get_collection($module)
 
 function save_news_item()
 {
-    $image = save_uploaded_image('image') ?: trim($_POST['image_path'] ?? '');
+    $image = save_uploaded_image('image') ?: trim(isset($_POST['image_path']) ? $_POST['image_path'] : '');
 
     if ($image !== '') {
         db()->beginTransaction();
@@ -57,14 +57,14 @@ function delete_news_item($id)
 
 function save_team_item()
 {
-    $section = $_POST['section'] ?? 'main_team';
+    $section = isset($_POST['section']) ? $_POST['section'] : 'main_team';
     $allowed = ['main_team', 'educator_team', 'operational_team'];
     if (!in_array($section, $allowed, true)) {
         $section = 'main_team';
     }
 
-    $id = trim($_POST['id'] ?? '');
-    $image = save_uploaded_image('image') ?: trim($_POST['existing_image'] ?? '');
+    $id = trim(isset($_POST['id']) ? $_POST['id'] : '');
+    $image = save_uploaded_image('image') ?: trim(isset($_POST['existing_image']) ? $_POST['existing_image'] : '');
     $id = $id ?: make_id();
     $sortOrder = (int) db_column('SELECT COALESCE(MAX(sort_order), -1) + 1 FROM team_members WHERE section = ?', [$section]);
 
@@ -82,11 +82,11 @@ function save_team_item()
         [
             $id,
             $section,
-            trim($_POST['name'] ?? ''),
-            trim($_POST['role'] ?? ''),
-            trim($_POST['org'] ?? ''),
-            trim($_POST['email'] ?? ''),
-            trim($_POST['contact'] ?? ''),
+            trim(isset($_POST['name']) ? $_POST['name'] : ''),
+            trim(isset($_POST['role']) ? $_POST['role'] : ''),
+            trim(isset($_POST['org']) ? $_POST['org'] : ''),
+            trim(isset($_POST['email']) ? $_POST['email'] : ''),
+            trim(isset($_POST['contact']) ? $_POST['contact'] : ''),
             $image,
             $sortOrder,
         ]
@@ -100,10 +100,10 @@ function delete_team_item($section, $id)
 
 function save_gallery_item()
 {
-    $categoryIndex = (int) ($_POST['category_index'] ?? -1);
-    $packageIndex = (int) ($_POST['package_index'] ?? -1);
-    $categoryName = trim($_POST['category_name'] ?? 'Gallery');
-    $packageName = trim($_POST['package_name'] ?? 'Album');
+    $categoryIndex = (int) (isset($_POST['category_index']) ? $_POST['category_index'] : -1);
+    $packageIndex = (int) (isset($_POST['package_index']) ? $_POST['package_index'] : -1);
+    $categoryName = trim(isset($_POST['category_name']) ? $_POST['category_name'] : 'Gallery');
+    $packageName = trim(isset($_POST['package_name']) ? $_POST['package_name'] : 'Album');
 
     db()->beginTransaction();
     $category = gallery_category_by_index($categoryIndex);
@@ -126,7 +126,7 @@ function save_gallery_item()
         db_exec('UPDATE gallery_packages SET name = ? WHERE id = ?', [$packageName, $packageId]);
     }
 
-    $image = save_uploaded_image('image') ?: trim($_POST['image_path'] ?? '');
+    $image = save_uploaded_image('image') ?: trim(isset($_POST['image_path']) ? $_POST['image_path'] : '');
     if ($image !== '') {
         $imageSort = (int) db_column('SELECT COALESCE(MAX(sort_order), -1) + 1 FROM gallery_images WHERE package_id = ?', [$packageId]);
         db_exec('INSERT INTO gallery_images (package_id, image, sort_order) VALUES (?, ?, ?)', [$packageId, $image, $imageSort]);
@@ -161,9 +161,9 @@ function save_admin_member()
          VALUES (?, ?, ?, ?, ?, NOW())',
         [
             make_id(),
-            trim($_POST['name'] ?? ''),
-            trim($_POST['email'] ?? ''),
-            password_hash($_POST['password'] ?? 'Admin@123', PASSWORD_DEFAULT),
+            trim(isset($_POST['name']) ? $_POST['name'] : ''),
+            trim(isset($_POST['email']) ? $_POST['email'] : ''),
+            password_hash(isset($_POST['password']) ? $_POST['password'] : 'Admin@123', PASSWORD_DEFAULT),
             $_POST['role'] === 'super_admin' ? 'super_admin' : 'admin',
         ]
     );

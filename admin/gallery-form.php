@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/_layout.php';
-$gallery = read_json_data('gallery', ['categories' => []]);
-$categoryIndex = (int) ($_GET['category_index'] ?? -1);
-$packageIndex = (int) ($_GET['package_index'] ?? -1);
-$categoryName = $gallery['categories'][$categoryIndex]['name'] ?? '';
-$packageName = $gallery['categories'][$categoryIndex]['packages'][$packageIndex]['name'] ?? '';
+$gallery = load_gallery_data();
+$categoryIndex = (int) (isset($_GET['category_index']) ? $_GET['category_index'] : -1);
+$packageIndex = (int) (isset($_GET['package_index']) ? $_GET['package_index'] : -1);
+$categoryName = isset($gallery['categories'][$categoryIndex]['name']) ? $gallery['categories'][$categoryIndex]['name'] : '';
+$packageName = isset($gallery['categories'][$categoryIndex]['packages'][$packageIndex]['name']) ? $gallery['categories'][$categoryIndex]['packages'][$packageIndex]['name'] : '';
 admin_header('Add Gallery Item');
 ?>
 <div class="max-w-2xl">

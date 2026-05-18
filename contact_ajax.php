@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $message = [
     'id' => make_id(),
-    'name' => trim($_POST['name'] ?? ''),
-    'email' => trim($_POST['email'] ?? ''),
-    'school' => trim($_POST['school'] ?? ''),
-    'message' => trim($_POST['message'] ?? ''),
+    'name' => trim(isset($_POST['name']) ? $_POST['name'] : ''),
+    'email' => trim(isset($_POST['email']) ? $_POST['email'] : ''),
+    'school' => trim(isset($_POST['school']) ? $_POST['school'] : ''),
+    'message' => trim(isset($_POST['message']) ? $_POST['message'] : ''),
     'created_at' => date('Y-m-d H:i:s'),
 ];
 

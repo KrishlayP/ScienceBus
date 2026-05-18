@@ -64,7 +64,7 @@ function current_admin()
 function is_super_admin()
 {
     $user = current_admin();
-    return $user && ($user['role'] ?? '') === 'super_admin';
+    return $user && (isset($user['role']) ? $user['role'] : '') === 'super_admin';
 }
 
 function require_admin()

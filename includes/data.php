@@ -1,60 +1,8 @@
 <?php
 require_once __DIR__ . '/database.php';
 
-const DATA_DIR = __DIR__ . '/../assets/data';
 const UPLOAD_DIR = __DIR__ . '/../assets/uploads';
 const UPLOAD_WEB_PATH = 'assets/uploads/';
-
-function data_path($name)
-{
-    return DATA_DIR . '/' . $name . '.json';
-}
-
-function read_json_data($name, $fallback = [])
-{
-    if ($name === 'news') {
-        return load_news_data();
-    }
-
-    if ($name === 'gallery') {
-        return load_gallery_data();
-    }
-
-    if ($name === 'messages') {
-        return load_messages_data();
-    }
-
-    if ($name === 'users') {
-        return load_admin_users_data();
-    }
-
-    return $fallback;
-}
-
-function read_legacy_json_data($name, $fallback = [])
-{
-    $path = data_path($name);
-    if (!is_file($path)) {
-        return $fallback;
-    }
-
-    $json = file_get_contents($path);
-    $data = json_decode($json, true);
-    return is_array($data) ? $data : $fallback;
-}
-
-function write_json_data($name, $data)
-{
-    if (!is_dir(DATA_DIR)) {
-        mkdir(DATA_DIR, 0775, true);
-    }
-
-    return file_put_contents(
-        data_path($name),
-        json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
-        LOCK_EX
-    ) !== false;
-}
 
 function load_news_data()
 {

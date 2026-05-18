@@ -1,35 +1,35 @@
 <?php
 require_once __DIR__ . '/_layout.php';
 
-$news = read_json_data('news', ['news' => []]);
-$gallery = read_json_data('gallery', ['categories' => []]);
+$news = load_news_data();
+$gallery = load_gallery_data();
 $team = load_team_data();
-$messages = read_json_data('messages', ['messages' => []]);
+$messages = load_messages_data();
 
-$teamCount = count($team['main_team'] ?? []) + count($team['educator_team'] ?? []) + count($team['operational_team'] ?? []);
+$teamCount = count(isset($team['main_team']) ? $team['main_team'] : []) + count(isset($team['educator_team']) ? $team['educator_team'] : []) + count(isset($team['operational_team']) ? $team['operational_team'] : []);
 $albumCount = 0;
 $photoCount = 0;
-foreach (($gallery['categories'] ?? []) as $cat) {
-    $albumCount += count($cat['packages'] ?? []);
-    foreach (($cat['packages'] ?? []) as $package) {
-        $photoCount += count($package['images'] ?? []);
+foreach (isset($gallery['categories']) ? $gallery['categories'] : [] as $cat) {
+    $albumCount += count(isset($cat['packages']) ? $cat['packages'] : []);
+    foreach (isset($cat['packages']) ? $cat['packages'] : [] as $package) {
+        $photoCount += count(isset($package['images']) ? $package['images'] : []);
     }
 }
 
 admin_header('Dashboard');
 
 $cards = [
-    ['News Images', count($news['news'] ?? []), 'news.php', 'N'],
+    ['News Images', count(isset($news['news']) ? $news['news'] : []), 'news.php', 'N'],
     ['Gallery Albums', $albumCount, 'gallery.php', 'G'],
     ['Team Members', $teamCount, 'team.php', 'T'],
-    ['Messages', count($messages['messages'] ?? []), 'messages.php', 'M'],
+    ['Messages', count(isset($messages['messages']) ? $messages['messages'] : []), 'messages.php', 'M'],
 ];
 
 $quickRows = [
-    ['News Images', count($news['news'] ?? []), 'news-form.php', 'Add News'],
+    ['News Images', count(isset($news['news']) ? $news['news'] : []), 'news-form.php', 'Add News'],
     ['Gallery Albums', $albumCount . ' albums / ' . $photoCount . ' photos', 'gallery-form.php', 'Add Photo'],
     ['Team Members', $teamCount, 'team-form.php', 'Add Member'],
-    ['Messages', count($messages['messages'] ?? []), 'messages.php', 'View Inbox'],
+    ['Messages', count(isset($messages['messages']) ? $messages['messages'] : []), 'messages.php', 'View Inbox'],
 ];
 ?>
 <section class="admin-animate grid gap-4 lg:grid-cols-[1fr_150px]">
