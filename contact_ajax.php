@@ -24,8 +24,17 @@ if ($message['name'] === '' || $message['email'] === '' || $message['message'] =
     exit;
 }
 
-$data = read_json_data('messages', ['messages' => []]);
-array_unshift($data['messages'], $message);
-write_json_data('messages', $data);
+db_exec(
+    'INSERT INTO contact_messages (id, name, email, school, message, created_at)
+     VALUES (?, ?, ?, ?, ?, ?)',
+    [
+        $message['id'],
+        $message['name'],
+        $message['email'],
+        $message['school'],
+        $message['message'],
+        $message['created_at'],
+    ]
+);
 
 echo json_encode(['ok' => true, 'message' => 'Message sent successfully.']);

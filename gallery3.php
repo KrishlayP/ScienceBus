@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ===== LOAD JSON =====
   // ===== LOAD JSON =====
-fetch('assets/data/gallery.json?v=' + Date.now())
+fetch('data_api.php?module=gallery&v=' + Date.now())
   .then(res => {
 
     if (!res.ok) throw new Error("JSON NOT FOUND");

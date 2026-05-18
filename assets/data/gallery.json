@@ -8,7 +8,8 @@
                     "images": [
                         "assets/image/gallery/3.jpeg",
                         "assets/image/gallery/4.jpeg",
-                        "assets/image/gallery/5.jpeg"
+                        "assets/image/gallery/5.jpeg",
+                        "assets/uploads/20260518081123-f52cc833066ea4db.png"
                     ]
                 },
                 {
@@ -65,14 +66,7 @@
         },
         {
             "name": "travel3",
-            "packages": [
-                {
-                    "name": "heheh",
-                    "images": [
-                        "assets/uploads/20260516065532-fa2815f55dc0c6bd.png"
-                    ]
-                }
-            ]
+            "packages": []
         }
     ]
 }

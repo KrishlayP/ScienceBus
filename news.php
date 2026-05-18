@@ -338,7 +338,7 @@ function initMediaGrid(config) {
 }
 
 /* ---------- FETCH NEWS JSON ---------- */
-fetch('assets/data/news.json')
+fetch('data_api.php?module=news')
   .then(res => {
     if (!res.ok) {
       throw new Error("HTTP error " + res.status);

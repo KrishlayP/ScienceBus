@@ -4,16 +4,11 @@
 <script>
 const images = [
   "assets/image/header/quote1.jpeg",
-  "assets/image/header/quote2.jpeg",
   "assets/image/header/quote3.jpeg",
   "assets/image/header/a.jpg",
   "assets/image/header/b.jpg",
-  "assets/image/header/c.png",
   "assets/image/header/d.jpg",
   "assets/image/header/e.jpg",
-  "assets/image/header/f.jpg",
-  "assets/image/header/j.png",
-  "assets/image/header/k.jpeg",
 ];
 </script>
 

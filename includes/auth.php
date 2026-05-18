@@ -12,7 +12,7 @@ function default_admin_users(): array
             [
                 'id' => make_id(),
                 'name' => 'Super Admin',
-                'email' => 'superadmin@sciencebus.local',
+                'email' => 'superadmin@sciencebus.com',
                 'password' => password_hash('Admin@123', PASSWORD_DEFAULT),
                 'role' => 'super_admin',
                 'created_at' => date('c'),
@@ -20,7 +20,7 @@ function default_admin_users(): array
             [
                 'id' => make_id(),
                 'name' => 'Admin',
-                'email' => 'admin@sciencebus.local',
+                'email' => 'admin@sciencebus.com',
                 'password' => password_hash('Admin@123', PASSWORD_DEFAULT),
                 'role' => 'admin',
                 'created_at' => date('c'),
@@ -31,18 +31,41 @@ function default_admin_users(): array
 
 function admin_users(): array
 {
-    $data = read_json_data('users', []);
-    if (empty($data['users'])) {
-        $data = default_admin_users();
-        write_json_data('users', $data);
+    try {
+        $data = load_admin_users_data();
+        if (!empty($data['users'])) {
+            return $data;
+        }
+    } catch (Throwable) {
+        $data = read_legacy_json_data('users', []);
+        if (!empty($data['users'])) {
+            return $data;
+        }
     }
 
-    return $data;
+    return default_admin_users();
 }
 
 function save_admin_users(array $data): void
 {
-    write_json_data('users', $data);
+    foreach ($data['users'] ?? [] as $user) {
+        db_exec(
+            'INSERT INTO admin_users (id, name, email, password, role, created_at)
+             VALUES (?, ?, ?, ?, ?, ?)
+             ON DUPLICATE KEY UPDATE
+                name = VALUES(name),
+                password = VALUES(password),
+                role = VALUES(role)',
+            [
+                $user['id'] ?? make_id(),
+                $user['name'] ?? '',
+                $user['email'] ?? '',
+                $user['password'] ?? '',
+                ($user['role'] ?? '') === 'super_admin' ? 'super_admin' : 'admin',
+                date('Y-m-d H:i:s', strtotime($user['created_at'] ?? 'now')),
+            ]
+        );
+    }
 }
 
 function current_admin(): ?array

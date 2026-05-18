@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/database.php';
+
 const DATA_DIR = __DIR__ . '/../assets/data';
 const UPLOAD_DIR = __DIR__ . '/../assets/uploads';
 const UPLOAD_WEB_PATH = 'assets/uploads/';
@@ -9,6 +11,31 @@ function data_path(string $name): string
 }
 
 function read_json_data(string $name, array $fallback = []): array
+{
+    try {
+        if ($name === 'news') {
+            return load_news_data();
+        }
+
+        if ($name === 'gallery') {
+            return load_gallery_data();
+        }
+
+        if ($name === 'messages') {
+            return load_messages_data();
+        }
+
+        if ($name === 'users') {
+            return load_admin_users_data();
+        }
+    } catch (Throwable) {
+        // During first install or if MySQL is offline, keep the old JSON data readable.
+    }
+
+    return read_legacy_json_data($name, $fallback);
+}
+
+function read_legacy_json_data(string $name, array $fallback = []): array
 {
     $path = data_path($name);
     if (!is_file($path)) {
@@ -31,6 +58,64 @@ function write_json_data(string $name, array $data): bool
         json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
         LOCK_EX
     ) !== false;
+}
+
+function load_news_data(): array
+{
+    $rows = db_fetch_all('SELECT image FROM news_items ORDER BY sort_order ASC, created_at DESC, id DESC');
+    return ['news' => array_column($rows, 'image')];
+}
+
+function load_gallery_data(): array
+{
+    $categories = db_fetch_all('SELECT id, name FROM gallery_categories ORDER BY sort_order ASC, id ASC');
+    $data = ['categories' => []];
+
+    foreach ($categories as $category) {
+        $packages = db_fetch_all(
+            'SELECT id, name FROM gallery_packages WHERE category_id = ? ORDER BY sort_order ASC, id ASC',
+            [$category['id']]
+        );
+
+        $categoryData = ['name' => $category['name'], 'packages' => []];
+        foreach ($packages as $package) {
+            $images = db_fetch_all(
+                'SELECT image FROM gallery_images WHERE package_id = ? ORDER BY sort_order ASC, id ASC',
+                [$package['id']]
+            );
+
+            $categoryData['packages'][] = [
+                'name' => $package['name'],
+                'images' => array_column($images, 'image'),
+            ];
+        }
+
+        $data['categories'][] = $categoryData;
+    }
+
+    return $data;
+}
+
+function load_messages_data(): array
+{
+    return [
+        'messages' => db_fetch_all(
+            'SELECT id, name, email, school, message, DATE_FORMAT(created_at, "%Y-%m-%d %H:%i:%s") AS created_at
+             FROM contact_messages
+             ORDER BY created_at DESC, id DESC'
+        ),
+    ];
+}
+
+function load_admin_users_data(): array
+{
+    return [
+        'users' => db_fetch_all(
+            'SELECT id, name, email, password, role, DATE_FORMAT(created_at, "%Y-%m-%dT%H:%i:%s") AS created_at
+             FROM admin_users
+             ORDER BY created_at ASC, name ASC'
+        ),
+    ];
 }
 
 function e(?string $value): string
@@ -172,11 +257,36 @@ function default_team_data(): array
 
 function load_team_data(): array
 {
-    $data = read_json_data('team', []);
-    if (!$data) {
-        $data = default_team_data();
-        write_json_data('team', $data);
+    try {
+        $rows = db_fetch_all(
+            'SELECT id, section, name, role, org, email, contact, image
+             FROM team_members
+             ORDER BY FIELD(section, "main_team", "educator_team", "operational_team"), sort_order ASC, created_at ASC'
+        );
+
+        $data = [
+            'main_team' => [],
+            'educator_team' => [],
+            'operational_team' => [],
+        ];
+
+        foreach ($rows as $row) {
+            $section = $row['section'];
+            unset($row['section']);
+            if (isset($data[$section])) {
+                $data[$section][] = $row;
+            }
+        }
+
+        if ($rows) {
+            return $data;
+        }
+    } catch (Throwable) {
+        $data = read_legacy_json_data('team', []);
+        if ($data) {
+            return $data;
+        }
     }
 
-    return $data;
+    return default_team_data();
 }
