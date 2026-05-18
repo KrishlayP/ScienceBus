@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let packages = [];
 
-  fetch('assets/data/gallery.json')
+  fetch('data_api.php?module=gallery')
     .then(res => res.json())
     .then(data => {
-      packages = data.packages;
+      packages = (data.categories || []).flatMap(category => category.packages || []);
       showPackages();
     });
 

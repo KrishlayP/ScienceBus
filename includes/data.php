@@ -12,27 +12,23 @@ function data_path(string $name): string
 
 function read_json_data(string $name, array $fallback = []): array
 {
-    try {
-        if ($name === 'news') {
-            return load_news_data();
-        }
-
-        if ($name === 'gallery') {
-            return load_gallery_data();
-        }
-
-        if ($name === 'messages') {
-            return load_messages_data();
-        }
-
-        if ($name === 'users') {
-            return load_admin_users_data();
-        }
-    } catch (Throwable) {
-        // During first install or if MySQL is offline, keep the old JSON data readable.
+    if ($name === 'news') {
+        return load_news_data();
     }
 
-    return read_legacy_json_data($name, $fallback);
+    if ($name === 'gallery') {
+        return load_gallery_data();
+    }
+
+    if ($name === 'messages') {
+        return load_messages_data();
+    }
+
+    if ($name === 'users') {
+        return load_admin_users_data();
+    }
+
+    return $fallback;
 }
 
 function read_legacy_json_data(string $name, array $fallback = []): array
@@ -257,36 +253,25 @@ function default_team_data(): array
 
 function load_team_data(): array
 {
-    try {
-        $rows = db_fetch_all(
-            'SELECT id, section, name, role, org, email, contact, image
-             FROM team_members
-             ORDER BY FIELD(section, "main_team", "educator_team", "operational_team"), sort_order ASC, created_at ASC'
-        );
+    $rows = db_fetch_all(
+        'SELECT id, section, name, role, org, email, contact, image
+         FROM team_members
+         ORDER BY FIELD(section, "main_team", "educator_team", "operational_team"), sort_order ASC, created_at ASC'
+    );
 
-        $data = [
-            'main_team' => [],
-            'educator_team' => [],
-            'operational_team' => [],
-        ];
+    $data = [
+        'main_team' => [],
+        'educator_team' => [],
+        'operational_team' => [],
+    ];
 
-        foreach ($rows as $row) {
-            $section = $row['section'];
-            unset($row['section']);
-            if (isset($data[$section])) {
-                $data[$section][] = $row;
-            }
-        }
-
-        if ($rows) {
-            return $data;
-        }
-    } catch (Throwable) {
-        $data = read_legacy_json_data('team', []);
-        if ($data) {
-            return $data;
+    foreach ($rows as $row) {
+        $section = $row['section'];
+        unset($row['section']);
+        if (isset($data[$section])) {
+            $data[$section][] = $row;
         }
     }
 
-    return default_team_data();
+    return $data;
 }
