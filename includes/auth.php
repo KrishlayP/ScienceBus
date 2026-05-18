@@ -31,19 +31,7 @@ function default_admin_users(): array
 
 function admin_users(): array
 {
-    try {
-        $data = load_admin_users_data();
-        if (!empty($data['users'])) {
-            return $data;
-        }
-    } catch (Throwable) {
-        $data = read_legacy_json_data('users', []);
-        if (!empty($data['users'])) {
-            return $data;
-        }
-    }
-
-    return default_admin_users();
+    return load_admin_users_data();
 }
 
 function save_admin_users(array $data): void
@@ -97,17 +85,22 @@ function require_super_admin(): void
 
 function login_admin(string $email, string $password): bool
 {
-    $data = admin_users();
-    foreach ($data['users'] as $user) {
-        if (strtolower($user['email']) === strtolower($email) && password_verify($password, $user['password'])) {
-            $_SESSION['admin_user'] = [
-                'id' => $user['id'],
-                'name' => $user['name'],
-                'email' => $user['email'],
-                'role' => $user['role'],
-            ];
-            return true;
-        }
+    $email = strtolower(trim($email));
+    $password = trim($password);
+
+    $user = db_fetch_one(
+        'SELECT id, name, email, password, role FROM admin_users WHERE LOWER(email) = ? LIMIT 1',
+        [$email]
+    );
+
+    if ($user && password_verify($password, trim($user['password'] ?? ''))) {
+        $_SESSION['admin_user'] = [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'role' => $user['role'],
+        ];
+        return true;
     }
 
     return false;
