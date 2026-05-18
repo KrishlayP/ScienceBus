@@ -1,5 +1,19 @@
 <?php
-require_once __DIR__ . '/../includes/database.php';
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+try {
+    require_once __DIR__ . '/../includes/database.php';
+} catch (Throwable $error) {
+    header('Content-Type: text/plain; charset=utf-8');
+    http_response_code(500);
+    echo "Login bootstrap error\n";
+    echo "Message: " . $error->getMessage() . "\n";
+    echo "File: " . $error->getFile() . "\n";
+    echo "Line: " . $error->getLine() . "\n";
+    exit;
+}
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -22,27 +36,31 @@ if (isset($_SESSION['admin_user'])) {
 
 $error = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = strtolower(trim(isset($_POST['email']) ? $_POST['email'] : ''));
-    $password = trim(isset($_POST['password']) ? $_POST['password'] : '');
+try {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $email = strtolower(trim(isset($_POST['email']) ? $_POST['email'] : ''));
+        $password = trim(isset($_POST['password']) ? $_POST['password'] : '');
 
-    $user = db_fetch_one(
-        'SELECT id, name, email, password, role FROM admin_users WHERE LOWER(email) = ? LIMIT 1',
-        [$email]
-    );
+        $user = db_fetch_one(
+            'SELECT id, name, email, password, role FROM admin_users WHERE LOWER(email) = ? LIMIT 1',
+            [$email]
+        );
 
-    if ($user && password_verify($password, trim($user['password']))) {
-        $_SESSION['admin_user'] = [
-            'id' => $user['id'],
-            'name' => $user['name'],
-            'email' => $user['email'],
-            'role' => $user['role'],
-        ];
+        if ($user && password_verify($password, trim($user['password']))) {
+            $_SESSION['admin_user'] = [
+                'id' => $user['id'],
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'role' => $user['role'],
+            ];
 
-        login_redirect('index.php');
+            login_redirect('index.php');
+        }
+
+        $error = 'Invalid email or password.';
     }
-
-    $error = 'Invalid email or password.';
+} catch (Throwable $error) {
+    $error = 'Server error: ' . $error->getMessage();
 }
 ?>
 <!DOCTYPE html>

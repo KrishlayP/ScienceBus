@@ -38,7 +38,7 @@ function save_news_item()
     $image = save_uploaded_image('image') ?: trim(isset($_POST['image_path']) ? $_POST['image_path'] : '');
 
     if ($image !== '') {
-        db()->beginTransaction();
+        db_begin();
         db_exec('UPDATE news_items SET sort_order = sort_order + 1');
         db_exec(
             'INSERT INTO news_items (id, title, image, sort_order)
@@ -46,7 +46,7 @@ function save_news_item()
              ON DUPLICATE KEY UPDATE title = VALUES(title), sort_order = 0',
             [make_id(), basename($image), $image]
         );
-        db()->commit();
+        db_commit();
     }
 }
 
@@ -105,12 +105,12 @@ function save_gallery_item()
     $categoryName = trim(isset($_POST['category_name']) ? $_POST['category_name'] : 'Gallery');
     $packageName = trim(isset($_POST['package_name']) ? $_POST['package_name'] : 'Album');
 
-    db()->beginTransaction();
+    db_begin();
     $category = gallery_category_by_index($categoryIndex);
     if (!$category) {
         $categorySort = (int) db_column('SELECT COALESCE(MAX(sort_order), -1) + 1 FROM gallery_categories');
         db_exec('INSERT INTO gallery_categories (name, sort_order) VALUES (?, ?)', [$categoryName, $categorySort]);
-        $categoryId = (int) db()->lastInsertId();
+        $categoryId = (int) db_last_insert_id();
     } else {
         $categoryId = (int) $category['id'];
         db_exec('UPDATE gallery_categories SET name = ? WHERE id = ?', [$categoryName, $categoryId]);
@@ -120,7 +120,7 @@ function save_gallery_item()
     if (!$package) {
         $packageSort = (int) db_column('SELECT COALESCE(MAX(sort_order), -1) + 1 FROM gallery_packages WHERE category_id = ?', [$categoryId]);
         db_exec('INSERT INTO gallery_packages (category_id, name, sort_order) VALUES (?, ?, ?)', [$categoryId, $packageName, $packageSort]);
-        $packageId = (int) db()->lastInsertId();
+        $packageId = (int) db_last_insert_id();
     } else {
         $packageId = (int) $package['id'];
         db_exec('UPDATE gallery_packages SET name = ? WHERE id = ?', [$packageName, $packageId]);
@@ -132,7 +132,7 @@ function save_gallery_item()
         db_exec('INSERT INTO gallery_images (package_id, image, sort_order) VALUES (?, ?, ?)', [$packageId, $image, $imageSort]);
     }
 
-    db()->commit();
+    db_commit();
 }
 
 function delete_gallery_package($categoryIndex, $packageIndex)
