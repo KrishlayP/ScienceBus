@@ -1,7 +1,16 @@
 <?php
 require_once __DIR__ . '/data.php';
 
+const ADMIN_SESSION_TIMEOUT = 1800;
+
 if (session_status() === PHP_SESSION_NONE) {
+    if (APP_ENV === 'production') {
+        ini_set('session.cookie_httponly', '1');
+        ini_set('session.cookie_samesite', 'Lax');
+        if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+            ini_set('session.cookie_secure', '1');
+        }
+    }
     session_start();
 }
 
@@ -37,6 +46,7 @@ function admin_users()
 function save_admin_users($data)
 {
     foreach (isset($data['users']) ? $data['users'] : [] as $user) {
+        $role = normalize_admin_role(isset($user['role']) ? $user['role'] : '');
         db_exec(
             'INSERT INTO admin_users (id, name, email, password, role, created_at)
              VALUES (?, ?, ?, ?, ?, ?)
@@ -49,22 +59,77 @@ function save_admin_users($data)
                 isset($user['name']) ? $user['name'] : '',
                 isset($user['email']) ? $user['email'] : '',
                 isset($user['password']) ? $user['password'] : '',
-                (isset($user['role']) ? $user['role'] : '') === 'super_admin' ? 'super_admin' : 'admin',
+                $role,
                 date('Y-m-d H:i:s', strtotime(isset($user['created_at']) ? $user['created_at'] : 'now')),
             ]
         );
     }
 }
 
+function normalize_admin_role($role)
+{
+    $role = strtolower(trim((string) $role));
+    $role = str_replace(['-', ' '], '_', $role);
+    return $role === 'super_admin' ? 'super_admin' : 'admin';
+}
+
+function admin_role_label($role)
+{
+    return ucwords(str_replace('_', ' ', normalize_admin_role($role)));
+}
+
+function clear_admin_session()
+{
+    $_SESSION = [];
+
+    if (ini_get('session.use_cookies')) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    }
+
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        session_destroy();
+    }
+}
+
+function start_admin_session($user)
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
+
+    session_regenerate_id(true);
+
+    $_SESSION['admin_user'] = [
+        'id' => $user['id'],
+        'name' => $user['name'],
+        'email' => $user['email'],
+        'role' => normalize_admin_role($user['role']),
+    ];
+    $_SESSION['admin_last_activity'] = time();
+}
+
 function current_admin()
 {
-    return isset($_SESSION['admin_user']) ? $_SESSION['admin_user'] : null;
+    if (!isset($_SESSION['admin_user'])) {
+        return null;
+    }
+
+    $lastActivity = isset($_SESSION['admin_last_activity']) ? (int) $_SESSION['admin_last_activity'] : 0;
+    if ($lastActivity <= 0 || (time() - $lastActivity) > ADMIN_SESSION_TIMEOUT) {
+        clear_admin_session();
+        return null;
+    }
+
+    $_SESSION['admin_last_activity'] = time();
+    $_SESSION['admin_user']['role'] = normalize_admin_role(isset($_SESSION['admin_user']['role']) ? $_SESSION['admin_user']['role'] : '');
+    return $_SESSION['admin_user'];
 }
 
 function is_super_admin()
 {
     $user = current_admin();
-    return $user && (isset($user['role']) ? $user['role'] : '') === 'super_admin';
+    return $user && normalize_admin_role(isset($user['role']) ? $user['role'] : '') === 'super_admin';
 }
 
 function require_admin()
@@ -94,12 +159,7 @@ function login_admin($email, $password)
     );
 
     if ($user && password_verify($password, trim(isset($user['password']) ? $user['password'] : ''))) {
-        $_SESSION['admin_user'] = [
-            'id' => $user['id'],
-            'name' => $user['name'],
-            'email' => $user['email'],
-            'role' => $user['role'],
-        ];
+        start_admin_session($user);
         return true;
     }
 

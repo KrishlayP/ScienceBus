@@ -21,6 +21,11 @@ try {
         exit;
     }
 
+    if ($module === 'social_impact') {
+        echo json_encode(load_social_impact_data());
+        exit;
+    }
+
     http_response_code(404);
     echo json_encode(['ok' => false, 'message' => 'Unknown module.']);
 } catch (Throwable $error) {

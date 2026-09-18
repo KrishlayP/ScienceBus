@@ -5,7 +5,7 @@
   <!-- BACK BUTTON -->
   <button id="backBtn"
           class="hidden mb-6 px-5 py-2 bg-blue-600 text-white rounded-xl shadow">
-    ← Back
+    &larr; Back
   </button>
 
   <!-- GALLERY GRID -->
@@ -23,7 +23,7 @@
 
     <button id="closeModal"
             class="absolute top-4 right-4 text-2xl font-bold">
-      ✕
+      &times;
     </button>
 
     <img id="modalMainImage"
@@ -51,17 +51,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let packages = [];
 
+  function html(value) {
+    return String(value || '').replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    }[char]));
+  }
+
   fetch('data_api.php?module=gallery')
     .then(res => res.json())
     .then(data => {
       packages = (data.categories || []).flatMap(category => category.packages || []);
       showPackages();
+    })
+    .catch(() => {
+      panel.innerHTML = '<p class="col-span-full text-center text-red-600">Unable to load gallery data.</p>';
     });
 
   // ================= SHOW PACKAGES =================
   function showPackages() {
     panel.innerHTML = '';
     backBtn.classList.add('hidden');
+
+    if (!packages.length) {
+      panel.innerHTML = '<p class="col-span-full text-center text-gray-500">No gallery albums available.</p>';
+      return;
+    }
 
     packages.forEach(pkg => {
       const card = document.createElement('div');
@@ -70,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'shadow-md hover:shadow-xl hover:-translate-y-1 transition';
 
       card.innerHTML = `
-        <h2 class="text-xl font-bold text-blue-700 mb-2">${pkg.name}</h2>
-        <p class="text-gray-500">${pkg.images.length} Photos</p>
+        <h2 class="text-xl font-bold text-blue-700 mb-2">${html(pkg.name)}</h2>
+        <p class="text-gray-500">${(pkg.images || []).length} Photos</p>
       `;
 
       card.onclick = () => showImages(pkg);
@@ -84,14 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.innerHTML = '';
     backBtn.classList.remove('hidden');
 
-    pkg.images.forEach((src, index) => {
+    const images = pkg.images || [];
+    if (!images.length) {
+      panel.innerHTML = '<p class="col-span-full text-center text-gray-500">No photos in this album.</p>';
+      return;
+    }
+
+    images.forEach((src, index) => {
       const img = document.createElement('img');
       img.src = src;
       img.className =
         'cursor-pointer rounded-3xl border aspect-[16/10] object-cover ' +
         'shadow-md hover:shadow-xl hover:scale-[1.03] transition';
 
-      img.onclick = () => openModal(pkg.images, index);
+      img.onclick = () => openModal(images, index);
       panel.appendChild(img);
     });
   }

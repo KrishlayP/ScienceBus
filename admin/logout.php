@@ -1,4 +1,4 @@
 <?php
 require_once __DIR__ . '/../includes/auth.php';
-session_destroy();
+clear_admin_session();
 redirect_to('login.php');

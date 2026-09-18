@@ -15,14 +15,20 @@ admin_header('Members');
 document.addEventListener('DOMContentLoaded', loadMembers);
 
 async function loadMembers() {
+  setLoading('memberList', 'cards');
   const res = await request('members');
+  clearLoading('memberList');
   document.getElementById('memberList').innerHTML = (res.data.users || []).map(user => `
     <article class="bg-slate-50 border rounded-xl p-4">
       <div class="font-semibold">${html(user.name)}</div>
       <div class="text-sm text-slate-500">${html(user.email)}</div>
-      <span class="mt-3 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">${html((user.role || '').replace('_', ' '))}</span>
+      <div class="mt-3 flex items-center justify-between gap-3">
+        <span class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">${html((user.role || '').replace('_', ' '))}</span>
+        ${user.role === 'admin' ? `<button class="admin-action rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700" onclick="deleteItem('members',{id:'${html(user.id)}'},loadMembers)">Delete</button>` : ''}
+      </div>
     </article>
   `).join('');
+  filterList('memberList');
 }
 </script>
 <?php admin_footer(); ?>

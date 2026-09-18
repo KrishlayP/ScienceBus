@@ -1,0 +1,16 @@
+# Generated deployment builds
+/dist/
+
+# Runtime uploads (files already tracked by Git remain tracked)
+/assets/uploads/
+
+# Local dependencies and build caches
+/sciencebus-react/node_modules/
+/sciencebus-react/dist/
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+

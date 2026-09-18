@@ -23,17 +23,17 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <body class="bg-white text-gray-800">
 
 <!-- ================= TOP HEADER ================= -->
-<nav class="bg-white border-b sticky top-0 z-50 h-[72px] md:h-[88px]">
-  <div class="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
+<nav class="bg-white border-b sticky top-0 z-50">
+  <div class="max-w-[1600px] mx-auto px-3 sm:px-4 h-14 md:h-16 flex justify-between items-center gap-3">
 
     <!-- Logo -->
-    <div class="flex items-center gap-3">
-      <div class="bg-blue-600 p-2 rounded-lg shadow-sm">
-        <img src="assets/image/logo/logo.png" class="w-6 h-6 md:w-8 md:h-8 object-contain" />
+    <div class="flex min-w-0 items-center gap-2 md:gap-3">
+      <div class="bg-blue-600 p-1.5 md:p-2 rounded-lg shadow-sm shrink-0">
+        <img src="assets/image/logo/logo.png" class="w-5 h-5 md:w-7 md:h-7 object-contain" />
       </div>
-      <div class="leading-tight">
-        <h1 class="text-base md:text-2xl font-bold">The Science Bus</h1>
-        <p class="hidden lg:block text-xs text-gray-500 italic">A Mobile Science Lab</p>
+      <div class="leading-tight min-w-0">
+        <h1 class="truncate text-base sm:text-lg md:text-xl font-bold">The Science Bus</h1>
+        <p class="hidden sm:block text-[11px] text-gray-500 italic">A Mobile Science Lab</p>
         <!-- <span class="text-[10px] md:text-xs text-blue-700 font-semibold italic">
           An IITK, CSTUP & UP Govt Initiative
         </span> -->
@@ -41,18 +41,18 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     </div>
 
     <!-- Logos -->
-    <div class="flex gap-2 md:gap-4">
-      <img src="assets/image/logo/iit1.jpg" class="h-8 md:h-14 object-contain" />
-      <img src="assets/image/logo/iit2.jpg" class="h-8 md:h-14 object-contain" />
-      <img src="assets/image/logo/iit3.jpg" class="h-8 md:h-14 object-contain" />
+    <div class="flex shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
+      <img src="assets/image/logo/iit1.jpg" class="h-7 sm:h-8 md:h-10 object-contain" />
+      <img src="assets/image/logo/iit2.jpg" class="h-7 sm:h-8 md:h-10 object-contain" />
+      <img src="assets/image/logo/iit3.jpg" class="h-7 sm:h-8 md:h-10 object-contain" />
     </div>
 
   </div>
 </nav>
 
 <!-- ================= MAIN NAV ================= -->
-<nav class="sticky top-[72px] md:top-[88px] z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 shadow-md">
-  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+<nav class="sticky top-14 md:top-16 z-40 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 shadow-md">
+  <div class="max-w-[1600px] mx-auto px-3 sm:px-4 py-1.5 flex items-center justify-between">
 
     <!-- LEFT: Hamburger + Menu -->
     <div class="flex items-center gap-4">
@@ -70,7 +70,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       </button>
 
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex gap-8 text-white font-medium">
+      <ul class="hidden md:flex gap-5 lg:gap-8 text-white font-medium">
         <?php
         $menuItems = [
           "Home" => "index.php",

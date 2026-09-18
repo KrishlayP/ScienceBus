@@ -24,17 +24,22 @@ if ($message['name'] === '' || $message['email'] === '' || $message['message'] =
     exit;
 }
 
-db_exec(
-    'INSERT INTO contact_messages (id, name, email, school, message, created_at)
-     VALUES (?, ?, ?, ?, ?, ?)',
-    [
-        $message['id'],
-        $message['name'],
-        $message['email'],
-        $message['school'],
-        $message['message'],
-        $message['created_at'],
-    ]
-);
+try {
+    db_exec(
+        'INSERT INTO contact_messages (id, name, email, school, message, created_at)
+         VALUES (?, ?, ?, ?, ?, ?)',
+        [
+            $message['id'],
+            $message['name'],
+            $message['email'],
+            $message['school'],
+            $message['message'],
+            $message['created_at'],
+        ]
+    );
 
-echo json_encode(['ok' => true, 'message' => 'Message sent successfully.']);
+    echo json_encode(['ok' => true, 'message' => 'Message sent successfully.']);
+} catch (Throwable $error) {
+    http_response_code(503);
+    echo json_encode(['ok' => false, 'message' => 'Message service is temporarily unavailable.']);
+}

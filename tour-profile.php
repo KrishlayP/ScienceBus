@@ -1,268 +1,141 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once __DIR__ . '/includes/data.php';
+$profile = load_tour_profile_data();
+$stats = $profile['stats'];
+$tours = $profile['tours'];
+include 'includes/header.php';
+?>
 
-<!-- ================= HERO ================= -->
-<section class="bg-gradient-to-b from-blue-50 to-white py-3">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 text-center">
+<section class="bg-gradient-to-b from-blue-50 to-white py-8">
+  <div class="mx-auto max-w-7xl px-4 text-center sm:px-6">
+    <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">Our Journey Across Uttar Pradesh</p>
+    <h1 class="mx-auto max-w-3xl text-xl font-semibold leading-snug text-slate-950 sm:text-2xl md:text-3xl">
+      From December 2018 to till now, The Science Bus traveled across Uttar Pradesh, bringing science education to thousands.
+    </h1>
 
-<p class="text-sm uppercase tracking-widest text-blue-600 mb-3 font-medium">
-Our Journey Across Uttar Pradesh
-</p>
-
-<h1 class="text-xl sm:text-2xl md:text-3xl font-semibold max-w-3xl mx-auto">
-From December 2018 to Till now, The Science Bus traveled across Uttar Pradesh,
-bringing science education to thousands.
-</h1>
-
-<div class="mt-10 sm:mt-16 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-
-<div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-2 transition">
-<p class="text-3xl font-bold text-slate-900">18</p>
-<p class="text-slate-500 mt-1">Total Tours</p>
-</div>
-
-<div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-2 transition">
-<p class="text-3xl font-bold text-slate-900">60,000 +</p>
-<p class="text-slate-500 mt-1">People Benefitted</p>
-</div>
-
-<div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-2 transition">
-<p class="text-3xl font-bold text-slate-900">8</p>
-<p class="text-slate-500 mt-1">Districts Covered</p>
-</div>
-
-<div class="bg-white rounded-2xl p-6 border border-blue-400 shadow-sm hover:shadow-lg hover:-translate-y-2 transition">
-<p class="text-3xl font-bold text-slate-900">2018–Till Date</p>
-<p class="text-slate-500 mt-1">Active Period</p>
-</div>
-
-</div>
-</div>
+    <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-xl border border-blue-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <p class="text-3xl font-bold text-slate-900"><?= e($stats['total_tours']) ?></p>
+        <p class="mt-1 text-slate-500">Total Tours</p>
+      </div>
+      <div class="rounded-xl border border-blue-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <p class="text-3xl font-bold text-slate-900"><?= e($stats['people_benefitted']) ?></p>
+        <p class="mt-1 text-slate-500">People Benefitted</p>
+      </div>
+      <div class="rounded-xl border border-blue-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <p class="text-3xl font-bold text-slate-900"><?= e($stats['districts_covered']) ?></p>
+        <p class="mt-1 text-slate-500">Districts Covered</p>
+      </div>
+      <div class="rounded-xl border border-blue-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <p class="text-3xl font-bold text-slate-900"><?= e($stats['active_period']) ?></p>
+        <p class="mt-1 text-slate-500">Active Period</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<section class="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+  <div class="overflow-hidden rounded-xl border bg-white shadow-lg">
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
+      <h2 class="font-semibold text-white">Complete Tour History</h2>
+    </div>
 
-<!-- ================= TOUR HISTORY ================= -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+    <div class="overflow-x-auto">
+      <div class="min-w-[760px]">
+        <div class="grid grid-cols-12 gap-4 bg-slate-100 px-6 py-3 text-sm font-semibold text-gray-700">
+          <div>S.No</div>
+          <div class="col-span-2">Tour Start</div>
+          <div class="col-span-2">Tour End</div>
+          <div class="col-span-3">District</div>
+          <div class="col-span-4">Description</div>
+        </div>
+        <div id="tourRows" class="divide-y"></div>
+      </div>
+    </div>
 
-<div class="bg-white rounded-2xl shadow-lg border overflow-hidden">
-
-<div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
-<h2 class="text-white font-semibold text-lg">Complete Tour History</h2>
-</div>
-
-
-<!-- TABLE WRAPPER -->
-<div class="overflow-x-auto flex ">
-
-<div class="w-full max-w-5xl">
-
-<!-- TABLE HEADER -->
-<div class="grid grid-cols-12 gap-4 px-6 py-3 text-sm font-semibold bg-slate-100 text-gray-700">
-
-<div class="">S.No</div>
-
-<div class="col-span-4 md:col-span-3">
-District
-</div>
-
-<div class="col-span-6 md:col-span-8">
-Description
-</div>
-
-</div>
-
-<div id="tourRows" class="divide-y"></div>
-
-</div>
-</div>
-
-
-<div class="text-center py-6">
-<button id="tourBtn"
-class="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition">
-Show More ↓
-</button>
-</div>
-
-</div>
+    <div class="py-6 text-center">
+      <button id="tourBtn" class="rounded-xl bg-blue-600 px-8 py-3 text-white transition hover:bg-blue-700">Show More &darr;</button>
+    </div>
+  </div>
 </section>
 
-
-<!-- ================= CTA ================= -->
-<section class="py-6 bg-white text-center px-4">
-
-<h2 class="text-xl sm:text-2xl md:text-3xl font-semibold">
-Want The Science Bus at Your School?
-</h2>
-
-<p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-Contact us today to schedule a visit and bring hands-on science education.
-</p>
-
-<div class="mt-6 sm:mt-8">
-
-<button type="button"
-onclick="openVisitModal()"
-class="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition">
-
-Schedule a Visit →
-
-</button>
-
-</div>
-
+<section class="bg-white px-4 py-8 text-center">
+  <h2 class="text-xl font-semibold sm:text-2xl md:text-3xl">Want The Science Bus at Your School?</h2>
+  <p class="mx-auto mt-4 max-w-2xl text-gray-600">Contact us today to schedule a visit and bring hands-on science education.</p>
+  <button type="button" onclick="openVisitModal()" class="mt-6 rounded-xl bg-blue-600 px-8 py-4 text-white transition hover:bg-blue-700">
+    Schedule a Visit &rarr;
+  </button>
 </section>
 
-
-<!-- ================= MODAL ================= -->
-<div id="visitModal"
-class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50 px-4">
-
-<div class="bg-white max-w-2xl w-full p-6 sm:p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto">
-
-<button onclick="closeVisitModal()"
-class="absolute top-4 right-4 text-2xl text-gray-400">&times;</button>
-
-<h2 class="text-2xl font-semibold mb-6">
-Schedule a Visit
-</h2>
-
-<form class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-<input class="border p-3 rounded-lg" placeholder="School Name">
-
-<input class="border p-3 rounded-lg" placeholder="Contact Person">
-
-<input class="border p-3 rounded-lg" placeholder="Email">
-
-<input class="border p-3 rounded-lg" placeholder="Phone">
-
-<input type="date" class="border p-3 rounded-lg">
-
-<input type="time" class="border p-3 rounded-lg">
-
-<input class="border p-3 rounded-lg md:col-span-2" placeholder="No. of Students">
-
-<textarea class="border p-3 rounded-lg md:col-span-2"
-rows="3"
-placeholder="Additional Notes"></textarea>
-
-<div class="md:col-span-2 text-center">
-
-<button class="bg-blue-600 text-white px-8 py-3 rounded-xl">
-Submit
-</button>
-
+<div id="visitModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4">
+  <div class="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 sm:p-8">
+    <button onclick="closeVisitModal()" class="absolute right-4 top-4 text-2xl text-gray-400">&times;</button>
+    <h2 class="mb-6 text-2xl font-semibold">Schedule a Visit</h2>
+    <form class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <input class="rounded-lg border p-3" placeholder="School Name">
+      <input class="rounded-lg border p-3" placeholder="Contact Person">
+      <input class="rounded-lg border p-3" placeholder="Email">
+      <input class="rounded-lg border p-3" placeholder="Phone">
+      <input type="date" class="rounded-lg border p-3">
+      <input type="time" class="rounded-lg border p-3">
+      <input class="rounded-lg border p-3 md:col-span-2" placeholder="No. of Students">
+      <textarea class="rounded-lg border p-3 md:col-span-2" rows="3" placeholder="Additional Notes"></textarea>
+      <div class="text-center md:col-span-2">
+        <button class="rounded-xl bg-blue-600 px-8 py-3 text-white">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
-
-</form>
-
-</div>
-</div>
-
 
 <?php include 'includes/footer.php'; ?>
 
-
-<!-- ================= SCRIPT ================= -->
 <script>
-
-const tours = [
-
-{no:1,district:"Chitrakoot",desc:"This initiative has reached around 4,500 students in Chitrakoot, fostering curiosity and hands-on learning in science and technology."},
-
-{no:2,district:"Kumbh Mela, Prayagraj",desc:"This event at the world-famous Kumbh Mela in Prayagraj has benefited around 30,000 people, offering spiritual, social, and economic opportunities to visitors and local communities."},
-
-{no:3,district:"Ballia",desc:"In Ballia, the initiative benefited around 2,000 students, promoting practical learning and scientific awareness."},
-
-{no:4,district:"Meerut",desc:"In Meerut, the initiative benefited around 15,000 students, encouraging hands-on learning and scientific curiosity."},
-
-{no:5,district:"Chandauli",desc:"In Chandauli, the initiative benefited around 1,800 students, fostering interest in science through interactive and practical learning experiences"},
-
-{no:6,district:"Kanpur",desc:"In Kanpur, the initiative benefited around 250 students, promoting hands-on science learning and practical exposure."},
-
-{no:7,district:"Etawah",desc:"In Etawah, the initiative benefited around 1,500 students, enhancing scientific understanding through practical and interactive sessions."},
-
-{no:8,district:"Jaunpur Mela",desc:"At the Jaunpur Mela, the initiative benefited around 4,000 people, spreading awareness and community engagement through interactive outreach activities."},
-
-];
-
-
+const tours = <?= json_encode(array_values($tours), JSON_UNESCAPED_UNICODE) ?>;
 let visible = 5;
+const rows = document.getElementById('tourRows');
+const btn = document.getElementById('tourBtn');
 
-const rows = document.getElementById("tourRows");
-const btn = document.getElementById("tourBtn");
-
-
-function render(){
-
-rows.innerHTML = tours.slice(0,visible).map(t=>`
-
-<div class="grid grid-cols-12 gap-4 px-6 py-4 text-sm items-start hover:bg-slate-50 transition">
-
-<div class="col-span-2 md:col-span-1 font-medium text-gray-700">
-${t.no}
-</div>
-
-<div class="col-span-4 md:col-span-3 font-medium text-gray-800">
-${t.district}
-</div>
-
-<div class="col-span-6 md:col-span-8 text-gray-600 leading-relaxed">
-${t.desc}
-</div>
-
-</div>
-
-`).join("");
-
-btn.textContent =
-visible < tours.length
-? "Show More ↓"
-: "Show Less ↑";
-
+function html(value) {
+  return String(value || '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  }[char]));
 }
 
+function render() {
+  rows.innerHTML = tours.slice(0, visible).map((tour, index) => `
+    <div class="grid grid-cols-12 gap-4 px-6 py-4 text-sm transition hover:bg-slate-50">
+      <div class="font-medium text-gray-700">${index + 1}</div>
+      <div class="col-span-2 text-gray-600">${html(tour.tour_start)}</div>
+      <div class="col-span-2 text-gray-600">${html(tour.tour_end)}</div>
+      <div class="col-span-3 font-medium text-gray-800">${html(tour.district)}</div>
+      <div class="col-span-4 leading-relaxed text-gray-600">${html(tour.description)}</div>
+    </div>
+  `).join('');
+
+  btn.hidden = tours.length <= 5;
+  btn.innerHTML = visible < tours.length ? 'Show More &darr;' : 'Show Less &uarr;';
+}
 
 btn.onclick = () => {
-
-visible =
-visible < tours.length
-? tours.length
-: 5;
-
-render();
-
-}
-
-
-render();
-
-
-/* MODAL */
-
-function openVisitModal(){
-
-const m=document.getElementById("visitModal");
-
-m.classList.remove("hidden");
-m.classList.add("flex");
-
-}
-
-function closeVisitModal(){
-
-const m=document.getElementById("visitModal");
-
-m.classList.add("hidden");
-m.classList.remove("flex");
-
-}
-
-document.getElementById("visitModal").onclick=e=>{
-
-if(e.target.id==="visitModal")
-closeVisitModal();
-
+  visible = visible < tours.length ? tours.length : 5;
+  render();
 };
 
+function openVisitModal() {
+  const modal = document.getElementById('visitModal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+}
+
+function closeVisitModal() {
+  const modal = document.getElementById('visitModal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+}
+
+render();
 </script>

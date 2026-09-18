@@ -1,16 +1,11 @@
-<?php include 'includes/header.php'; ?>
-
-<!-- ================= HERO SLIDER IMAGES ================= -->
-<script>
-const images = [
-  "assets/image/header/quote1.jpeg",
-  "assets/image/header/quote3.jpeg",
-  "assets/image/header/a.jpg",
-  "assets/image/header/b.jpg",
-  "assets/image/header/d.jpg",
-  "assets/image/header/e.jpg",
-];
-</script>
+<?php
+include 'includes/header.php';
+require_once __DIR__ . '/includes/data.php';
+$homeSlider = load_home_slider_data();
+$heroImages = array_values(array_filter(array_map(function ($slide) {
+    return isset($slide['image']) ? $slide['image'] : '';
+}, isset($homeSlider['slides']) ? $homeSlider['slides'] : [])));
+?>
 
 <!-- ================= HERO SECTION ================= -->
 <section class="bg-gradient-to-b from-blue-50 to-white py-6">
@@ -257,6 +252,8 @@ const images = [
 
 <!-- ================= SCRIPTS ================= -->
 <script>
+const images = <?= json_encode($heroImages, JSON_UNESCAPED_SLASHES) ?>;
+
 document.getElementById("heroSlider").innerHTML = images.map(img => `
   <div class="swiper-slide">
     <img src="${img}" class="w-full h-[220px] sm:h-[300px] md:h-[380px] object-cover">

@@ -21,7 +21,9 @@ admin_header('Messages');
 document.addEventListener('DOMContentLoaded', loadMessages);
 
 async function loadMessages() {
+  setLoading('messageRows', 'table');
   const res = await request('messages');
+  clearLoading('messageRows');
   document.getElementById('messageRows').innerHTML = (res.data.messages || []).map(message => `
     <tr class="border-t">
       <td class="p-3">${html(message.name)}</td>
@@ -32,6 +34,7 @@ async function loadMessages() {
       ${res.superAdmin ? `<td class="p-3"><button class="admin-action rounded-lg bg-red-600 text-white px-3 py-2 text-sm" onclick="deleteItem('messages',{id:'${message.id}'},loadMessages)">Delete</button></td>` : ''}
     </tr>
   `).join('');
+  paginateTableBody('messageRows');
 }
 </script>
 <?php admin_footer(); ?>

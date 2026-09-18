@@ -14,7 +14,9 @@ admin_header('Team');
 document.addEventListener('DOMContentLoaded', loadTeam);
 
 async function loadTeam() {
+  setLoading('teamList', 'cards');
   const res = await request('team');
+  clearLoading('teamList');
   const labels = {main_team:'Main', educator_team:'Educator', operational_team:'Operational'};
   const markup = Object.entries(res.data).flatMap(([section, members]) => members.map(member => `
     <article class="admin-card bg-slate-50 border rounded-xl p-4">
@@ -33,6 +35,7 @@ async function loadTeam() {
     </article>
   `)).join('');
   document.getElementById('teamList').innerHTML = markup;
+  filterList('teamList');
 }
 </script>
 <?php admin_footer(); ?>
