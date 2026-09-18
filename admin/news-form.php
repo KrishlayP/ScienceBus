@@ -3,8 +3,10 @@ require_once __DIR__ . '/_layout.php';
 admin_header('Add News');
 ?>
 <div class="max-w-2xl">
-    <a href="news.php" class="admin-action text-sm font-semibold text-blue-700">Back to News</a>
-    <form id="newsForm" class="admin-surface mt-4 bg-white rounded-2xl border shadow-sm p-6" enctype="multipart/form-data">
+    <div class="mb-4 flex justify-end">
+        <a href="news.php" class="admin-action border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Back to News</a>
+    </div>
+    <form id="newsForm" class="admin-surface bg-white rounded-2xl border shadow-sm p-6" enctype="multipart/form-data">
         <h2 class="font-semibold text-xl mb-1">Add News Image</h2>
         <p class="text-sm text-slate-500 mb-6">Upload a new media image or enter existing image path.</p>
         <label class="block text-sm font-medium">Upload Image</label>

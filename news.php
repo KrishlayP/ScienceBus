@@ -28,6 +28,7 @@
        class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl">
 </div>
 
+<?php if (false): // Temporarily hidden: Latest News & School Visits section ?>
 <!-- ================= HERO ================= -->
 <section class="bg-gradient-to-b from-blue-50 to-white py-3">
   <div class="max-w-7xl mx-auto px-6 py-5 text-center">
@@ -66,6 +67,7 @@
     </button>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- ================= MEDIA ================= -->
 <section class="bg-[#f4fbfd] py-10">
@@ -140,6 +142,7 @@
 
 <?php include 'includes/footer.php'; ?>
 
+<?php if (false): // Temporarily hidden: School Visits cards script ?>
 <!-- ================= SCRIPT ================= -->
 <script>
   function initViewMore({ data, initial, gridId, btnWrapId, btnId, template }) {
@@ -205,81 +208,83 @@
 
   sections.forEach(initViewMore);
 </script>
+<?php endif; ?>
 <script>
-const impactConfig = {
-  initial: 3,
-  gridId: "impactGrid",
-  btnWrapId: "impactBtnWrap",
-  btnId: "impactBtn",
-  data: [
-    {
-      text: "The Science Bus visit was a truly inspiring and life-changing experience for our students, sparking curiosity and making science come alive beyond the classroom.",
-      author: "User1"
-    },
-    {
-      text: "For many of our students, this was their first real exposure to practical experiments, and it has ignited a new passion for learning.",
-      author: "User2"
-    },
-    {
-      text: "The interactive sessions made science fun, relatable, and unforgettable for our children.",
-      author: "User3"
-    },
-    {
-      text: "The Science Bus visit opened young minds to innovation and possibilities they had never imagined before.",
-      author: "User4"
-    },
-    {
-      text: "The Science Bus brought science out of textbooks and into reality, leaving our students motivated, confident, and eager to explore more.",
-      author: "User5"
-    }
-  ],
-  template: t => `
-    <div class="min-w-[360px] bg-white rounded-2xl p-8 border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
-      <p class="italic text-gray-700">“${t.text}”</p>
-      <p class="mt-6 font-semibold text-gray-900">— ${t.author}</p>
-    </div>`
-};
-
-
-const grid = document.getElementById(impactConfig.gridId);
-const btnWrap = document.getElementById(impactConfig.btnWrapId);
-const btn = document.getElementById(impactConfig.btnId);
-
-let index = 0;
-
-// render cards
-impactConfig.data.forEach(item => {
-  grid.insertAdjacentHTML("beforeend", impactConfig.template(item));
-});
-
-// show button if needed
-if (impactConfig.data.length > impactConfig.initial) {
-  btnWrap.classList.remove("hidden");
+function escapeImpactHtml(value) {
+  return String(value || '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  }[char]));
 }
 
-// slide logic
-function slideImpact() {
-  const cardWidth = grid.children[0].offsetWidth + 40; // gap included
-  index++;
+function impactStars(rating) {
+  const value = Math.max(1, Math.min(5, Number(rating) || 5));
+  return `<span class="text-amber-400">${'&#9733;'.repeat(value)}</span><span class="text-gray-300">${'&#9734;'.repeat(5 - value)}</span>`;
+}
 
-  if (index > grid.children.length - impactConfig.initial) {
-    index = 0;
+function initImpactSlider(data) {
+  const impactConfig = {
+    initial: 3,
+    gridId: "impactGrid",
+    btnWrapId: "impactBtnWrap",
+    btnId: "impactBtn",
+    data,
+    template: t => `
+      <div class="min-w-[360px] bg-white rounded-2xl p-8 border shadow-md hover:-translate-y-2 hover:shadow-xl transition">
+        <div class="mb-4 text-xl tracking-wide">${impactStars(t.rating)}</div>
+        <p class="italic text-gray-700">"${escapeImpactHtml(t.description)}"</p>
+        <p class="mt-6 font-semibold text-gray-900">- ${escapeImpactHtml(t.username)}</p>
+      </div>`
+  };
+
+  const grid = document.getElementById(impactConfig.gridId);
+  const btnWrap = document.getElementById(impactConfig.btnWrapId);
+  const btn = document.getElementById(impactConfig.btnId);
+  let index = 0;
+  let autoSlide = null;
+
+  grid.innerHTML = "";
+  btnWrap.classList.add("hidden");
+  grid.style.transform = "translateX(0)";
+
+  impactConfig.data.forEach(item => {
+    grid.insertAdjacentHTML("beforeend", impactConfig.template(item));
+  });
+
+  if (impactConfig.data.length > impactConfig.initial) {
+    btnWrap.classList.remove("hidden");
   }
 
-  grid.style.transform = `translateX(-${index * cardWidth}px)`;
+  function slideImpact() {
+    if (!grid.children.length) return;
+    const cardWidth = grid.children[0].offsetWidth + 40;
+    index++;
+    if (index > grid.children.length - impactConfig.initial) {
+      index = 0;
+    }
+    grid.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
+
+  if (impactConfig.data.length > impactConfig.initial) {
+    autoSlide = setInterval(slideImpact, 3000);
+    grid.addEventListener("mouseenter", () => clearInterval(autoSlide));
+    grid.addEventListener("mouseleave", () => {
+      autoSlide = setInterval(slideImpact, 3000);
+    });
+    btn.addEventListener("click", slideImpact);
+  }
 }
 
-// auto move
-let autoSlide = setInterval(slideImpact, 3000);
-
-// pause on hover
-grid.addEventListener("mouseenter", () => clearInterval(autoSlide));
-grid.addEventListener("mouseleave", () => {
-  autoSlide = setInterval(slideImpact, 3000);
-});
-
-// button click = manual move
-btn.addEventListener("click", slideImpact);
+fetch('data_api.php?module=social_impact')
+  .then(res => res.json())
+  .then(json => initImpactSlider(Array.isArray(json.testimonials) ? json.testimonials : []))
+  .catch(err => {
+    console.error("Social impact load failed:", err);
+    initImpactSlider([]);
+  });
 </script>
 <script>
 function initMediaGrid(config) {

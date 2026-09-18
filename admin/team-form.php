@@ -15,8 +15,10 @@ if ($id && isset($team[$section])) {
 admin_header($id ? 'Edit Member' : 'Add Member');
 ?>
 <div class="max-w-2xl">
-    <a href="team.php" class="admin-action text-sm font-semibold text-blue-700">Back to Team</a>
-    <form id="teamForm" class="admin-surface mt-4 bg-white rounded-2xl border shadow-sm p-6" enctype="multipart/form-data">
+    <div class="mb-4 flex justify-end">
+        <a href="team.php" class="admin-action border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Back to Team</a>
+    </div>
+    <form id="teamForm" class="admin-surface bg-white rounded-2xl border shadow-sm p-6" enctype="multipart/form-data">
         <input name="id" type="hidden" value="<?= e(isset($member['id']) ? $member['id'] : '') ?>">
         <input name="existing_image" type="hidden" value="<?= e(isset($member['image']) ? $member['image'] : '') ?>">
         <label class="block text-sm font-medium">Section</label>
